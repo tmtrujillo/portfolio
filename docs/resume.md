@@ -13,7 +13,7 @@ April 2021\* - Present
 GoFundMe/Classy | San Diego, CA
 
 - Decreased care cases in a leading product region by 45% YoY through [in-product guides and resources](projects/resource-center.md)
-- Revised [product copy](projects/ux-writing.md) on new features to align with accessibility best practices and organization style guide
+- Revised [product copy](projects/microcopy.md) on new features to align with accessibility best practices and organization style guide
 - Led cross-team collaboration by developing and maintaining a [help center for beta features](projects/early-access-help-center.md) as a single source of truth
 
 <p style="text-align:right;">*Promoted from Technical Writer I to Content Designer II in November 2022</p>
