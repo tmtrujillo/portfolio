@@ -1,0 +1,96 @@
+#===================================================================================#
+# Project information
+#===================================================================================#
+site_name: Taylor Trujillo's Portfolio
+extra_css:
+  - stylesheets/extra.css
+
+#===================================================================================#
+# Mkdocs Theme (Material Mkdocs) + Extras
+#===================================================================================#
+theme:
+  name: material
+  # custom_dir: overrides
+  logo: assets/library_books_white.svg
+  favicon: assets/library_books_FILL0_wght400_GRAD0_opsz24.svg
+  font:
+    text: Catamaran, Arial, Helvetica, sans-serif
+
+  features:
+    # - navigation.top
+    - navigation.path
+    # - navigation.tabs
+    - navigation.footer
+    - navigation.instant
+    - navigation.expand
+    - navigation.tracking
+    - header.autohide
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotaion
+    - content.code.copy
+    - toc.follow
+  palette:
+    - scheme: portfolio
+      primary: custom
+
+#===================================================================================#
+# Mkdocs Markdown Extentions, Plugins & extras
+#===================================================================================#
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - sane_lists
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - toc:
+      title: On this page
+      toc_depth: 3
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/taylor-trujillo/
+    - icon: fontawesome/regular/envelope
+      link: mailto:taylortrujillom@gmail.com
+    - icon: fontawesome/regular/address-book
+      link: tel:+18608784204
+
+plugins:
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      skip_classes:
+        - custom-skip-class-name
+      auto_caption: false
+      caption_position: bottom
+      background: white
+      shadow: true
+
+#===================================================================================#
+# Mkdocs Navigation Tree
+#===================================================================================#
+nav:
+  - Home: index.md
+  - Resume: resume.md
+  - Projects:
+      - In-app education: projects/resource-center.md
+      - Microcopy: projects/microcopy.md
+      - Documentation: projects/early-access-help-center.md
