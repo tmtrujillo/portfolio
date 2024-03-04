@@ -47,13 +47,13 @@ To address the feedback, we undertook a series of revisions:
 - **Streamlining content:** Subheadings that were found to be redundant were removed to simplify the navigation and readability of the content.
 - **Language adjustment:** We meticulously adjusted the language to ensure it was not only accessible but also fully compliant with our style guide. This involved replacing terms like "allow" and "disable" with more user-friendly language that better reflected our brand's tone and values.
 
-=== "Original"
-
-    ![Original settings copy](../assets/microcopy-examples/original-settings-copy.png "Original settings copy")
-
 === "Final"
 
     ![Final suggestions for copy](../assets/microcopy-examples/final-copy-suggestions.png "Final suggestions for copy")
+
+=== "Original"
+
+    ![Original settings copy](../assets/microcopy-examples/original-settings-copy.png "Original settings copy")
 
 ## Results achieved
 
