@@ -1,0 +1,25 @@
+---
+const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  const normalized = currentPath.replace(/\/$/, '');
+  const target = href.replace(/\/$/, '');
+  if (target === base.replace(/\/$/, '')) {
+    return normalized === target;
+  }
+  return normalized.startsWith(target);
+}
+---
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href={base} class="site-name">Taylor Trujillo</a>
+      <nav>
+        <a href={base} class:list={[{ active: isActive(base) }]}>Home</a>
+        <a href={`${base}resume/`} class:list={[{ active: isActive(`${base}resume`) }]}>Resume</a>
+        <a href={`${base}#featured-projects`}>Projects</a>
+      </nav>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  icon: string;
+  heading: string;
+  description: string;
+}
+
+const { icon, heading, description } = Astro.props;
+---
+<div class="approach-item">
+  <span class="approach-icon"><Fragment set:html={icon} /></span>
+  <h3>{heading}</h3>
+  <p>{description}</p>
+</div>

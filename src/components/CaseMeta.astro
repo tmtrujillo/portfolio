@@ -1,0 +1,18 @@
+---
+interface Props {
+  tags: string[];
+  role: string;
+  platform: string;
+  timeline: string;
+}
+
+const { tags, role, platform, timeline } = Astro.props;
+---
+<div class="case-tags">
+  {tags.map((tag) => <span class="case-tag">{tag}</span>)}
+</div>
+<div class="case-meta-line">
+  <span><strong>Role:</strong> {role}</span>
+  <span><strong>Platform:</strong> {platform}</span>
+  <span><strong>Timeline:</strong> {timeline}</span>
+</div>

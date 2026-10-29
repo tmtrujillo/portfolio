@@ -1,0 +1,29 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import CaseMeta from '../components/CaseMeta.astro';
+
+interface Props {
+  title: string;
+  summary: string;
+  tags: string[];
+  role: string;
+  platform: string;
+  timeline: string;
+}
+
+const { title, summary, tags, role, platform, timeline } = Astro.props;
+---
+<BaseLayout title={`${title} — Taylor Trujillo`}>
+  <div class="case-hero">
+    <div class="container">
+      <div class="fade-in">
+        <h1>{title}</h1>
+        <p class="case-summary">{summary}</p>
+        <CaseMeta tags={tags} role={role} platform={platform} timeline={timeline} />
+      </div>
+    </div>
+  </div>
+  <article class="case-content fade-in">
+    <slot />
+  </article>
+</BaseLayout>

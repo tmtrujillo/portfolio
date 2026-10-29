@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SkillPills from '../components/SkillPills.astro';
+---
+<BaseLayout title="Resume — Taylor Trujillo">
+  <section class="resume-section">
+    <div class="container">
+      <h1 class="fade-in">Resume</h1>
+
+      <div class="role-block fade-in">
+        <h3>Senior Content Designer — Product Education</h3>
+        <span class="role-company">GoFundMe Pro</span>
+        <span class="role-dates">April 2021 – Present · Seattle, WA</span>
+
+        <h4>Curriculum development and instructional design</h4>
+        <ul>
+          <li>Design and produce Academy courses in Skilljar covering payment features, campaign tools, and platform migrations — shipped 5 courses in a single quarter for giving season, each with defined learning objectives and completion tracking</li>
+          <li>Create product education video at scale across 21+ production areas including recurring payments, donation forms, live events, and reporting</li>
+          <li>Develop in-app learning experiences through Appcues, guiding users through multi-step technical workflows like embeddable form setup and campaign configuration</li>
+        </ul>
+
+        <h4>Learning measurement and evaluation</h4>
+        <ul>
+          <li>Track course effectiveness through Skilljar enrollment, completion rates, and time-to-completion data, using learner progress to identify drop-off points and iterate on course structure</li>
+          <li>Built a pilot scorecard tying education content to product adoption: eligible organizations exposed to courses tracked against feature activation within 30 days</li>
+          <li>Designed a cross-platform reporting framework unifying learning data from Skilljar, Wistia video engagement, and Appcues interaction metrics</li>
+          <li>Decreased support contact rate by 40% through Python-based gap analysis of support cases, mapping content gaps to targeted tutorials and documentation</li>
+        </ul>
+
+        <h4>Technical domain knowledge</h4>
+        <ul>
+          <li>Wrote documentation for payment webhooks and taught customers to build transaction reports using payment processing data</li>
+          <li>Developed curriculum for Smart Retries (252 orgs enrolled within one week of launch), recurring giving options, and Giving Cart</li>
+          <li>Created a campaign URL builder with QR code generation using embedded JavaScript, print-size exports, and UTM attribution tracking</li>
+        </ul>
+
+        <h4>AI-assisted content systems</h4>
+        <ul>
+          <li>Built governed AI content pipelines for course production — intake, research, outline with rigor checks, drafting, review, and LMS formatting with human approval gates at each stage</li>
+          <li>Developed an Appcues guide drafting pipeline (117+ logged runs, 121 guide drafts) that pulls requests, drafts copy in brand voice, and generates Figma mockups</li>
+          <li>Synthesized 9 revision reports to identify recurring defects, then converted prose style rules into deterministic lint checks</li>
+        </ul>
+
+        <p class="role-dates" style="text-align: right; margin-top: 1rem;">Progression: Technical Writer I → Technical Writer II → Senior Content Designer</p>
+      </div>
+
+      <div class="role-block fade-in">
+        <h3>Lead Lesson Plan Writer</h3>
+        <span class="role-company">Uncommon Schools</span>
+        <span class="role-dates">May 2019 – April 2021 · New York, NY</span>
+
+        <ul>
+          <li>Architected a remote learning content system for 200+ lesson plans across 50 schools, reducing teacher preparation time by 50% while maintaining quality standards</li>
+          <li>Developed modular instructional framework that decreased lesson creation from 4 hours to 90 minutes, enabling rapid curriculum response to COVID-19</li>
+          <li>Applied pedagogical principles to create multi-modal content (text, video, interactive), improving learner engagement metrics by 40%</li>
+        </ul>
+      </div>
+
+      <div class="role-block fade-in">
+        <h3>Lead History Teacher</h3>
+        <span class="role-company">Ocean Hill Collegiate</span>
+        <span class="role-dates">March 2017 – April 2021 · Brooklyn, NY</span>
+
+        <ul>
+          <li>Designed and delivered differentiated instructional content for 90+ students daily, achieving 85% proficiency rate on state assessments through adaptive content strategies and clear learning progressions</li>
+        </ul>
+      </div>
+
+      <div class="education-block fade-in">
+        <h3>Education</h3>
+        <p class="education-item"><strong>Master of Arts in Teaching</strong> — Relay Graduate School of Education, 2019</p>
+        <p class="education-item"><strong>Bachelor of Arts in English and Communications</strong> — Florida State University, 2014</p>
+      </div>
+
+      <div class="role-block fade-in">
+        <h3>Skills</h3>
+
+        <div class="skills-group">
+          <span class="skills-group-label">Instructional Design</span>
+          <SkillPills skills={[
+            'Curriculum Development',
+            'Learning Objectives Design',
+            'Assessment Development',
+            'Learner Analytics',
+            'Course Authoring (Skilljar)',
+            'Multi-Modal Content'
+          ]} />
+        </div>
+
+        <div class="skills-group">
+          <span class="skills-group-label">Technical</span>
+          <SkillPills skills={[
+            'JavaScript',
+            'Python',
+            'HTML/CSS',
+            'Markdown',
+            'Git',
+            'API Documentation',
+            'Webhook Documentation',
+            'Payment Systems'
+          ]} />
+        </div>
+
+        <div class="skills-group">
+          <span class="skills-group-label">Tools</span>
+          <SkillPills skills={[
+            'Skilljar',
+            'Appcues',
+            'Figma',
+            'Adobe Creative Cloud',
+            'Wistia',
+            'Looker',
+            'Pendo',
+            'Heap'
+          ]} />
+        </div>
+
+        <div class="skills-group">
+          <span class="skills-group-label">Methodologies</span>
+          <SkillPills skills={[
+            'Backward Design',
+            'Agile/Scrum',
+            'Data-Driven Iteration',
+            'User Journey Mapping',
+            'Learner-Centered Design'
+          ]} />
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
