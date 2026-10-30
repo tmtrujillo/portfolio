@@ -14,9 +14,16 @@ results:
     label: "growth in one year"
   - value: "Default"
     label: "IAA became the default after we advocated for it"
+links:
+  - label: "Intelligent Ask Amounts"
+    url: "https://prosupport.gofundme.com/hc/en-us/articles/37288613361051-Intelligent-Ask-Amounts"
+    source: "Help Center"
 ---
 
-![Bar chart: about 20% of eligible campaigns used Intelligent Ask Amounts at the start, over 75% a year later](/portfolio/images/iaa-adoption/iaa-adoption.svg)
+<figure class="case-figure">
+  <img src="/portfolio/images/iaa-adoption/iaa-adoption.svg" alt="Bar chart: about 20% of eligible campaigns used Intelligent Ask Amounts at the start, over 75% a year later">
+  <figcaption>Adoption roughly quadrupled over a year of education, in-app nudges, and making IAA the default.</figcaption>
+</figure>
 
 <!-- VISUAL (upgrade if monthly data is available): adoption-over-time line with each touchpoint marked. -->
 

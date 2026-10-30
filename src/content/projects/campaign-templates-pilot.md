@@ -14,9 +14,19 @@ results:
     label: "organizations in a 3-month pilot"
   - value: "Built"
     label: "Product prioritized templates in Studio"
+links:
+  - label: "Using Studio templates"
+    url: "https://prosupport.gofundme.com/hc/en-us/articles/49436489436571-Using-Studio-templates"
+    source: "Help Center"
+  - label: "Giving season campaign ideas"
+    url: "https://proacademy.gofundme.com/campaign-ideas"
+    source: "Academy"
 ---
 
-![Pilot flow: in-app guide, request page, template added by hand, results to Product, built into Studio](/portfolio/images/campaign-templates-pilot/templates-pilot-flow.svg)
+<figure class="case-figure">
+  <img src="/portfolio/images/campaign-templates-pilot/templates-pilot-flow.svg" alt="Pilot flow: in-app guide, request page, template added by hand, results to Product, built into Studio">
+  <figcaption>Everything before Product built it was done by hand, so the pilot cost no engineering time.</figcaption>
+</figure>
 
 ## My role
 
@@ -43,9 +53,15 @@ Templates could help — but they didn't exist in the product yet, and the team 
 
 Admins opted into the pilot, and the later comparison wasn't randomized either. The direction was consistent across both stages.
 
-![Bar chart: about 17 days to first donations without the guided flow, about 8 days with it](/portfolio/images/campaign-templates-pilot/templates-days.svg)
+<figure class="case-figure">
+  <img src="/portfolio/images/campaign-templates-pilot/templates-days.svg" alt="Bar chart: about 17 days to first donations without the guided flow, about 8 days with it">
+  <figcaption>Once the guided flow shipped, campaigns reached their first meaningful donations in about half the time.</figcaption>
+</figure>
 
-![The template picker that shipped in Studio, with need-based templates such as GivingTuesday, End of Year Giving, Sponsor Matching, General Giving, Monthly Giving, and Program Catalog](/portfolio/images/campaign-templates-pilot/template-picker.webp)
+<figure class="case-figure">
+  <img src="/portfolio/images/campaign-templates-pilot/template-picker.webp" alt="Studio template picker showing need-based templates, including GivingTuesday, End of Year Giving, Sponsor Matching, General Giving, Monthly Giving, and Program Catalog">
+  <figcaption>The template picker that shipped in Studio, built on what the pilot proved.</figcaption>
+</figure>
 
 ## What I learned
 

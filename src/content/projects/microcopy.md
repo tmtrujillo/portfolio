@@ -5,7 +5,7 @@ tags: ["Microcopy", "Accessibility", "Style Guide", "UX Writing"]
 role: "Content Designer II"
 platform: "Classy Studio"
 timeline: "2023"
-order: 8
+order: 9
 featured: false
 ---
 

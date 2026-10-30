@@ -18,7 +18,7 @@ function isActive(href: string): boolean {
       <nav>
         <a href={base} class:list={[{ active: isActive(base) }]}>Home</a>
         <a href={`${base}resume/`} class:list={[{ active: isActive(`${base}resume`) }]}>Resume</a>
-        <a href={`${base}#featured-projects`}>Projects</a>
+        <a href={currentPath.includes('/for/') ? '#featured-projects' : `${base}#featured-projects`}>Projects</a>
       </nav>
     </div>
   </div>

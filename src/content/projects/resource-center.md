@@ -5,7 +5,7 @@ tags: ["In-App Education", "UX Writing", "Appcues", "Support Reduction"]
 role: "Content Designer II"
 platform: "Appcues, Figma"
 timeline: "2023"
-order: 7
+order: 8
 featured: false
 ---
 

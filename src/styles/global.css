@@ -908,3 +908,67 @@ code {
   margin: 0 auto 2rem;
   max-width: 560px;
 }
+
+/* "See it live" links in the case study hero */
+.see-live {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+}
+.see-live-label {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--deep-teal);
+}
+.see-live ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+.see-live a {
+  font-weight: 600;
+}
+.see-live a::after {
+  content: " \2197";
+}
+.see-live-source {
+  margin-left: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--slate);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Figures with captions, Academy-style: alt says what's on screen, caption says why */
+.case-content figure.case-figure {
+  margin: 2rem 0;
+}
+.case-content figure.case-figure img,
+.case-content figure.case-figure video {
+  margin: 0 0 0.75rem;
+}
+.case-content figure.case-figure img.figure-natural {
+  margin: 0 auto 0.75rem;
+}
+.case-content figcaption {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--slate);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
