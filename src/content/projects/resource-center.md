@@ -1,6 +1,6 @@
 ---
 title: "Streamlining in-app education through a centralized Resource Center"
-summary: "I designed a centralized resource center that consolidated scattered educational materials into a single, accessible location — and support cases fell 45% year over year after launch."
+summary: "I designed a centralized resource center that consolidated scattered educational materials into a single, accessible location — and reporting-related support cases fell 45% year over year after launch."
 tags: ["In-App Education", "UX Writing", "Appcues", "Support Reduction"]
 role: "Content Designer II"
 platform: "Appcues, Figma"
