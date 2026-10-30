@@ -45,7 +45,7 @@ Admins opted into the pilot, and the later comparison wasn't randomized either. 
 
 ![Bar chart: about 17 days to first donations without the guided flow, about 8 days with it](/portfolio/images/campaign-templates-pilot/templates-days.svg)
 
-<!-- VISUAL: screenshot of the template picker that shipped. -->
+![The template picker that shipped in Studio, with need-based templates such as GivingTuesday, End of Year Giving, Sponsor Matching, General Giving, Monthly Giving, and Program Catalog](/portfolio/images/campaign-templates-pilot/template-picker.webp)
 
 ## What I learned
 

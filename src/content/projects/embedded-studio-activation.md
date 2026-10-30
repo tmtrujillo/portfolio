@@ -32,12 +32,14 @@ The drop-off came after publishing. To install the form, admins had to edit code
 
 - **Found the stall point.** Usage data showed organizations publishing and then stopping before installation. The barrier was a skill gap, not a product bug.
 - **Taught code editing at scale.** I prioritized the three most common website builders — WordPress, Squarespace, and Wix — and made a video for each, an Academy walkthrough, and in-app walkthroughs using GIFs cut from those videos. One production effort fed three channels.
-- **Put help at the moment of need.** The in-app guides appeared right after publishing, when installation was the admin's next task, and stayed available from the Install page.
+- **Put help at the moment of need.** The in-app guides appeared right after publishing, when installation was the admin's next task. A launcher on the Install page let admins pick their website builder and start the matching walkthrough at any time.
 - **Measured activation, not clicks.** I compared organizations that used a guide with those that didn't, on the outcome that mattered: their first donation.
 
 ![Flow from create to publish to install to first donation, with install guidance appearing at the install step](/portfolio/images/embedded-studio-activation/embedded-flow.svg)
 
-<!-- VISUAL: one website-builder video next to the GIF walkthrough cut from it. -->
+<img class="figure-natural" src="/portfolio/images/embedded-studio-activation/install-launcher.webp" alt="The Install page launcher: Installing your form, asking which website builder you are using, with WordPress, Squarespace, and Wix options">
+
+<p class="figure-caption">The Install page launcher. Admins pick their website builder and get the matching walkthrough, built from the same footage as the videos and Academy lesson.</p>
 
 ## Results
 

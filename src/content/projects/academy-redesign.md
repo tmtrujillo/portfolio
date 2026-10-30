@@ -16,7 +16,7 @@ results:
     label: "Academy sessions in 2026 vs. the prior period"
 ---
 
-<!-- VISUAL: the new use-case-first Academy home page. -->
+![The GoFundMe Pro Academy home page, organized around customer tasks: giving season, get started, donation forms, marketing, integrations, peer-to-peer, and events](/portfolio/images/academy-redesign/academy-home.webp)
 
 ## My role
 
@@ -32,6 +32,18 @@ The Academy was organized by internal product area, so nonprofits had to know wh
 - **Kept learning short and task-sized.** For giving season, I shipped five courses before the busy window, plus a campaign URL builder with print-ready QR codes that became the Academy's third most-visited page in 2026.
 - **Made video a system, not a solo act:** short, task-first how-tos, recording guidelines so the Care team can contribute footage, and the library mapped to the SEO team's target keywords for a YouTube launch.
 - **Audited the data and changed how we read it.** Open-access courses don't create enrollments, so I combined LMS data with page views to see real use.
+
+### Inside one video
+
+My newest how-to, on saved templates and linked campaigns, shows the process. The presenter's script ran about seven minutes. Instead of asking her to re-record, I built a paper edit from lines she had already recorded, planned 29 screen shots across three sessions, and cut it to 3:40.
+
+![Process strip: a 7-minute script, proposed trims, a paper edit with no re-record, a 29-shot list, and a 3:40 final cut](/portfolio/images/academy-redesign/video-process.svg)
+
+<video src="/portfolio/videos/academy-redesign/saved-templates-hook.mp4" poster="/portfolio/videos/academy-redesign/poster-hook.webp" autoplay muted loop playsinline aria-label="Opening of the saved templates video: the presenter introduces saved templates, a change is made to the template, and it syncs to every linked campaign"></video>
+
+<!-- Screen-only alternative (no presenter on camera): swap the src and poster above for
+/portfolio/videos/academy-redesign/saved-templates-screen-only.mp4 and
+/portfolio/videos/academy-redesign/poster-screen.webp -->
 
 ## Results
 
@@ -52,5 +64,3 @@ Short courses are newer and smaller, so the comparison is directional. Feature-a
 ## What I learned
 
 The best learning experience is usually the smallest one that gets someone through their task. And the right metric is the one that can see all of your learners.
-
-<!-- VISUAL: a 20–30 second muted clip from one how-to video. -->

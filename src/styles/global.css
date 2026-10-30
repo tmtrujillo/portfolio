@@ -873,7 +873,8 @@ code {
 }
 
 /* Case study figures: wider than the text column so chart labels stay legible */
-.case-content img {
+.case-content img,
+.case-content video {
   display: block;
   width: min(1000px, calc(100vw - 32px));
   max-width: none;
@@ -883,4 +884,27 @@ code {
   left: 50%;
   transform: translateX(-50%);
   border-radius: var(--radius-lg);
+}
+/* Screenshots get a hairline frame; SVG charts carry their own */
+.case-content img[src$=".webp"],
+.case-content img[src$=".png"],
+.case-content img[src$=".jpg"] {
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md);
+}
+
+/* Small screenshots shown at their natural size, centered in the text column */
+.case-content img.figure-natural {
+  width: auto;
+  max-width: 100%;
+  left: 0;
+  transform: none;
+  margin: 2rem auto 0.75rem;
+}
+.figure-caption {
+  font-size: 0.95rem;
+  color: var(--slate);
+  text-align: center;
+  margin: 0 auto 2rem;
+  max-width: 560px;
 }

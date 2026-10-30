@@ -46,7 +46,7 @@ The milestone reflects the whole onboarding experience, not education alone. The
 
 ![Timeline of onboarding touchpoints from day 0 to the day 90 success milestone](/portfolio/images/onboarding-time-to-value/onboarding-timeline.svg)
 
-<!-- VISUAL: still from one setup video. -->
+![Still from the payment setup video: what you need to set up payments, listing organization details, representative information, and bank account details](/portfolio/images/onboarding-time-to-value/payment-setup-still.webp)
 
 ## What I learned
 
