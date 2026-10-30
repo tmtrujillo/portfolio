@@ -4,7 +4,7 @@ summary: "I built a scaled onboarding program on the Academy — milestone-based
 tags: ["Onboarding", "Curriculum Design", "Video", "Time to Value"]
 role: "Content Designer, onboarding program lead"
 platform: "Skilljar, Wistia, Appcues"
-timeline: "TODO"
+timeline: "2024"
 order: 3
 featured: true
 results:

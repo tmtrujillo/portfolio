@@ -4,7 +4,7 @@ summary: "Intelligent Ask Amounts helps nonprofits raise more, but few campaigns
 tags: ["Product Adoption", "In-App Education", "Lifecycle", "Appcues"]
 role: "Content Designer, adoption program lead"
 platform: "Appcues, Skilljar, Wistia"
-timeline: "TODO"
+timeline: "2024"
 order: 4
 featured: true
 results:
