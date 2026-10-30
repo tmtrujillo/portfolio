@@ -1,11 +1,11 @@
 ---
 title: "Streamlining in-app education through a centralized Resource Center"
-summary: "I designed a centralized resource center that consolidated scattered educational materials into a single, accessible location — cutting support cases by 45% YoY."
+summary: "I designed a centralized resource center that consolidated scattered educational materials into a single, accessible location — and support cases fell 45% year over year after launch."
 tags: ["In-App Education", "UX Writing", "Appcues", "Support Reduction"]
 role: "Content Designer II"
 platform: "Appcues, Figma"
 timeline: "2023"
-order: 4
+order: 7
 featured: false
 ---
 
@@ -32,7 +32,7 @@ After evaluating the initial feedback, significant revisions were made:
 
 The impact of these changes was profound:
 
-- **Reduced support cases:** We saw a 45% YoY reduction in Reporting Care cases in Q4 2023, significantly alleviating the burden on our Care team.
+- **Fewer support cases:** Reporting-related Care cases fell 45% year over year in Q4 2023, after the resource center launched, easing the load on our Care team.
 - **Increased engagement:** The resource center engaged over 1000 admins per month, indicating a strong user interest in the consolidated educational tools.
 
 ## Next steps

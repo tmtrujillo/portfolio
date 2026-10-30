@@ -842,3 +842,32 @@ code {
     text-align: center;
   }
 }
+
+/* Results strip: three headline stats under each case study title */
+.results-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1.75rem 0 1.5rem;
+  padding: 0;
+}
+.result-stat {
+  background: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+.result-stat dt {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--deep-teal);
+}
+.result-stat dd {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--slate);
+}

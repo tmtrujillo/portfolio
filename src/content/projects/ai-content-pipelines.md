@@ -1,56 +1,52 @@
 ---
-title: "Scaling course and guide production with AI content pipelines"
-summary: "I turned a manual, error-prone content process into governed AI pipelines that my teammates install and use — cutting recurring defects and freeing review time for judgment calls."
-tags: ["AI Systems", "Curriculum Development", "Process Design", "Quality Assurance"]
-role: "Senior Content Designer"
-platform: "Skilljar, Appcues, Google Drive"
+title: "Halving course turnaround with governed AI pipelines"
+summary: "I turned a slow, manual content process into AI pipelines with a human approval at every stage — and made our style rules testable. Course turnaround dropped from six or more weeks to three or fewer, with up to four contributors producing at once."
+tags: ["AI Systems", "Content Engineering", "Curriculum Development", "Quality Assurance"]
+role: "Senior Content Designer — designer and builder"
+platform: "Claude, Skilljar, Appcues, Figma, Google Drive"
 timeline: "2026"
-order: 1
+order: 6
 featured: true
+results:
+  - value: "6+ → ≤3 wks"
+    label: "course turnaround, about twice as fast"
+  - value: "4"
+    label: "contributors producing courses at peak"
+  - value: "120+"
+    label: "in-app guide drafts since April 2026"
 ---
 
-Our product education team produces Academy courses, in-app guides, and video tutorials for over 10,000 nonprofit organizations. As the product surface grew — recurring giving, embeddable forms, campaign migrations, reporting — the manual content process couldn't keep up. Courses took too long to produce, and the same mechanical errors kept recurring in review.
+<!-- VISUAL: pipeline diagram with the human approval gates marked. -->
 
-## Challenge
+## My role
 
-The content production process had three compounding problems:
+I designed and built these systems myself, with a human approval at every stage, and packaged them so teammates could install and run them.
 
-- **Slow cycle time:** Each Academy course required manual research, outlining, drafting, review, and LMS formatting. The end-to-end process took days per course, limiting how quickly we could support new feature launches.
-- **Recurring defects:** After synthesizing 9 revision reports, I found the same mechanical issues appearing on nearly every course — formatting inconsistencies, missing context, structural problems. Reviewers spent time catching predictable errors instead of evaluating substance.
-- **Scaling bottleneck:** In-app guide requests came through ClickUp, and each one required manual drafting, brand voice checking, and Figma mockup creation. With growing demand, the queue backed up.
+## The problem
 
-## Solution
+A small team supported courses, in-app guides, and videos for a growing product. Courses took six weeks or more, with a lot of hand-holding to build each resource's HTML. Reviewers kept catching the same mechanical errors instead of judging substance.
 
-I designed three interconnected systems, each with human approval gates to maintain quality while reducing production time.
+## What I did
 
-### Academy course builder
-
-A multi-stage pipeline packaged as an installable plugin that teammates can run themselves:
-
-1. **Intake and research** — pulls product context and existing documentation
-2. **Outline with rigor check** — generates a structured outline and validates it against learning objectives
-3. **Draft** — produces lesson content following our style standards
-4. **Review** — outputs to Google Drive for collaborative review
-5. **Lint and QA** — runs deterministic checks against the style rules extracted from those 9 revision reports
-6. **LMS formatting** — structures content for Skilljar publishing
-7. **Lessons learned** — captures what worked and what to adjust for the next course
-
-The pipeline stops for human approval at each stage. Nothing publishes without a person signing off.
-
-### Appcues guide drafter
-
-A pipeline that pulls guide requests from ClickUp, drafts briefs and copy in our brand voice, and generates Figma mockups for review. It's deliberately conservative — it never edits the source request or publishes directly.
-
-### Deterministic lint checks
-
-The insight from the revision reports was that most recurring defects were mechanical, not editorial. I converted our prose style rules into automated checks that run before human review, so reviewers can focus on judgment calls — tone, accuracy, pedagogical flow — rather than catching formatting issues.
+- **Found the pattern first.** I analyzed nine revision reports and found the same handful of defects on almost every course. Style rules written as prose weren't surviving fast drafting.
+- **Turned rules into checks.** Style and format rules became deterministic lint checks that run before any human review.
+- **Built pipelines with approval gates:**
+  - A **course builder** covering intake, research, outline with a rigor check, drafting, shared review, automated QA, LMS formatting, and lessons learned.
+  - An **enablement version** for internal training and sales enablement.
+  - An **in-app pipeline** that turns Slack and ClickUp signals into ranked opportunities, drafted guides, and Figma frames.
+- **Kept people in charge.** None of the pipelines publishes or sends anything on its own.
 
 ## Results
 
-- **117+ logged pipeline runs** and **121 guide drafts** produced through the Appcues pipeline since launch
-- Teammates install and run the course builder independently, reducing dependency on a single producer
-- Review cycles shifted from catching mechanical errors to evaluating content quality and instructional effectiveness
+- Course turnaround dropped from **six or more weeks to three weeks or less** — about twice as fast.
+- At peak, **four contributors** were producing courses through the pipeline.
+- **120+ in-app guide drafts** since April 2026.
+- Review shifted from formatting to accuracy, voice, and instructional quality.
 
-## What I'd do differently
+Turnaround times come from project records, not a controlled comparison, and earlier timelines varied widely.
 
-The first version of the course builder treated style rules as prose instructions for the AI to interpret. That produced inconsistent results. The deterministic lint checks were a better approach — explicit, testable, and transparent. I'd build that layer first next time.
+<!-- VISUAL: a lint report before and after; the course builder's step-by-step approval screen. -->
+
+## What I learned
+
+AI drafting is only as reliable as the standards it's held to. Making those standards explicit and testable did more for quality than better prompts — the same discipline it takes to prepare knowledge for AI agents.

@@ -9,9 +9,10 @@ interface Props {
   role: string;
   platform: string;
   timeline: string;
+  results?: { value: string; label: string }[];
 }
 
-const { title, summary, tags, role, platform, timeline } = Astro.props;
+const { title, summary, tags, role, platform, timeline, results = [] } = Astro.props;
 ---
 <BaseLayout title={`${title} — Taylor Trujillo`}>
   <div class="case-hero">
@@ -19,6 +20,16 @@ const { title, summary, tags, role, platform, timeline } = Astro.props;
       <div class="fade-in">
         <h1>{title}</h1>
         <p class="case-summary">{summary}</p>
+        {results.length > 0 && (
+          <dl class="results-strip">
+            {results.map((r) => (
+              <div class="result-stat">
+                <dt>{r.value}</dt>
+                <dd>{r.label}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
         <CaseMeta tags={tags} role={role} platform={platform} timeline={timeline} />
       </div>
     </div>

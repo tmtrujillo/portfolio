@@ -1,52 +1,54 @@
 ---
-title: "Redesigning the Academy and scaling product education video"
-summary: "I restructured the Academy's information architecture around customer goals instead of product menus, built the front-end components myself, and created a system that turned video production from a one-person bottleneck into a team capability."
-tags: ["Information Architecture", "Front-End Development", "Video Production", "Skilljar"]
-role: "Senior Content Designer"
+title: "Designing an Academy people finish"
+summary: "I reorganized the GoFundMe Pro Academy around customer tasks, kept courses and videos short, and changed how we measured success. Short courses now finish about twice as often as long ones, and task videos hold viewers for half or more of their runtime."
+tags: ["Curriculum Design", "Information Architecture", "Video Production", "Learning Measurement"]
+role: "Senior Content Designer — Academy editor, publisher, and video producer"
 platform: "Skilljar, Wistia, Figma"
 timeline: "2026"
-order: 3
+order: 5
 featured: true
+results:
+  - value: "~2x"
+    label: "completion for 2–3 lesson courses vs. 7+ lessons"
+  - value: "50–80%"
+    label: "of each task how-to video watched, on average"
+  - value: "+~33%"
+    label: "Academy sessions in 2026 vs. the prior period"
 ---
 
-The GoFundMe Pro Academy is the primary learning platform for nonprofit organizations using our fundraising tools. Over time, the Academy had grown organically — organized by product area rather than customer need, with limited navigation and no system for producing video at scale.
+<!-- VISUAL: the new use-case-first Academy home page. -->
 
-## Challenge
+## My role
 
-The Academy faced two related problems:
+I run the Academy's front end, and I edited and published every course released in 2026, including those drafted by coaches. I was involved in scripting, filming, and editing every product video except the long live trainings.
 
-- **Navigation reflected internal product structure, not customer goals.** A nonprofit preparing for their first campaign had to know which product area to look in. There was no path organized around what they were trying to accomplish.
-- **Video production didn't scale.** I was the sole producer for product education video, creating tutorials, walkthroughs, and feature demonstrations. As the product surface expanded — recurring giving, embeddable forms, live events, reporting — I couldn't produce everything alone.
+## The problem
 
-## Solution
+The Academy was organized by internal product area, so nonprofits had to know which product to look under before they could find help. Courses ran long, and success was measured by enrollments — a number that, it turned out, missed much of the Academy's real use.
 
-### Information architecture redesign
+## What I did
 
-I restructured the Academy around use cases rather than product menus:
-
-- **Use-case-first home page** organized by customer goals: "Launch your first campaign," "Set up recurring giving," "Prepare for giving season"
-- **Library header with JavaScript filter injection** — I built a filtering system that lets learners narrow content by topic, format, or feature area without relying on Skilljar's default navigation
-- **Component system** tied to Figma design tokens for consistent styling across the Academy
-- **What's New page** with anchor modals so returning learners can quickly find recent additions
-
-I also built practical tools directly into the Academy, including a Salesforce NPSP to Nonprofit Cloud migration guide and a legacy-to-Studio checklist, so the platform served as both a learning environment and a working reference.
-
-### Scalable video production
-
-To move video from a bottleneck to a team capability, I built the infrastructure for others to contribute:
-
-- **21+ production folders** indexed and organized by feature area: Giving Cart, recurring features, Studio images, program designations, group registration, Live Events, and more
-- **Care team recording guidelines** (published October 2026) establishing standards for lighting, framing, audio, and screen capture so the Care team can contribute raw footage that I edit into polished tutorials
-- **YouTube channel strategy** mapped against 73 target keywords from our Wistia library, identifying gaps and prioritizing new production
-
-This approach separated the creative work (scripting, editing, pacing) from the capture work (recording product walkthroughs), making it possible to produce more video without adding headcount.
+- **Reorganized the Academy around customer tasks:** a use-case-first home page, a filterable library, and reusable components I built myself, without engineering help.
+- **Kept learning short and task-sized.** For giving season, I shipped five courses before the busy window, plus a campaign URL builder with print-ready QR codes that became the Academy's third most-visited page in 2026.
+- **Made video a system, not a solo act:** short, task-first how-tos, recording guidelines so the Care team can contribute footage, and the library mapped to the SEO team's target keywords for a YouTube launch.
+- **Audited the data and changed how we read it.** Open-access courses don't create enrollments, so I combined LMS data with page views to see real use.
 
 ## Results
 
-- Academy reorganized from product-area navigation to use-case-first structure
-- Custom front-end components built and deployed without engineering dependency
-- Video production system expanded from sole producer to multi-contributor model
+| Evidence | What it shows |
+| --- | --- |
+| Courses with 2–3 lessons complete at about 56%; 7+ lessons at about 28% | Short courses finish about twice as often |
+| A summer 2026 series of short Live Events courses completes at about 63–100% | The short format works in practice |
+| Task how-to videos are watched about 50–80% through on average; the best match Wistia's instructional-video benchmark (about 74%) | Task-first video holds attention |
+| How-tos made since spring trend higher than earlier ones | The craft improved over the year |
+| Twelve open-access courses drew about 12K views but almost no enrollments | Our old metric was hiding real use |
 
-## What's next
+<!-- VISUAL: bar chart of completion by course length; bar chart of video watch rate by type. -->
 
-The Academy redesign created the structure; the next step is proving it works. I'm building a cross-platform reporting framework to unify Skilljar course data, Wistia video engagement, and Appcues interaction metrics into a single view of how learners move through education content and whether it leads to product adoption.
+Short courses are newer and smaller, so the comparison is directional. Feature-announcement videos are a newer format we're still developing, at about 25–35% watched — the clearest room to grow.
+
+## What I learned
+
+The best learning experience is usually the smallest one that gets someone through their task. And the right metric is the one that can see all of your learners.
+
+<!-- VISUAL: a 20–30 second muted clip from one how-to video. -->

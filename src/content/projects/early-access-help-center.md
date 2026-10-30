@@ -5,7 +5,7 @@ tags: ["Documentation", "Docs-as-Code", "MkDocs", "Git"]
 role: "Content Designer II"
 platform: "MkDocs, GitHub, Markdown"
 timeline: "2023"
-order: 6
+order: 9
 featured: false
 ---
 

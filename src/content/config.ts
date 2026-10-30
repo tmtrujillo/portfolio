@@ -12,6 +12,9 @@ const projects = defineCollection({
     timeline: z.string(),
     order: z.number(),
     featured: z.boolean(),
+    results: z
+      .array(z.object({ value: z.string(), label: z.string() }))
+      .optional(),
   }),
 });
 
