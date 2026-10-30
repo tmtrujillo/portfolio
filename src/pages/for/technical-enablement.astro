@@ -1,0 +1,144 @@
+---
+// Audience view for technical enablement and technical curriculum roles.
+// Same case studies as the home page, reordered to lead with technical work.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ApproachItem from '../../components/ApproachItem.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { icons } from '../../components/icons';
+
+const base = import.meta.env.BASE_URL;
+
+const featured = [
+  {
+    icon: icons.code,
+    title: 'Developer documentation',
+    description: 'Webhooks guide and API docs for GoFundMe Pro, plus payments docs for GoFundMe Pay, which runs on Stripe.',
+    slug: 'developer-docs',
+  },
+  {
+    icon: icons.layout,
+    title: 'Embedded form activation',
+    description: 'Taught admins to install code on their own sites through in-app guides, video, Academy, and live webinars. ~2x more started taking donations.',
+    slug: 'embedded-studio-activation',
+  },
+  {
+    icon: icons.mortarboard,
+    title: 'An Academy people finish',
+    description: 'Courses built from measurable outcomes. Short courses finish ~2x as often; task videos hold viewers for half or more of their runtime.',
+    slug: 'academy-redesign',
+  },
+  {
+    icon: icons.flag,
+    title: 'Scaled onboarding',
+    description: 'New orgs reaching our success milestone rose from ~40% to 75%.',
+    slug: 'onboarding-time-to-value',
+  },
+  {
+    icon: icons.cpu,
+    title: 'AI content pipelines',
+    description: 'Course turnaround from 6+ weeks to 3 or fewer, with human approval at every step.',
+    slug: 'ai-content-pipelines',
+  },
+  {
+    icon: icons.zap,
+    title: 'Campaign templates pilot',
+    description: 'A hands-on pilot with ~200 orgs cut time to an active campaign by 50%+ and got templates built.',
+    slug: 'campaign-templates-pilot',
+  },
+];
+
+const more = [
+  {
+    icon: icons.trendingUp,
+    title: 'Intelligent Ask Amounts adoption',
+    description: 'From ~20% to 75%+ of eligible campaigns in one year.',
+    slug: 'iaa-adoption',
+  },
+  {
+    icon: icons.messageCircle,
+    title: 'In-app education',
+    description: 'Centralized in-app resource center. Support cases fell 45% YoY after launch; 1,000+ admins a month used it.',
+    slug: 'resource-center',
+  },
+  {
+    icon: icons.fileText,
+    title: 'Docs-as-code help center',
+    description: 'Docs-as-code help center for beta features, adopted across the entire release process.',
+    slug: 'early-access-help-center',
+  },
+];
+
+const stagger = (i: number) => `fade-in stagger-${(i % 3) + 1}`;
+---
+<BaseLayout title="Taylor Trujillo — Technical Enablement & Curriculum Development">
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content fade-in">
+        <span class="hero-label">Technical Enablement · Curriculum Development</span>
+        <h1>Taylor Trujillo</h1>
+        <p class="tagline">
+          I turn technical products — APIs, webhooks, payments, and code installs — into
+          courses, documentation, video, and live training that people use to get the job
+          done. Then I check the product data to see whether they did.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="approach-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">What I Bring</span>
+      </div>
+      <div class="approach-grid fade-in">
+        <ApproachItem
+          icon={icons.mortarboard}
+          heading="Teaching background"
+          description="5 years in the classroom, where frequent assessments were the main measure of learning. Every course I build starts from what learners should be able to do."
+        />
+        <ApproachItem
+          icon={icons.code}
+          heading="Technical depth"
+          description="I write developer docs for webhooks, the API, and payments on Stripe, and I've taught non-developers to install code on their own websites."
+        />
+        <ApproachItem
+          icon={icons.barChart}
+          heading="Measurement-first"
+          description="I measure whether people act after they learn — activation, adoption, and time to value — not just views and completions."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section id="featured-projects" class="projects-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Featured Projects</span>
+        <h2 class="section-title">Technical learning, start to finish</h2>
+      </div>
+      <div class="projects-grid">
+        {featured.map((p, i) => (
+          <div class={stagger(i)}>
+            <ProjectCard icon={p.icon} title={p.title} description={p.description} href={`${base}projects/${p.slug}/`} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">More Work</span>
+        <h2 class="section-title">Adoption and in-app education</h2>
+      </div>
+      <div class="projects-grid">
+        {more.map((p, i) => (
+          <div class={stagger(i)}>
+            <ProjectCard icon={p.icon} title={p.title} description={p.description} href={`${base}projects/${p.slug}/`} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

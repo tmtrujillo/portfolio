@@ -10,9 +10,10 @@ interface Props {
   platform: string;
   timeline: string;
   results?: { value: string; label: string }[];
+  links?: { label: string; url: string; source: string }[];
 }
 
-const { title, summary, tags, role, platform, timeline, results = [] } = Astro.props;
+const { title, summary, tags, role, platform, timeline, results = [], links = [] } = Astro.props;
 ---
 <BaseLayout title={`${title} — Taylor Trujillo`}>
   <div class="case-hero">
@@ -31,6 +32,19 @@ const { title, summary, tags, role, platform, timeline, results = [] } = Astro.p
           </dl>
         )}
         <CaseMeta tags={tags} role={role} platform={platform} timeline={timeline} />
+        {links.length > 0 && (
+          <div class="see-live">
+            <span class="see-live-label">See it live</span>
+            <ul>
+              {links.map((l) => (
+                <li>
+                  <a href={l.url} target="_blank" rel="noopener">{l.label}<span class="sr-only"> (opens in a new tab)</span></a>
+                  <span class="see-live-source">{l.source}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   </div>

@@ -15,6 +15,9 @@ const projects = defineCollection({
     results: z
       .array(z.object({ value: z.string(), label: z.string() }))
       .optional(),
+    links: z
+      .array(z.object({ label: z.string(), url: z.string(), source: z.string() }))
+      .optional(),
   }),
 });
 
