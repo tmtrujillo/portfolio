@@ -16,7 +16,7 @@ results:
     label: "publishing orgs used the guidance"
 ---
 
-<!-- VISUAL: two-bar chart, "engaged vs. not engaged" share of orgs that started transacting (~49% vs ~22%). -->
+![Bar chart: about 49% of orgs that used a guide started taking donations, versus about 22% of orgs that did not](/portfolio/images/embedded-studio-activation/embedded-activation.svg)
 
 ## My role
 
@@ -35,6 +35,8 @@ The drop-off came after publishing. To install the form, admins had to edit code
 - **Put help at the moment of need.** The in-app guides appeared right after publishing, when installation was the admin's next task, and stayed available from the Install page.
 - **Measured activation, not clicks.** I compared organizations that used a guide with those that didn't, on the outcome that mattered: their first donation.
 
+![Flow from create to publish to install to first donation, with install guidance appearing at the install step](/portfolio/images/embedded-studio-activation/embedded-flow.svg)
+
 <!-- VISUAL: one website-builder video next to the GIF walkthrough cut from it. -->
 
 ## Results
@@ -51,5 +53,3 @@ This compares organizations that chose to use guides with those that didn't, so 
 ## What I learned
 
 Timing beat volume. Help that arrived right after publishing — when the admin's next job was installing — did more than any broad announcement could.
-
-<!-- VISUAL: simple flow, create → publish → install → first donation, marking where guidance appears. -->

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500" role="img" aria-labelledby="t d">
+<title id="t">A course pipeline with a person in charge at every step</title><desc id="d">Pipeline diagram with eight stages: intake, research, outline with rigor check, draft, shared review, lint and QA, LMS formatting, and lessons learned. Each stage has a human approval gate.</desc>
+<rect x="1" y="1" width="1198" height="498" rx="20" fill="#ffffff" stroke="#e8e5df" stroke-width="2"/>
+<text x="48" y="68" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#1a1a2e" text-anchor="start">A course pipeline with a person in charge at every step</text>
+<text x="48" y="102" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="400" fill="#556170" text-anchor="start">Academy course builder stages, from intake to lessons learned</text>
+<rect x="48.0" y="170" width="115.25" height="96" rx="12" fill="#e8f4f6"/>
+<text x="105.625" y="225.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">Intake</text>
+<line x1="165.25" y1="218.0" x2="179.25" y2="218.0" stroke="#7a8694" stroke-width="2"/><path d="M177.25,212.0 L187.25,218.0 L177.25,224.0" fill="none" stroke="#7a8694" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="105.625" y1="266" x2="105.625" y2="296" stroke="#013d46" stroke-width="2"/>
+<circle cx="105.625" cy="308" r="12" fill="#ffffff" stroke="#013d46" stroke-width="2"/>
+<path d="M100.625,308 l4,4 l7,-8" fill="none" stroke="#013d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="189.25" y="170" width="115.25" height="96" rx="12" fill="#e8f4f6"/>
+<text x="246.875" y="225.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">Research</text>
+<line x1="306.5" y1="218.0" x2="320.5" y2="218.0" stroke="#7a8694" stroke-width="2"/><path d="M318.5,212.0 L328.5,218.0 L318.5,224.0" fill="none" stroke="#7a8694" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="246.875" y1="266" x2="246.875" y2="296" stroke="#013d46" stroke-width="2"/>
+<circle cx="246.875" cy="308" r="12" fill="#ffffff" stroke="#013d46" stroke-width="2"/>
+<path d="M241.875,308 l4,4 l7,-8" fill="none" stroke="#013d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="330.5" y="170" width="115.25" height="96" rx="12" fill="#e8f4f6"/>
+<text x="388.125" y="214.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">Outline +</text>
+<text x="388.125" y="236.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">rigor check</text>
+<line x1="447.75" y1="218.0" x2="461.75" y2="218.0" stroke="#7a8694" stroke-width="2"/><path d="M459.75,212.0 L469.75,218.0 L459.75,224.0" fill="none" stroke="#7a8694" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="388.125" y1="266" x2="388.125" y2="296" stroke="#013d46" stroke-width="2"/>
+<circle cx="388.125" cy="308" r="12" fill="#ffffff" stroke="#013d46" stroke-width="2"/>
+<path d="M383.125,308 l4,4 l7,-8" fill="none" stroke="#013d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="471.75" y="170" width="115.25" height="96" rx="12" fill="#e8f4f6"/>
+<text x="529.375" y="225.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">Draft</text>
+<line x1="589.0" y1="218.0" x2="603.0" y2="218.0" stroke="#7a8694" stroke-width="2"/><path d="M601.0,212.0 L611.0,218.0 L601.0,224.0" fill="none" stroke="#7a8694" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="529.375" y1="266" x2="529.375" y2="296" stroke="#013d46" stroke-width="2"/>
+<circle cx="529.375" cy="308" r="12" fill="#ffffff" stroke="#013d46" stroke-width="2"/>
+<path d="M524.375,308 l4,4 l7,-8" fill="none" stroke="#013d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="613.0" y="170" width="115.25" height="96" rx="12" fill="#e8f4f6"/>
+<text x="670.625" y="214.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">Shared</text>
+<text x="670.625" y="236.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">review</text>
+<line x1="730.25" y1="218.0" x2="744.25" y2="218.0" stroke="#7a8694" stroke-width="2"/><path d="M742.25,212.0 L752.25,218.0 L742.25,224.0" fill="none" stroke="#7a8694" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="670.625" y1="266" x2="670.625" y2="296" stroke="#013d46" stroke-width="2"/>
+<circle cx="670.625" cy="308" r="12" fill="#ffffff" stroke="#013d46" stroke-width="2"/>
+<path d="M665.625,308 l4,4 l7,-8" fill="none" stroke="#013d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="754.25" y="170" width="115.25" height="96" rx="12" fill="#013d46"/>
+<text x="811.875" y="225.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">Lint + QA</text>
+<line x1="871.5" y1="218.0" x2="885.5" y2="218.0" stroke="#7a8694" stroke-width="2"/><path d="M883.5,212.0 L893.5,218.0 L883.5,224.0" fill="none" stroke="#7a8694" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="811.875" y1="266" x2="811.875" y2="296" stroke="#013d46" stroke-width="2"/>
+<circle cx="811.875" cy="308" r="12" fill="#ffffff" stroke="#013d46" stroke-width="2"/>
+<path d="M806.875,308 l4,4 l7,-8" fill="none" stroke="#013d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="895.5" y="170" width="115.25" height="96" rx="12" fill="#e8f4f6"/>
+<text x="953.125" y="214.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">LMS</text>
+<text x="953.125" y="236.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">format</text>
+<line x1="1012.75" y1="218.0" x2="1026.75" y2="218.0" stroke="#7a8694" stroke-width="2"/><path d="M1024.75,212.0 L1034.75,218.0 L1024.75,224.0" fill="none" stroke="#7a8694" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="953.125" y1="266" x2="953.125" y2="296" stroke="#013d46" stroke-width="2"/>
+<circle cx="953.125" cy="308" r="12" fill="#ffffff" stroke="#013d46" stroke-width="2"/>
+<path d="M948.125,308 l4,4 l7,-8" fill="none" stroke="#013d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1036.75" y="170" width="115.25" height="96" rx="12" fill="#e8f4f6"/>
+<text x="1094.375" y="214.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">Lessons</text>
+<text x="1094.375" y="236.0" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="700" fill="#1a1a2e" text-anchor="middle">learned</text>
+<line x1="1094.375" y1="266" x2="1094.375" y2="296" stroke="#013d46" stroke-width="2"/>
+<circle cx="1094.375" cy="308" r="12" fill="#ffffff" stroke="#013d46" stroke-width="2"/>
+<path d="M1089.375,308 l4,4 l7,-8" fill="none" stroke="#013d46" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="600.0" y="356" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="600" fill="#1a1a2e" text-anchor="middle">Human approval at every stage. Nothing publishes or sends on its own.</text>
+<rect x="48" y="384" width="20" height="20" rx="4" fill="#013d46"/>
+<text x="78" y="400" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#556170" text-anchor="start">Deterministic lint checks: style rules from nine revision reports, turned into automated tests</text>
+<text x="48" y="476" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="start">Also packaged as an enablement version for internal training, plus an in-app pipeline from Slack and ClickUp signals to drafted guides.</text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 474" width="1200" height="474" role="img" aria-labelledby="t d">
+<title id="t">Task-first videos hold viewers far longer</title><desc id="d">Range of average share watched for task how-tos (50 to 80%), feature announcements (25 to 35%), and webinar recordings (10 to 15%), with Wistia benchmarks of 43% for 3 to 5 minute videos and 74% for instructional videos.</desc>
+<rect x="1" y="1" width="1198" height="472" rx="20" fill="#ffffff" stroke="#e8e5df" stroke-width="2"/>
+<text x="48" y="68" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#1a1a2e" text-anchor="start">Task-first videos hold viewers far longer</text>
+<text x="48" y="102" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="400" fill="#556170" text-anchor="start">Typical share of each video watched, by video type, 2026</text>
+<line x1="360.0" y1="140" x2="360.0" y2="370" stroke="#e8e5df" stroke-width="1"/>
+<text x="360.0" y="394" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">0%</text>
+<line x1="504.0" y1="140" x2="504.0" y2="370" stroke="#e8e5df" stroke-width="1"/>
+<text x="504.0" y="394" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">20%</text>
+<line x1="648.0" y1="140" x2="648.0" y2="370" stroke="#e8e5df" stroke-width="1"/>
+<text x="648.0" y="394" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">40%</text>
+<line x1="792.0" y1="140" x2="792.0" y2="370" stroke="#e8e5df" stroke-width="1"/>
+<text x="792.0" y="394" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">60%</text>
+<line x1="936.0" y1="140" x2="936.0" y2="370" stroke="#e8e5df" stroke-width="1"/>
+<text x="936.0" y="394" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">80%</text>
+<line x1="1080.0" y1="140" x2="1080.0" y2="370" stroke="#e8e5df" stroke-width="1"/>
+<text x="1080.0" y="394" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">100%</text>
+<line x1="669.6" y1="140" x2="669.6" y2="370" stroke="#7a8694" stroke-width="2"/>
+<text x="661.6" y="134" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#556170" text-anchor="end">Wistia avg, 3–5 min videos: 43%</text>
+<line x1="892.8000000000001" y1="140" x2="892.8000000000001" y2="370" stroke="#7a8694" stroke-width="2"/>
+<text x="900.8000000000001" y="134" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#556170" text-anchor="start">Instructional avg: 74%</text>
+<text x="340" y="184" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#1a1a2e" text-anchor="end">Task how-tos (1–6 min)</text>
+<line x1="720.0" y1="178" x2="936.0" y2="178" stroke="#013d46" stroke-width="2" stroke-linecap="round"/>
+<line x1="720.0" y1="170" x2="720.0" y2="186" stroke="#013d46" stroke-width="2" stroke-linecap="round"/>
+<line x1="936.0" y1="170" x2="936.0" y2="186" stroke="#013d46" stroke-width="2" stroke-linecap="round"/>
+<circle cx="828.0" cy="178" r="7" fill="#013d46" stroke="#ffffff" stroke-width="2"/>
+<text x="950.0" y="185" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#1a1a2e" text-anchor="start">50–80%</text>
+<text x="340" y="262" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#1a1a2e" text-anchor="end">Feature announcements</text>
+<line x1="540.0" y1="256" x2="612.0" y2="256" stroke="#013d46" stroke-width="2" stroke-linecap="round"/>
+<line x1="540.0" y1="248" x2="540.0" y2="264" stroke="#013d46" stroke-width="2" stroke-linecap="round"/>
+<line x1="612.0" y1="248" x2="612.0" y2="264" stroke="#013d46" stroke-width="2" stroke-linecap="round"/>
+<circle cx="576.0" cy="256" r="7" fill="#013d46" stroke="#ffffff" stroke-width="2"/>
+<text x="526.0" y="263" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#1a1a2e" text-anchor="end">25–35%</text>
+<text x="340" y="340" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#1a1a2e" text-anchor="end">Webinar recordings</text>
+<line x1="432.0" y1="334" x2="468.0" y2="334" stroke="#013d46" stroke-width="2" stroke-linecap="round"/>
+<line x1="432.0" y1="326" x2="432.0" y2="342" stroke="#013d46" stroke-width="2" stroke-linecap="round"/>
+<line x1="468.0" y1="326" x2="468.0" y2="342" stroke="#013d46" stroke-width="2" stroke-linecap="round"/>
+<circle cx="450.0" cy="334" r="7" fill="#013d46" stroke="#ffffff" stroke-width="2"/>
+<text x="482.0" y="341" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#1a1a2e" text-anchor="start">10–15%</text>
+<text x="48" y="446" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="start">Each dot marks the middle of the typical range. Benchmarks: Wistia State of Video data.</text>
+</svg>

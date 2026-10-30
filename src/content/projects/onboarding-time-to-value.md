@@ -16,7 +16,7 @@ results:
     label: "of each core setup video watched, on average"
 ---
 
-<!-- VISUAL: the two-route Getting Started path as a simple diagram. -->
+![Getting Started path with two routes, new account or joining a team, leading to payments, first campaign, and first donations](/portfolio/images/onboarding-time-to-value/onboarding-paths.svg)
 
 ## My role
 
@@ -40,9 +40,13 @@ New nonprofits had to set up payments, build a first campaign, and invite their 
 
 The milestone reflects the whole onboarding experience, not education alone. The program was one driver among several.
 
+![Bar chart: about 40% of new orgs reached the success milestone before the program, 75% after](/portfolio/images/onboarding-time-to-value/onboarding-milestone.svg)
+
 <small>*Success milestone: 50 transactions within an organization's first 90 days.</small>
 
-<!-- VISUAL: still from one setup video; milestone timeline showing where each piece of content appears. -->
+![Timeline of onboarding touchpoints from day 0 to the day 90 success milestone](/portfolio/images/onboarding-time-to-value/onboarding-timeline.svg)
+
+<!-- VISUAL: still from one setup video. -->
 
 ## What I learned
 

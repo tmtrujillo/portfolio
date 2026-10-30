@@ -16,7 +16,7 @@ results:
     label: "Product prioritized templates in Studio"
 ---
 
-<!-- VISUAL: three-step flow — in-app guide → request page → template added to the account. -->
+![Pilot flow: in-app guide, request page, template added by hand, results to Product, built into Studio](/portfolio/images/campaign-templates-pilot/templates-pilot-flow.svg)
 
 ## My role
 
@@ -43,7 +43,9 @@ Templates could help — but they didn't exist in the product yet, and the team 
 
 Admins opted into the pilot, and the later comparison wasn't randomized either. The direction was consistent across both stages.
 
-<!-- VISUAL: before/after timeline of days from creation to first donations. Screenshot of the template picker that shipped. -->
+![Bar chart: about 17 days to first donations without the guided flow, about 8 days with it](/portfolio/images/campaign-templates-pilot/templates-days.svg)
+
+<!-- VISUAL: screenshot of the template picker that shipped. -->
 
 ## What I learned
 

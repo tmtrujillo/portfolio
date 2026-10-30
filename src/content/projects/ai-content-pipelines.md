@@ -16,7 +16,7 @@ results:
     label: "in-app guide drafts since April 2026"
 ---
 
-<!-- VISUAL: pipeline diagram with the human approval gates marked. -->
+![Course builder pipeline with eight stages, each with a human approval gate](/portfolio/images/ai-content-pipelines/ai-pipeline.svg)
 
 ## My role
 

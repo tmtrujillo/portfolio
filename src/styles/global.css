@@ -871,3 +871,16 @@ code {
   line-height: 1.4;
   color: var(--slate);
 }
+
+/* Case study figures: wider than the text column so chart labels stay legible */
+.case-content img {
+  display: block;
+  width: min(1000px, calc(100vw - 32px));
+  max-width: none;
+  height: auto;
+  margin: 2rem 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: var(--radius-lg);
+}

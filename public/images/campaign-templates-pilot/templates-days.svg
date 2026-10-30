@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 368" width="1200" height="368" role="img" aria-labelledby="t d">
+<title id="t">The guided flow cut time to first donations roughly in half</title><desc id="d">Bar chart: campaigns created without the guided flow took about 17 days to reach five or more donations; with it, about 8 days.</desc>
+<rect x="1" y="1" width="1198" height="366" rx="20" fill="#ffffff" stroke="#e8e5df" stroke-width="2"/>
+<text x="48" y="68" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#1a1a2e" text-anchor="start">The guided flow cut time to first donations roughly in half</text>
+<text x="48" y="102" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="400" fill="#556170" text-anchor="start">Average days from creating a campaign to its first five or more donations</text>
+<line x1="360.0" y1="136" x2="360.0" y2="268" stroke="#e8e5df" stroke-width="1"/>
+<text x="360.0" y="292" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">0</text>
+<line x1="527.5" y1="136" x2="527.5" y2="268" stroke="#e8e5df" stroke-width="1"/>
+<text x="527.5" y="292" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">5</text>
+<line x1="695.0" y1="136" x2="695.0" y2="268" stroke="#e8e5df" stroke-width="1"/>
+<text x="695.0" y="292" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">10</text>
+<line x1="862.5" y1="136" x2="862.5" y2="268" stroke="#e8e5df" stroke-width="1"/>
+<text x="862.5" y="292" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">15</text>
+<line x1="1030.0" y1="136" x2="1030.0" y2="268" stroke="#e8e5df" stroke-width="1"/>
+<text x="1030.0" y="292" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">20</text>
+<text x="340" y="169" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#1a1a2e" text-anchor="end">Without guided flow</text>
+<path d="M360,150 H925.5 Q929.5,150 929.5,154 V170 Q929.5,174 925.5,174 H360 Z" fill="#a9b4bd"/>
+<text x="941.5" y="170" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#1a1a2e" text-anchor="start">~17 days</text>
+<text x="340" y="243" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#1a1a2e" text-anchor="end">With guided flow</text>
+<path d="M360,224 H624.0 Q628.0,224 628.0,228 V244 Q628.0,248 624.0,248 H360 Z" fill="#013d46"/>
+<text x="640.0" y="244" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#1a1a2e" text-anchor="start">~8 days</text>
+<text x="48" y="338" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="start">Campaigns created in the same period. Admins chose which flow to use, so the comparison isn&#x27;t randomized.</text>
+</svg>

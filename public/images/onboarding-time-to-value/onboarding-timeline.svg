@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" role="img" aria-labelledby="t d">
+<title id="t">Every touchpoint tied to an onboarding milestone</title><desc id="d">Timeline: day 0 Getting Started path and in-app prompts; day 7 milestone email and live training invite; day 14 and day 30 milestone emails; day 90 success milestone of 50 transactions.</desc>
+<rect x="1" y="1" width="1198" height="438" rx="20" fill="#ffffff" stroke="#e8e5df" stroke-width="2"/>
+<text x="48" y="68" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#1a1a2e" text-anchor="start">Every touchpoint tied to an onboarding milestone</text>
+<text x="48" y="102" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="400" fill="#556170" text-anchor="start">When each piece of onboarding content reaches a new org</text>
+<line x1="100" y1="210" x2="1100" y2="210" stroke="#e8e5df" stroke-width="4" stroke-linecap="round"/>
+<circle cx="100.0" cy="210" r="9" fill="#025d6a" stroke="#ffffff" stroke-width="3"/>
+<text x="100.0" y="184" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#1a1a2e" text-anchor="middle">Day 0</text>
+<text x="90.0" y="250" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#556170" text-anchor="start">Getting Started path</text>
+<text x="90.0" y="273" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#556170" text-anchor="start">In-app prompts</text>
+<circle cx="263.33333333333337" cy="210" r="9" fill="#025d6a" stroke="#ffffff" stroke-width="3"/>
+<text x="263.33333333333337" y="184" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#1a1a2e" text-anchor="middle">Day 7</text>
+<line x1="263.33333333333337" y1="222" x2="263.33333333333337" y2="300" stroke="#e8e5df" stroke-width="2"/>
+<text x="263.33333333333337" y="320" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#556170" text-anchor="middle">Milestone email</text>
+<text x="263.33333333333337" y="343" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#556170" text-anchor="middle">Live training invite</text>
+<circle cx="426.6666666666667" cy="210" r="9" fill="#025d6a" stroke="#ffffff" stroke-width="3"/>
+<text x="426.6666666666667" y="184" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#1a1a2e" text-anchor="middle">Day 14</text>
+<text x="426.6666666666667" y="250" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#556170" text-anchor="middle">Milestone email</text>
+<circle cx="800.0" cy="210" r="9" fill="#025d6a" stroke="#ffffff" stroke-width="3"/>
+<text x="800.0" y="184" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#1a1a2e" text-anchor="middle">Day 30</text>
+<line x1="800.0" y1="222" x2="800.0" y2="300" stroke="#e8e5df" stroke-width="2"/>
+<text x="800.0" y="320" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#556170" text-anchor="middle">Milestone email</text>
+<circle cx="1100.0" cy="210" r="9" fill="#013d46" stroke="#ffffff" stroke-width="3"/>
+<text x="1100.0" y="184" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#1a1a2e" text-anchor="middle">Day 90</text>
+<text x="1110.0" y="250" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="600" fill="#556170" text-anchor="end">Success milestone:</text>
+<text x="1110.0" y="273" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#556170" text-anchor="end">50 transactions</text>
+<text x="48" y="414" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="start">Timeline not to scale after day 30.</text>
+</svg>

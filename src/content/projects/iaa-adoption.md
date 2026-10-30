@@ -16,7 +16,9 @@ results:
     label: "IAA became the default after we advocated for it"
 ---
 
-<!-- VISUAL: adoption-over-time line with each education and in-app touchpoint marked on it. -->
+![Bar chart: about 20% of eligible campaigns used Intelligent Ask Amounts at the start, over 75% a year later](/portfolio/images/iaa-adoption/iaa-adoption.svg)
+
+<!-- VISUAL (upgrade if monthly data is available): adoption-over-time line with each touchpoint marked. -->
 
 ## My role
 

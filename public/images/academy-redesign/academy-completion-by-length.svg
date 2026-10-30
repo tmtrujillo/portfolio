@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 516" width="1200" height="516" role="img" aria-labelledby="t d">
+<title id="t">Short courses get finished about twice as often</title><desc id="d">Bar chart: completion is about 40% for 1-lesson courses, 56% for 2 to 3 lessons, 45% for 4 to 6 lessons, and 28% for 7 or more lessons.</desc>
+<rect x="1" y="1" width="1198" height="514" rx="20" fill="#ffffff" stroke="#e8e5df" stroke-width="2"/>
+<text x="48" y="68" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#1a1a2e" text-anchor="start">Short courses get finished about twice as often</text>
+<text x="48" y="102" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="400" fill="#556170" text-anchor="start">Completion rate by number of lessons, courses with 50+ enrollments</text>
+<line x1="360.0" y1="136" x2="360.0" y2="416" stroke="#e8e5df" stroke-width="1"/>
+<text x="360.0" y="440" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">0%</text>
+<line x1="527.5" y1="136" x2="527.5" y2="416" stroke="#e8e5df" stroke-width="1"/>
+<text x="527.5" y="440" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">20%</text>
+<line x1="695.0" y1="136" x2="695.0" y2="416" stroke="#e8e5df" stroke-width="1"/>
+<text x="695.0" y="440" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">40%</text>
+<line x1="862.5" y1="136" x2="862.5" y2="416" stroke="#e8e5df" stroke-width="1"/>
+<text x="862.5" y="440" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">60%</text>
+<line x1="1030.0" y1="136" x2="1030.0" y2="416" stroke="#e8e5df" stroke-width="1"/>
+<text x="1030.0" y="440" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">80%</text>
+<text x="340" y="169" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#1a1a2e" text-anchor="end">1 lesson</text>
+<path d="M360,150 H691.0 Q695.0,150 695.0,154 V170 Q695.0,174 691.0,174 H360 Z" fill="#a9b4bd"/>
+<text x="707.0" y="170" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#1a1a2e" text-anchor="start">~40%</text>
+<text x="340" y="243" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#1a1a2e" text-anchor="end">2–3 lessons</text>
+<path d="M360,224 H825.0 Q829.0,224 829.0,228 V244 Q829.0,248 825.0,248 H360 Z" fill="#013d46"/>
+<text x="841.0" y="244" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#1a1a2e" text-anchor="start">~56%</text>
+<text x="340" y="317" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#1a1a2e" text-anchor="end">4–6 lessons</text>
+<path d="M360,298 H732.875 Q736.875,298 736.875,302 V318 Q736.875,322 732.875,322 H360 Z" fill="#a9b4bd"/>
+<text x="748.875" y="318" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#1a1a2e" text-anchor="start">~45%</text>
+<text x="340" y="391" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#1a1a2e" text-anchor="end">7+ lessons</text>
+<path d="M360,372 H590.5 Q594.5,372 594.5,376 V392 Q594.5,396 590.5,396 H360 Z" fill="#a9b4bd"/>
+<text x="606.5" y="392" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#1a1a2e" text-anchor="start">~28%</text>
+<text x="48" y="486" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="start">Association only: shorter courses tend to be newer. Single-lesson courses are mostly live sessions.</text>
+</svg>

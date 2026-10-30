@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 368" width="1200" height="368" role="img" aria-labelledby="t d">
+<title id="t">Intelligent Ask Amounts adoption grew nearly fourfold in a year</title><desc id="d">Bar chart: about 20% of eligible campaigns used Intelligent Ask Amounts at the start, over 75% one year later.</desc>
+<rect x="1" y="1" width="1198" height="366" rx="20" fill="#ffffff" stroke="#e8e5df" stroke-width="2"/>
+<text x="48" y="68" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="30" font-weight="700" fill="#1a1a2e" text-anchor="start">Intelligent Ask Amounts adoption grew nearly fourfold in a year</text>
+<text x="48" y="102" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="400" fill="#556170" text-anchor="start">Share of eligible campaigns using Intelligent Ask Amounts</text>
+<line x1="360.0" y1="136" x2="360.0" y2="268" stroke="#e8e5df" stroke-width="1"/>
+<text x="360.0" y="292" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">0%</text>
+<line x1="527.5" y1="136" x2="527.5" y2="268" stroke="#e8e5df" stroke-width="1"/>
+<text x="527.5" y="292" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">25%</text>
+<line x1="695.0" y1="136" x2="695.0" y2="268" stroke="#e8e5df" stroke-width="1"/>
+<text x="695.0" y="292" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">50%</text>
+<line x1="862.5" y1="136" x2="862.5" y2="268" stroke="#e8e5df" stroke-width="1"/>
+<text x="862.5" y="292" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">75%</text>
+<line x1="1030.0" y1="136" x2="1030.0" y2="268" stroke="#e8e5df" stroke-width="1"/>
+<text x="1030.0" y="292" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="middle">100%</text>
+<text x="340" y="169" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#1a1a2e" text-anchor="end">At the start</text>
+<path d="M360,150 H490.0 Q494.0,150 494.0,154 V170 Q494.0,174 490.0,174 H360 Z" fill="#a9b4bd"/>
+<text x="506.0" y="170" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#1a1a2e" text-anchor="start">~20%</text>
+<text x="340" y="243" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="600" fill="#1a1a2e" text-anchor="end">One year later</text>
+<path d="M360,224 H858.5 Q862.5,224 862.5,228 V244 Q862.5,248 858.5,248 H360 Z" fill="#013d46"/>
+<text x="874.5" y="244" font-family="'Space Grotesk','Segoe UI',Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#1a1a2e" text-anchor="start">75%+</text>
+<text x="48" y="338" font-family="'Catamaran','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#7a8694" text-anchor="start">Growth came from education, in-app nudges, and advocating for IAA as the default.</text>
+</svg>

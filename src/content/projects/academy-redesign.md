@@ -43,7 +43,9 @@ The Academy was organized by internal product area, so nonprofits had to know wh
 | How-tos made since spring trend higher than earlier ones | The craft improved over the year |
 | Twelve open-access courses drew about 12K views but almost no enrollments | Our old metric was hiding real use |
 
-<!-- VISUAL: bar chart of completion by course length; bar chart of video watch rate by type. -->
+![Bar chart: completion by course length, highest for 2 to 3 lesson courses at about 56%](/portfolio/images/academy-redesign/academy-completion-by-length.svg)
+
+![Typical share watched by video type: task how-tos 50 to 80%, feature announcements 25 to 35%, webinar recordings 10 to 15%](/portfolio/images/academy-redesign/academy-video-watch.svg)
 
 Short courses are newer and smaller, so the comparison is directional. Feature-announcement videos are a newer format we're still developing, at about 25–35% watched — the clearest room to grow.
 
