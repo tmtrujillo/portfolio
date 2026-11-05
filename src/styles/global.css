@@ -1148,3 +1148,80 @@ code {
   max-width: 600px;
   margin: 0 auto;
 }
+
+/* TA question box and reply */
+.ta-ask {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ta-ask label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.ta-ask-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ta-ask input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--ink);
+  padding: 0.55rem 0.75rem;
+  min-height: 44px;
+}
+
+.ta-ask input::placeholder { color: #6b7c80; }
+
+.ta-ask input:focus-visible,
+.ta-ask button:focus-visible,
+.ta-chip:focus-visible {
+  outline: 3px solid var(--highlighter);
+  outline-offset: 2px;
+}
+
+.ta-ask button {
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 0 1.1rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.ta-ask button:hover { background: var(--deep-teal); }
+
+.ta-reply {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: #fff;
+  border-left: 4px solid var(--highlighter);
+  padding: 0.85rem 1rem;
+}
+
+.ta-reply p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.ta-reply .ta-reply-question {
+  font-size: 0.88rem;
+  color: #4a5d61;
+}
+
+.ta-reply[hidden] { display: none; }

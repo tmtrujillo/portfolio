@@ -1,9 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ApproachItem from '../components/ApproachItem.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import TAPanel from '../components/TAPanel.astro';
-import { icons } from '../components/icons';
 import { cardProps, getProjects } from '../lib/projects';
 
 const base = import.meta.env.BASE_URL;
@@ -26,31 +24,6 @@ const stagger = (i: number) => `fade-in stagger-${(i % 3) + 1}`;
       </div>
       <div class="fade-in stagger-2">
         <TAPanel />
-      </div>
-    </div>
-  </section>
-
-  <section class="approach-section">
-    <div class="container">
-      <div class="section-header fade-in">
-        <span class="section-label">What I Bring</span>
-      </div>
-      <div class="approach-grid fade-in">
-        <ApproachItem
-          icon={icons.mortarboard}
-          heading="Teaching background"
-          description="5 years in the classroom before tech. I design learning experiences with instructional rigor — not just content that exists, but content that teaches."
-        />
-        <ApproachItem
-          icon={icons.barChart}
-          heading="Measurement-first"
-          description="I measure whether people act after they learn — activation, adoption, and time to value — not just views and completions."
-        />
-        <ApproachItem
-          icon={icons.layers}
-          heading="Systems that scale"
-          description="AI pipelines, contributor guidelines, deterministic lint checks. I build infrastructure so a small team can maintain a growing content library."
-        />
       </div>
     </div>
   </section>
