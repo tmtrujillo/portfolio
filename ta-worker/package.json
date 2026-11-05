@@ -1,0 +1,15 @@
+{
+  "name": "ta-worker",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test test/*.test.js",
+    "presets:upload": "node scripts/upload-presets.mjs",
+    "eval": "node evals/run.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

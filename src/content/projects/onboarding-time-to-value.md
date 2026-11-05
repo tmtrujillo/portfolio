@@ -7,6 +7,8 @@ platform: "Skilljar, Wistia, Appcues"
 timeline: "2024"
 order: 3
 featured: true
+tracks: ["enablement"]
+skills: ["onboarding", "curriculum", "video", "lms", "in-app", "measurement"]
 results:
   - value: "40% → 75%"
     label: "of new orgs reached the success milestone*"

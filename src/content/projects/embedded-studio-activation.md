@@ -7,6 +7,8 @@ platform: "Appcues, Skilljar, Wistia"
 timeline: "First half of 2025"
 order: 1
 featured: true
+tracks: ["enablement", "content"]
+skills: ["in-app", "video", "lms", "adoption", "documentation", "measurement"]
 results:
   - value: "~2x"
     label: "more likely to start taking donations"

@@ -7,6 +7,8 @@ platform: "Classy Studio"
 timeline: "2023"
 order: 9
 featured: false
+tracks: ["content"]
+skills: ["ux-writing", "accessibility", "style-guides"]
 ---
 
 The launch of Classy Studio, our new campaign builder, presented an opportunity to refine our product copy to better align with our brand's voice and style guidelines. This project focused on revising the initial draft of the feature's settings to enhance clarity, accessibility, and overall user experience.

@@ -7,6 +7,8 @@ platform: "Appcues, Skilljar, Wistia"
 timeline: "2024"
 order: 4
 featured: true
+tracks: ["enablement", "content"]
+skills: ["adoption", "in-app", "measurement", "cross-functional"]
 results:
   - value: "20% → 75%+"
     label: "of eligible campaigns using IAA"

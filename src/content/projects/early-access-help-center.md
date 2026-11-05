@@ -7,6 +7,8 @@ platform: "MkDocs, GitHub, Markdown"
 timeline: "2023"
 order: 10
 featured: false
+tracks: ["content", "ai"]
+skills: ["docs-as-code", "documentation", "help-center", "content-engineering"]
 ---
 
 In a strategic move to streamline our documentation process for features in early access, we evaluated a docs-as-code approach. The goal was to create a centralized documentation home for these features, making information on open/closed beta features readily accessible and consistent.

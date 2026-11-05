@@ -7,6 +7,8 @@ platform: "Claude, Skilljar, Appcues, Figma, Google Drive"
 timeline: "2026"
 order: 6
 featured: true
+tracks: ["ai", "enablement", "content"]
+skills: ["ai", "content-engineering", "quality-assurance", "style-guides", "curriculum"]
 results:
   - value: "6+ → ≤3 wks"
     label: "course turnaround, about twice as fast"

@@ -333,6 +333,11 @@ code {
   display: flex;
 }
 
+/* Four cards: two rows of two on wide screens, so no card is left alone. */
+.projects-grid--pairs {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .projects-grid > div > .project-card {
   flex: 1;
 }

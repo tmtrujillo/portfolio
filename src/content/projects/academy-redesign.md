@@ -7,6 +7,8 @@ platform: "Skilljar, Wistia, Figma"
 timeline: "2026"
 order: 5
 featured: true
+tracks: ["enablement", "content"]
+skills: ["curriculum", "lms", "video", "information-architecture", "measurement"]
 results:
   - value: "~2x"
     label: "completion for 2–3 lesson courses vs. 7+ lessons"

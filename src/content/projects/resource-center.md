@@ -7,6 +7,8 @@ platform: "Appcues, Figma"
 timeline: "2023"
 order: 8
 featured: false
+tracks: ["content", "enablement"]
+skills: ["in-app", "help-center", "information-architecture", "support-deflection", "ux-writing"]
 ---
 
 Aiming to enhance the educational experience for admins, we designed a comprehensive resource center intended to serve as the primary launchpad for in-app education. This project was driven by the need to consolidate scattered educational materials into a single, easily accessible location.

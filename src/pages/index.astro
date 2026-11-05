@@ -112,8 +112,16 @@ const base = import.meta.env.BASE_URL;
         <span class="section-label">Earlier Work</span>
         <h2 class="section-title">Foundation projects</h2>
       </div>
-      <div class="projects-grid">
+      <div class="projects-grid projects-grid--pairs">
         <div class="fade-in stagger-1">
+          <ProjectCard
+            icon={icons.code}
+            title="Developer documentation"
+            description="Webhooks guide, API docs, and payments docs for GoFundMe Pay, which runs on Stripe."
+            href={`${base}projects/developer-docs/`}
+          />
+        </div>
+        <div class="fade-in stagger-2">
           <ProjectCard
             icon={icons.messageCircle}
             title="In-app education"
@@ -121,7 +129,7 @@ const base = import.meta.env.BASE_URL;
             href={`${base}projects/resource-center/`}
           />
         </div>
-        <div class="fade-in stagger-2">
+        <div class="fade-in stagger-3">
           <ProjectCard
             icon={icons.penTool}
             title="Microcopy"

@@ -1,0 +1,6 @@
+node_modules/
+.wrangler/
+.dev.vars
+# Presets name the companies Taylor applied to. Never commit them.
+presets.json
+presets.kv.json

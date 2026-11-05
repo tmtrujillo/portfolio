@@ -7,6 +7,8 @@ platform: "Appcues, Campaign Studio, Postman"
 timeline: "2025"
 order: 2
 featured: true
+tracks: ["enablement", "ai"]
+skills: ["pilots", "adoption", "onboarding", "cross-functional", "measurement"]
 results:
   - value: "50%+"
     label: "faster to an active campaign — under a week"

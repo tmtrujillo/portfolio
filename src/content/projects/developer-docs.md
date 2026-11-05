@@ -7,6 +7,8 @@ platform: "Help Center, developer portal"
 timeline: "Second half of 2025"
 order: 7
 featured: false
+tracks: ["enablement", "content"]
+skills: ["api", "documentation"]
 links:
   - label: "Using webhooks"
     url: "https://prosupport.gofundme.com/hc/en-us/articles/41221411214619-Using-webhooks"
