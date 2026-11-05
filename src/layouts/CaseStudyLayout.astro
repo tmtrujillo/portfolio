@@ -3,6 +3,9 @@ import BaseLayout from './BaseLayout.astro';
 import CaseMeta from '../components/CaseMeta.astro';
 
 interface Props {
+  slug: string;
+  cardTitle: string;
+  primaryTrack: string;
   title: string;
   summary: string;
   tags: string[];
@@ -13,7 +16,7 @@ interface Props {
   links?: { label: string; url: string; source: string }[];
 }
 
-const { title, summary, tags, role, platform, timeline, results = [], links = [] } = Astro.props;
+const { slug, cardTitle, primaryTrack, title, summary, tags, role, platform, timeline, results = [], links = [] } = Astro.props;
 ---
 <BaseLayout title={`${title} — Taylor Trujillo`}>
   <div class="case-hero">
@@ -48,7 +51,7 @@ const { title, summary, tags, role, platform, timeline, results = [], links = []
       </div>
     </div>
   </div>
-  <article class="case-content fade-in">
+  <article class="case-content fade-in" data-case-slug={slug} data-case-title={cardTitle} data-case-track={primaryTrack}>
     <slot />
   </article>
 </BaseLayout>

@@ -20,7 +20,7 @@ const others = all.filter((p) => !matches.includes(p));
 const stagger = (i: number) => `fade-in stagger-${(i % 3) + 1}`;
 ---
 <BaseLayout title={`Taylor Trujillo — ${info.label}`} description={info.intro}>
-  <section class="hero">
+  <section class="hero" data-track-page={track}>
     <div class="container">
       <div class="hero-content fade-in">
         <span class="hero-label">Viewing as: {info.label}</span>

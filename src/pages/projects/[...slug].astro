@@ -14,6 +14,9 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 ---
 <CaseStudyLayout
+  slug={entry.id}
+  cardTitle={entry.data.cardTitle ?? entry.data.title}
+  primaryTrack={entry.data.tracks[0]}
   title={entry.data.title}
   summary={entry.data.summary}
   tags={entry.data.tags}

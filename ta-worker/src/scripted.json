@@ -124,9 +124,9 @@
     }
   },
   "trackGreetings": {
-    "enablement": "Hi, {company} team! Want to see how Taylor designs education that changes what people do?",
-    "content": "Hi, {company} team! Want to see the content systems Taylor has built?",
-    "ai": "Hi, {company} team! Want to see how Taylor builds AI content pipelines with people in charge?",
-    "default": "Hi! I'm TA, Taylor's teaching assistant. Want to start with Taylor's most relevant work?"
+    "enablement": "Hi, {company} team! Taylor asked me to share this one with you.",
+    "content": "Hi, {company} team! Taylor asked me to share this one with you.",
+    "ai": "Hi, {company} team! Taylor asked me to share this one with you.",
+    "default": "Hi! I'm TA, Taylor's teaching assistant. Here's where I'd start:"
   }
 }

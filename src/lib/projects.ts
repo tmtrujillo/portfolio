@@ -3,21 +3,24 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 export type Project = CollectionEntry<'projects'>;
 export type Track = 'enablement' | 'content' | 'ai';
 
-export const TRACK_INFO: Record<Track, { label: string; heading: string; intro: string }> = {
+export const TRACK_INFO: Record<Track, { label: string; heading: string; intro: string; spotlight: string }> = {
   enablement: {
     label: 'Learning & enablement',
     heading: 'Education that changes what people do',
     intro: 'Academy courses, onboarding programs, video and in-app guidance, measured by activation and adoption.',
+    spotlight: 'academy-redesign',
   },
   content: {
     label: 'Content strategy',
     heading: 'Content systems people can find and use',
     intro: 'Help centers, in-app resources, documentation and product copy, built to cut support and speed people up.',
+    spotlight: 'resource-center',
   },
   ai: {
     label: 'AI enablement',
     heading: 'AI content systems with people in charge',
     intro: 'Governed AI pipelines, testable style rules and docs-as-code: AI that speeds up the work without lowering the bar.',
+    spotlight: 'ai-content-pipelines',
   },
 };
 
@@ -46,4 +49,22 @@ export function cardProps(p: Project, base: string, { withMetric = true } = {}) 
     metricLabel: withMetric ? result?.label.replace(/\*+$/, '') : undefined,
     description: withMetric && result ? undefined : p.data.teaser ?? p.data.summary,
   };
+}
+
+// What TA needs to know about every case study in the browser: public card
+// details only, so TA can show a spotlight card without a server.
+export function taCatalog(projects: Project[], base: string) {
+  return projects.map((p) => {
+    const result = p.data.results?.[0];
+    return {
+      slug: p.id,
+      url: `${base}projects/${p.id}/`,
+      title: p.data.cardTitle ?? p.data.title,
+      tag: p.data.tags[0],
+      track: p.data.tracks[0],
+      metric: result?.value ?? null,
+      metricLabel: result ? result.label.replace(/\*+$/, '') : null,
+      teaser: p.data.teaser ?? p.data.summary,
+    };
+  });
 }

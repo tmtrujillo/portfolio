@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import TAPanel from '../components/TAPanel.astro';
 import { cardProps, getProjects } from '../lib/projects';
 
 const base = import.meta.env.BASE_URL;
@@ -10,21 +9,12 @@ const featured = projects.filter((p) => p.data.featured);
 const foundation = projects.filter((p) => !p.data.featured);
 const stagger = (i: number) => `fade-in stagger-${(i % 3) + 1}`;
 ---
-<BaseLayout title="Taylor Trujillo — Product Education & Curriculum Design">
-  <section class="hero hero--with-ta">
-    <div class="container hero-grid">
-      <div class="hero-content fade-in">
-        <span class="hero-label">Product Education · Curriculum Design</span>
-        <h1>Teacher turned content designer, <span class="hl">still teaching.</span></h1>
-        <p class="tagline">
-          I design the content and knowledge systems that help customers learn and succeed
-          with complex products — from Academy courses and video tutorials to AI-assisted
-          content pipelines that scale education without scaling headcount.
-        </p>
-      </div>
-      <div class="fade-in stagger-2">
-        <TAPanel />
-      </div>
+<BaseLayout title="Taylor Trujillo — Product Education & Curriculum Design" taHero>
+  <section class="ta-stage" aria-label="Welcome">
+    <div class="ta-stage-inner">
+      <p class="ta-stage-brand">Taylor Trujillo · Product education &amp; curriculum design</p>
+      <h1 class="ta-stage-headline">Teacher turned content designer, <span class="hl">still teaching.</span></h1>
+      <a class="ta-stage-more" href="#featured-projects">See the work <span aria-hidden="true">↓</span></a>
     </div>
   </section>
 

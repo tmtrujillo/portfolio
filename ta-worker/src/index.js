@@ -12,7 +12,7 @@
 import SYSTEM_PROMPT from './system-prompt.txt';
 import SCRIPTED from './scripted.json';
 import { createSession, createSourcesFilter, validateChatRequest, verifySession } from './guard.js';
-import { loadKnowledge } from './knowledge.js';
+import { loadKnowledge, resolveReadingContext } from './knowledge.js';
 import { isValidPresetKey, resolvePreset } from './presets.js';
 import { streamAnswer } from './providers.js';
 
@@ -143,7 +143,8 @@ async function handleChat(request, env, ctx, origin, ip) {
   const company = stored && !archived ? stored.company : null;
 
   const systemCached = `${SYSTEM_PROMPT}\n\n${knowledge.lessonPlans}`;
-  const systemVisitor = `<visitor_context>\nTrack: ${track ?? 'unknown'}\nCompany: ${company ?? 'unknown'}\n</visitor_context>`;
+  const reading = resolveReadingContext(knowledge.caseStudies, body.context);
+  const systemVisitor = `<visitor_context>\nTrack: ${track ?? 'unknown'}\nCompany: ${company ?? 'unknown'}\n${reading ?? 'Currently reading: the home page or a general page.'}\n</visitor_context>`;
   const messages = [...input.history, { role: 'user', content: input.message }];
 
   const logBase = { track, preset: presetKey, question: input.message };

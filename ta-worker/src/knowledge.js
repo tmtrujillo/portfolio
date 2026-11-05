@@ -70,6 +70,18 @@ export async function loadKnowledge(siteUrl, { now = Date.now(), fetchImpl = fet
   return knowledge;
 }
 
+// What the visitor is reading, checked against the real case studies so a
+// visitor can't hand TA a made-up page or section. Returns a short line for
+// TA's instructions, or null.
+export function resolveReadingContext(caseStudies, context) {
+  if (!context || typeof context !== 'object') return null;
+  const study = caseStudies.find((s) => s.slug === context.slug);
+  if (!study) return null;
+  const headings = [...study.body.matchAll(/^##\s+(.+)$/gm)].map((m) => m[1].trim());
+  const section = headings.find((h) => h === String(context.section ?? '').trim());
+  return `Currently reading: "${study.title}" (slug: ${study.slug})${section ? `, section "${section}"` : ''}.`;
+}
+
 // For tests.
 export function clearKnowledgeCache() {
   cached = null;
