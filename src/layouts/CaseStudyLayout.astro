@@ -18,7 +18,7 @@ interface Props {
 
 const { slug, cardTitle, primaryTrack, title, summary, tags, role, platform, timeline, results = [], links = [] } = Astro.props;
 ---
-<BaseLayout title={`${title} — Taylor Trujillo`}>
+<BaseLayout title={`${title} — Taylor Trujillo`} description={summary}>
   <div class="case-hero">
     <div class="container">
       <div class="fade-in">
@@ -37,12 +37,15 @@ const { slug, cardTitle, primaryTrack, title, summary, tags, role, platform, tim
         <CaseMeta tags={tags} role={role} platform={platform} timeline={timeline} />
         {links.length > 0 && (
           <div class="see-live">
-            <span class="see-live-label">See it live</span>
-            <ul>
+            <span class="see-live-label" id="see-live-label">See it live</span>
+            <ul aria-labelledby="see-live-label">
               {links.map((l) => (
                 <li>
-                  <a href={l.url} target="_blank" rel="noopener">{l.label}<span class="sr-only"> (opens in a new tab)</span></a>
-                  <span class="see-live-source">{l.source}</span>
+                  <a class="see-live-link" href={l.url} target="_blank" rel="noopener">
+                    <span class="see-live-source">{l.source}</span>
+                    <span class="see-live-title">{l.label}<span aria-hidden="true"> ↗</span></span>
+                    <span class="sr-only"> (opens in a new tab)</span>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -51,7 +54,7 @@ const { slug, cardTitle, primaryTrack, title, summary, tags, role, platform, tim
       </div>
     </div>
   </div>
-  <article class="case-content fade-in" data-case-slug={slug} data-case-title={cardTitle} data-case-track={primaryTrack}>
+  <article class="case-content" data-case-slug={slug} data-case-title={cardTitle} data-case-track={primaryTrack}>
     <slot />
   </article>
 </BaseLayout>

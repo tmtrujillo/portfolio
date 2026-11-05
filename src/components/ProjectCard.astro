@@ -1,6 +1,6 @@
 ---
-// A case study card. Featured cards lead with their headline result;
-// cards without a metric show a one-line description instead.
+// A case study card: what it is, then the headline result. Cards without a
+// metric show a one-line description instead.
 interface Props {
   href: string;
   title: string;
@@ -8,16 +8,15 @@ interface Props {
   metric?: string;
   metricLabel?: string;
   description?: string;
-  icon?: string; // accepted for older pages; no longer shown
 }
 
 const { href, title, tag, metric, metricLabel, description } = Astro.props;
 ---
 <a class="project-card" href={href}>
   {tag && <span class="card-tag">{tag}</span>}
+  <h3>{title}</h3>
   {metric && <span class="card-metric">{metric}</span>}
   {metricLabel && <span class="card-metric-label">{metricLabel}</span>}
-  <h3>{title}</h3>
   {description && <p>{description}</p>}
-  <span class="card-link-text">View case study <span aria-hidden="true">→</span></span>
+  <span class="card-link-text">View case study <span class="card-arrow" aria-hidden="true">→</span></span>
 </a>

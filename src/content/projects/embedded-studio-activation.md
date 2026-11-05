@@ -22,7 +22,7 @@ links:
   - label: "Embedded form course"
     url: "https://proacademy.gofundme.com/embed-a-donation-form"
     source: "Academy"
-  - label: "Donation page or embedded form?"
+  - label: "Choosing a donation page or embedded form"
     url: "https://proacademy.gofundme.com/donation-page-or-embedded-form/2503753"
     source: "Academy"
   - label: "Install an embedded donation form"

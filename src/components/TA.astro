@@ -24,6 +24,9 @@ const tracks = Object.fromEntries(
   Object.entries(TRACK_INFO).map(([key, t]) => [key, { label: t.label, spotlight: t.spotlight }]),
 );
 const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, catalog };
+// Until the Worker is live, the question box is honest about what it does:
+// it hands the question to Taylor by email.
+const aiOn = Boolean(TA_ENDPOINT);
 ---
 <div id="ta" class="ta" data-mode="collapsed" transition:persist="ta">
   <button type="button" class="ta-launcher" aria-controls="ta-window" aria-expanded="false">
@@ -49,13 +52,13 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     <div class="ta-chips" role="group" aria-label="Suggestions"></div>
 
     <form class="ta-ask" novalidate>
-      <label for="ta-question" class="ta-ask-label">Ask TA a question</label>
+      <label for="ta-question" class="ta-ask-label">{aiOn ? 'Ask TA a question' : 'Send Taylor a question'}</label>
       <div class="ta-ask-row">
-        <input id="ta-question" name="question" type="text" maxlength="500" autocomplete="off" placeholder="Ask about Taylor's work…" />
-        <button type="submit">Ask</button>
+        <input id="ta-question" name="question" type="text" maxlength="500" autocomplete="off" placeholder={aiOn ? "Ask about Taylor's work…" : 'Send Taylor a question…'} />
+        <button type="submit">{aiOn ? 'Ask' : 'Send'}</button>
       </div>
     </form>
-    <p class="ta-foot">TA can make mistakes. Taylor is the source of truth.</p>
+    <p class="ta-foot">{aiOn ? 'TA can make mistakes. Taylor is the source of truth.' : 'Questions go to Taylor by email.'}</p>
   </section>
 
   <script type="application/json" id="ta-config" set:html={JSON.stringify(config)} />
@@ -68,9 +71,11 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     slug: string; url: string; title: string; tag: string; track: string;
     metric: string | null; metricLabel: string | null; teaser: string;
   };
-  type Message = { from: 'ta' | 'you'; text: string; card?: string };
+  // bridge: TA's "you're on page X" line. Only the latest one is kept.
+  type Message = { from: 'ta' | 'you'; text: string; card?: string; bridge?: boolean };
   type State = {
     messages: Message[];
+    pageStart: number; // first message said on the current page
     track: string | null;
     preset: string | null;
     presetDone: boolean;
@@ -93,11 +98,12 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
   const form = root.querySelector<HTMLFormElement>('.ta-ask')!;
   const input = root.querySelector<HTMLInputElement>('#ta-question')!;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const wide = window.matchMedia('(min-width: 1100px)');
+  // Keep 1200px in step with the docked layout rules in ta.css.
+  const wide = window.matchMedia('(min-width: 1200px)');
 
   // ---- State -------------------------------------------------------------
   function load(): State {
-    const blank: State = { messages: [], track: null, preset: null, presetDone: false, spotlight: null, lastPath: null, collapsed: null };
+    const blank: State = { messages: [], pageStart: 0, track: null, preset: null, presetDone: false, spotlight: null, lastPath: null, collapsed: null };
     try {
       return { ...blank, ...JSON.parse(sessionStorage.getItem(STORE_KEY) ?? '{}') };
     } catch {
@@ -105,9 +111,15 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     }
   }
   const state = load();
+  const MAX_MESSAGES = 30;
   function save() {
+    const extra = state.messages.length - MAX_MESSAGES;
+    if (extra > 0) {
+      state.messages.splice(0, extra);
+      state.pageStart = Math.max(0, state.pageStart - extra);
+    }
     try {
-      sessionStorage.setItem(STORE_KEY, JSON.stringify({ ...state, messages: state.messages.slice(-30) }));
+      sessionStorage.setItem(STORE_KEY, JSON.stringify(state));
     } catch {
       /* private mode: TA still works, it just forgets on reload */
     }
@@ -136,22 +148,52 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
   }
 
   // ---- Modes -------------------------------------------------------------
-  function heroActive() {
+  function heroActive(y = window.scrollY) {
     const stage = document.querySelector<HTMLElement>('.ta-stage');
     if (!stage) return false;
     const pin = Math.max(stage.offsetHeight - window.innerHeight, 0);
     // Dock halfway through the pause, while the stage is still pinned.
-    return window.scrollY < pin * 0.5 + 1;
+    return y < pin * 0.5 + 1;
+  }
+
+  // Where a page change is headed. The page smooth-scrolls to a #link or back
+  // to a saved spot after it appears, so the scroll position at that moment is
+  // still the top. Deciding from the destination keeps TA from flashing to
+  // the center on the way to the project grid.
+  let pendingY: number | null = null;
+  let pendingTimer = 0;
+  function destinationY(): number | null {
+    const saved = history.state?.scrollY;
+    if (typeof saved === 'number' && saved > 0) return saved;
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = id ? document.getElementById(id) : null;
+    if (target) return target.getBoundingClientRect().top + window.scrollY;
+    return null;
+  }
+  function expectScrollTo(y: number | null) {
+    pendingY = y;
+    clearTimeout(pendingTimer);
+    // Stop waiting if the scroll never arrives (e.g. the visitor took over).
+    if (y !== null) pendingTimer = window.setTimeout(() => { pendingY = null; onScroll(); }, 1500);
   }
 
   // Phones always rest as the button, so TA never covers what they're reading.
-  function wantedMode(): string {
-    if (heroActive()) return 'hero';
+  function wantedMode(y = pendingY ?? window.scrollY): string {
+    if (heroActive(y)) return 'hero';
     if (state.collapsed === true || !wide.matches) return 'collapsed';
     return 'dock';
   }
 
+  // In hero mode TA sits just under the home headline, so the visitor sees
+  // who Taylor is before the chat.
+  function placeHero() {
+    const headline = document.querySelector<HTMLElement>('.ta-stage-headline');
+    if (!headline) return;
+    root.style.setProperty('--ta-hero-top', `${Math.round(headline.getBoundingClientRect().bottom + 28)}px`);
+  }
+
   function applyMode(mode: string) {
+    if (mode === 'hero') placeHero();
     root.dataset.mode = mode;
     launcher.setAttribute('aria-expanded', String(mode !== 'collapsed'));
     document.documentElement.classList.toggle('ta-is-hero', mode === 'hero');
@@ -175,7 +217,13 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     ticking = true;
     requestAnimationFrame(() => {
       ticking = false;
+      // Mid-way through a page change's scroll: hold still until it lands.
+      if (pendingY !== null) {
+        if (Math.abs(window.scrollY - pendingY) > 2) return;
+        expectScrollTo(null);
+      }
       const mode = root.dataset.mode;
+      if (mode === 'hero') placeHero();
       const hero = heroActive();
       if (hero && mode !== 'hero') setMode('hero');
       else if (!hero && mode === 'hero') setMode(wantedMode());
@@ -195,13 +243,15 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     if (!item) return null;
     const card = el('a', 'ta-card');
     card.href = item.url;
+    // Same order as the site's project cards: what it is, then the result.
     card.append(el('span', 'ta-card-tag', item.tag));
+    card.append(el('span', 'ta-card-title', item.title));
     if (item.metric) {
       card.append(el('span', 'ta-card-metric', item.metric));
       if (item.metricLabel) card.append(el('span', 'ta-card-label', item.metricLabel));
+    } else {
+      card.append(el('span', 'ta-card-label', item.teaser));
     }
-    card.append(el('span', 'ta-card-title', item.title));
-    if (!item.metric) card.append(el('span', 'ta-card-label', item.teaser));
     card.append(el('span', 'ta-card-open', 'Open the case study →'));
     return card;
   }
@@ -217,13 +267,32 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     return link;
   }
 
+  // Each page starts the log fresh: earlier messages wait behind a button, so
+  // a visitor who has moved around isn't reading old context first.
+  let showEarlier = false;
+
   function renderLog() {
     log.replaceChildren();
+    const earlier = Math.min(state.pageStart, state.messages.length);
+    if (earlier > 0) {
+      const toggle = el('button', 'ta-earlier', showEarlier ? 'Hide earlier messages' : `Show earlier messages (${earlier})`);
+      toggle.type = 'button';
+      toggle.setAttribute('aria-expanded', String(showEarlier));
+      toggle.addEventListener('click', () => {
+        showEarlier = !showEarlier;
+        renderLog();
+        if (showEarlier) log.scrollTop = 0;
+        log.querySelector<HTMLButtonElement>('.ta-earlier')?.focus();
+      });
+      log.append(toggle);
+    }
     // A card shows in full only while it's TA's latest message and isn't the
     // page on screen. Older ones shrink to a link, so the chat doesn't keep
     // pointing at a case study the visitor has moved past.
     const newest = state.messages.length - 1;
     state.messages.forEach((m, i) => {
+      if (i < earlier && !showEarlier) return;
+      if (i === earlier && earlier > 0 && showEarlier) log.append(el('p', 'ta-divider', 'On this page'));
       const bubble = el('div', `ta-msg ta-msg--${m.from}`);
       bubble.append(el('p', '', m.text));
       if (m.card) {
@@ -428,6 +497,7 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     state.lastPath = path;
 
     if (state.messages.length === 0) {
+      state.pageStart = 0;
       if (page.kind === 'case') say(`Hi! I'm TA, Taylor's teaching assistant. You're reading “${page.caseTitle}.” Ask me anything about it, or I can jump you to a section.`);
       else if (page.kind === 'resume') say("Hi! I'm TA, Taylor's teaching assistant. You're on Taylor's resume. Want the story behind a result? The case studies have the details.");
       else if (page.kind === 'home') say("Hi! I'm TA, Taylor's teaching assistant. What are you hiring for? I'll start you with the right case study.");
@@ -436,8 +506,14 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     }
 
     // A new page mid-conversation: say where they are, so TA's last line
-    // always matches the buttons below it.
-    say(...bridgeLine());
+    // always matches the buttons below it. Older "where you are" lines go,
+    // so they don't pile up as the visitor moves around.
+    state.messages = state.messages.filter((m) => !m.bridge);
+    state.pageStart = state.messages.length;
+    const [text, card] = bridgeLine();
+    state.messages.push({ from: 'ta', text, card, bridge: true });
+    save();
+    renderLog();
   }
 
   function bridgeLine(): [string, string?] {
@@ -468,10 +544,10 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     // { message, history, preset: state.preset, track: state.track,
     //   context: { slug: page.caseSlug, section: root.dataset.section } }.
     const subject = page.caseTitle ? `Question about ${page.caseTitle}` : 'Question from your portfolio';
-    state.messages.push({ from: 'ta', text: "Good question. I'm still learning to answer those on my own. Want to send it straight to Taylor?" });
+    state.messages.push({ from: 'ta', text: "I'll pass this to Taylor. Tap the button to send it from your email." });
     save();
     renderLog();
-    renderChips([{ label: 'Email Taylor this question', primary: true, href: emailHref(subject, question) }, ...(page.kind === 'case' ? sectionChips() : spotlightChips()).slice(0, 2)]);
+    renderChips([{ label: 'Email it to Taylor', primary: true, href: emailHref(subject, question) }, ...(page.kind === 'case' ? sectionChips() : spotlightChips()).slice(0, 2)]);
   });
 
   launcher.addEventListener('click', () => {
@@ -497,6 +573,7 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
   async function onPage() {
     page = readPage();
     root.dataset.page = page.kind;
+    showEarlier = false;
     contextLine.hidden = page.kind !== 'resume';
     if (page.kind === 'resume') contextLine.textContent = 'Reading: Resume';
     setMode(wantedMode(), { animate: false });
@@ -509,11 +586,17 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
   // Before the new page is drawn, so TA's move animates with the transition.
   document.addEventListener('astro:after-swap', () => {
     page = readPage();
+    expectScrollTo(destinationY());
     applyMode(wantedMode());
   });
   document.addEventListener('astro:page-load', onPage);
   root.dataset.ready = '';
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
+  window.addEventListener('resize', () => {
+    if (root.dataset.mode === 'hero') placeHero();
+    onScroll();
+  });
+  // The headline's height changes once the web font arrives.
+  document.fonts?.ready.then(() => { if (root.dataset.mode === 'hero') placeHero(); });
   wide.addEventListener('change', () => setMode(wantedMode(), { animate: false }));
 </script>

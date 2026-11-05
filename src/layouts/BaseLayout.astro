@@ -15,6 +15,9 @@ interface Props {
 
 const { title, description = 'Portfolio of Taylor Trujillo — Product education, curriculum design, and knowledge systems.', taHero = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
+// Link previews (LinkedIn, Slack, email) need absolute URLs.
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const shareImage = new URL(`${base}og-image.png`, Astro.site);
 ---
 <!doctype html>
 <html lang="en" class:list={[{ 'ta-is-hero': taHero }]}>
@@ -29,7 +32,21 @@ const base = import.meta.env.BASE_URL;
       href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;600&family=Pixelify+Sans:wght@600&display=swap"
       rel="stylesheet"
     />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Taylor Trujillo" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={shareImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Taylor Trujillo: Teacher turned content designer, still teaching." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href={`${base}favicon.ico`} sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
+    <meta name="theme-color" content="#0f2a2e" />
     <ClientRouter />
     {GOATCOUNTER_CODE && (
       // no_onload: page transitions skip reloads, so the script below counts each page.
@@ -41,7 +58,7 @@ const base = import.meta.env.BASE_URL;
         data-goatcounter-settings='{"no_onload": true}'
       ></script>
     )}
-    <noscript><style>html.ta-is-hero .ta-stage-headline { opacity: 1; }</style></noscript>
+    <noscript><style>.fade-in { opacity: 1; transform: none; }</style></noscript>
   </head>
   <body>
     <Header />
@@ -55,34 +72,29 @@ const base = import.meta.env.BASE_URL;
       document.addEventListener('astro:page-load', countPage);
     </script>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.12 }
-        );
-        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
-      });
-
+      // Fade blocks in as their top edge comes on screen. This triggers on
+      // position, not on how much of a block shows, so a tall block can't get
+      // stuck invisible on a short screen. page-load also fires on first load.
+      let fadeObserver: IntersectionObserver | null = null;
       document.addEventListener('astro:page-load', () => {
-        const observer = new IntersectionObserver(
+        fadeObserver?.disconnect();
+        const blocks = document.querySelectorAll('.fade-in:not(.visible)');
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          blocks.forEach((el) => el.classList.add('visible'));
+          return;
+        }
+        fadeObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+                fadeObserver?.unobserve(entry.target);
               }
             });
           },
-          { threshold: 0.12 }
+          { threshold: 0, rootMargin: '0px 0px -8% 0px' }
         );
-        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+        blocks.forEach((el) => fadeObserver!.observe(el));
       });
     </script>
   </body>
