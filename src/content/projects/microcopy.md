@@ -7,6 +7,8 @@ platform: "Classy Studio"
 timeline: "2023"
 order: 9
 featured: false
+cardTitle: "Microcopy"
+teaser: "Product copy revisions for accessibility, clarity, and style guide alignment on Classy Studio."
 tracks: ["content"]
 skills: ["ux-writing", "accessibility", "style-guides"]
 ---

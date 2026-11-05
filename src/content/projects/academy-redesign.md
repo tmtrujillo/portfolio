@@ -7,6 +7,8 @@ platform: "Skilljar, Wistia, Figma"
 timeline: "2026"
 order: 5
 featured: true
+cardTitle: "An Academy people finish"
+teaser: "Short courses finish ~2x as often; task videos hold viewers for half or more of their runtime."
 tracks: ["enablement", "content"]
 skills: ["curriculum", "lms", "video", "information-architecture", "measurement"]
 results:

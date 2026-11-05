@@ -1,0 +1,29 @@
+---
+// TA, Taylor's teaching assistant. For now this is the no-JavaScript version:
+// a greeting and track links that work everywhere. The live chat (scripted
+// chips plus the AI layer) will enhance this panel in place.
+const base = import.meta.env.BASE_URL;
+
+const tracks = [
+  { label: 'Learning & enablement', href: `${base}for/enablement/`, primary: true },
+  { label: 'Content strategy', href: `${base}for/content/` },
+  { label: 'AI enablement', href: `${base}for/ai/` },
+];
+---
+<aside class="ta-panel" aria-label="TA, Taylor's teaching assistant">
+  <div class="ta-panel-bar">
+    <span class="ta-name">TA</span>
+    <span class="ta-role">Taylor's teaching assistant</span>
+  </div>
+  <div class="ta-panel-body">
+    <!-- Replace with the TA sprite when the pixel art is ready. -->
+    <div class="ta-sprite" aria-hidden="true"><span>TA</span></div>
+    <p class="ta-greeting">Hi! I'm TA. What are you hiring for? I'll pull the right files.</p>
+  </div>
+  <nav class="ta-chips" aria-label="Choose a hiring track">
+    {tracks.map((t) => (
+      <a href={t.href} class:list={['ta-chip', { 'ta-chip--primary': t.primary }]}>{t.label}</a>
+    ))}
+  </nav>
+  <a class="ta-all" href="#featured-projects">Or browse everything <span aria-hidden="true">↓</span></a>
+</aside>

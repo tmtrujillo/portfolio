@@ -7,6 +7,8 @@ platform: "Help Center, developer portal"
 timeline: "Second half of 2025"
 order: 7
 featured: false
+cardTitle: "Developer documentation"
+teaser: "Webhooks guide, API docs, and payments docs for GoFundMe Pay, which runs on Stripe."
 tracks: ["enablement", "content"]
 skills: ["api", "documentation"]
 links:

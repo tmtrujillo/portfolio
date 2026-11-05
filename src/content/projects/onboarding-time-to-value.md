@@ -7,6 +7,8 @@ platform: "Skilljar, Wistia, Appcues"
 timeline: "2024"
 order: 3
 featured: true
+cardTitle: "Scaled onboarding"
+teaser: "New orgs reaching our success milestone rose from ~40% to 75%."
 tracks: ["enablement"]
 skills: ["onboarding", "curriculum", "video", "lms", "in-app", "measurement"]
 results:

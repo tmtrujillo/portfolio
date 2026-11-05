@@ -7,6 +7,8 @@ platform: "Claude, Skilljar, Appcues, Figma, Google Drive"
 timeline: "2026"
 order: 6
 featured: true
+cardTitle: "AI content pipelines"
+teaser: "Course turnaround from 6+ weeks to 3 or fewer, with human approval at every step."
 tracks: ["ai", "enablement", "content"]
 skills: ["ai", "content-engineering", "quality-assurance", "style-guides", "curriculum"]
 results:

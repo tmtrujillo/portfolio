@@ -7,6 +7,8 @@ platform: "Appcues, Campaign Studio, Postman"
 timeline: "2025"
 order: 2
 featured: true
+cardTitle: "Campaign templates pilot"
+teaser: "A hands-on pilot with ~200 orgs cut time to an active campaign by 50%+ and got templates built."
 tracks: ["enablement", "ai"]
 skills: ["pilots", "adoption", "onboarding", "cross-functional", "measurement"]
 results:

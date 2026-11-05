@@ -25,6 +25,9 @@ const projects = defineCollection({
     timeline: z.string(),
     order: z.number(),
     featured: z.boolean(),
+    // Short name and one-line teaser for cards (home page, /for/ pages, TA).
+    cardTitle: z.string().optional(),
+    teaser: z.string().optional(),
     tracks: z.array(z.enum(TRACKS)).min(1),
     skills: z.array(z.enum(SKILLS)).default([]),
     results: z

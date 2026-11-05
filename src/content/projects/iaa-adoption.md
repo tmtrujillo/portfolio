@@ -7,6 +7,8 @@ platform: "Appcues, Skilljar, Wistia"
 timeline: "2024"
 order: 4
 featured: true
+cardTitle: "Intelligent Ask Amounts adoption"
+teaser: "From ~20% to 75%+ of eligible campaigns in one year."
 tracks: ["enablement", "content"]
 skills: ["adoption", "in-app", "measurement", "cross-functional"]
 results:

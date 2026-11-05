@@ -7,6 +7,8 @@ platform: "Appcues, Skilljar, Wistia"
 timeline: "First half of 2025"
 order: 1
 featured: true
+cardTitle: "Embedded form activation"
+teaser: "~2x more orgs started taking donations after in-app, video, and Academy install guidance."
 tracks: ["enablement", "content"]
 skills: ["in-app", "video", "lms", "adoption", "documentation", "measurement"]
 results:

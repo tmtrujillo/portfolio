@@ -7,6 +7,8 @@ platform: "MkDocs, GitHub, Markdown"
 timeline: "2023"
 order: 10
 featured: false
+cardTitle: "Docs-as-code help center"
+teaser: "Docs-as-code help center for beta features, adopted across the entire release process."
 tracks: ["content", "ai"]
 skills: ["docs-as-code", "documentation", "help-center", "content-engineering"]
 ---

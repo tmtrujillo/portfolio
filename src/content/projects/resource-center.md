@@ -7,6 +7,8 @@ platform: "Appcues, Figma"
 timeline: "2023"
 order: 8
 featured: false
+cardTitle: "In-app resource center"
+teaser: "Reporting-related support cases fell 45% YoY after launch; 1,000+ admins a month used it."
 tracks: ["content", "enablement"]
 skills: ["in-app", "help-center", "information-architecture", "support-deflection", "ux-writing"]
 ---

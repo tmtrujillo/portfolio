@@ -2,22 +2,30 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ApproachItem from '../components/ApproachItem.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import TAPanel from '../components/TAPanel.astro';
 import { icons } from '../components/icons';
+import { cardProps, getProjects } from '../lib/projects';
 
 const base = import.meta.env.BASE_URL;
-
+const projects = await getProjects();
+const featured = projects.filter((p) => p.data.featured);
+const foundation = projects.filter((p) => !p.data.featured);
+const stagger = (i: number) => `fade-in stagger-${(i % 3) + 1}`;
 ---
 <BaseLayout title="Taylor Trujillo — Product Education & Curriculum Design">
-  <section class="hero">
-    <div class="container">
+  <section class="hero hero--with-ta">
+    <div class="container hero-grid">
       <div class="hero-content fade-in">
         <span class="hero-label">Product Education · Curriculum Design</span>
-        <h1>Taylor Trujillo</h1>
+        <h1>Teacher turned content designer, <span class="hl">still teaching.</span></h1>
         <p class="tagline">
           I design the content and knowledge systems that help customers learn and succeed
           with complex products — from Academy courses and video tutorials to AI-assisted
           content pipelines that scale education without scaling headcount.
         </p>
+      </div>
+      <div class="fade-in stagger-2">
+        <TAPanel />
       </div>
     </div>
   </section>
@@ -54,54 +62,11 @@ const base = import.meta.env.BASE_URL;
         <h2 class="section-title">Selected outcomes</h2>
       </div>
       <div class="projects-grid">
-        <div class="fade-in stagger-1">
-          <ProjectCard
-            icon={icons.code}
-            title="Embedded form activation"
-            description="~2x more orgs started taking donations after in-app, video, and Academy install guidance."
-            href={`${base}projects/embedded-studio-activation/`}
-          />
-        </div>
-        <div class="fade-in stagger-2">
-          <ProjectCard
-            icon={icons.zap}
-            title="Campaign templates pilot"
-            description="A hands-on pilot with ~200 orgs cut time to an active campaign by 50%+ and got templates built."
-            href={`${base}projects/campaign-templates-pilot/`}
-          />
-        </div>
-        <div class="fade-in stagger-3">
-          <ProjectCard
-            icon={icons.flag}
-            title="Scaled onboarding"
-            description="New orgs reaching our success milestone rose from ~40% to 75%."
-            href={`${base}projects/onboarding-time-to-value/`}
-          />
-        </div>
-        <div class="fade-in stagger-1">
-          <ProjectCard
-            icon={icons.trendingUp}
-            title="Intelligent Ask Amounts adoption"
-            description="From ~20% to 75%+ of eligible campaigns in one year."
-            href={`${base}projects/iaa-adoption/`}
-          />
-        </div>
-        <div class="fade-in stagger-2">
-          <ProjectCard
-            icon={icons.layout}
-            title="An Academy people finish"
-            description="Short courses finish ~2x as often; task videos hold viewers for half or more of their runtime."
-            href={`${base}projects/academy-redesign/`}
-          />
-        </div>
-        <div class="fade-in stagger-3">
-          <ProjectCard
-            icon={icons.cpu}
-            title="AI content pipelines"
-            description="Course turnaround from 6+ weeks to 3 or fewer, with human approval at every step."
-            href={`${base}projects/ai-content-pipelines/`}
-          />
-        </div>
+        {featured.map((p, i) => (
+          <div class={stagger(i)}>
+            <ProjectCard {...cardProps(p, base)} />
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -112,39 +77,13 @@ const base = import.meta.env.BASE_URL;
         <span class="section-label">Earlier Work</span>
         <h2 class="section-title">Foundation projects</h2>
       </div>
-      <div class="projects-grid projects-grid--pairs">
-        <div class="fade-in stagger-1">
-          <ProjectCard
-            icon={icons.code}
-            title="Developer documentation"
-            description="Webhooks guide, API docs, and payments docs for GoFundMe Pay, which runs on Stripe."
-            href={`${base}projects/developer-docs/`}
-          />
-        </div>
-        <div class="fade-in stagger-2">
-          <ProjectCard
-            icon={icons.messageCircle}
-            title="In-app education"
-            description="Centralized in-app resource center. Reporting-related support cases fell 45% YoY after launch; 1,000+ admins a month used it."
-            href={`${base}projects/resource-center/`}
-          />
-        </div>
-        <div class="fade-in stagger-3">
-          <ProjectCard
-            icon={icons.penTool}
-            title="Microcopy"
-            description="Product copy revisions for accessibility, clarity, and style guide alignment on Classy Studio."
-            href={`${base}projects/microcopy/`}
-          />
-        </div>
-        <div class="fade-in stagger-3">
-          <ProjectCard
-            icon={icons.fileText}
-            title="Documentation"
-            description="Docs-as-code help center for beta features, adopted across the entire release process."
-            href={`${base}projects/early-access-help-center/`}
-          />
-        </div>
+      <div class="tile-grid">
+        {foundation.map((p, i) => (
+          <a class={`project-tile ${stagger(i)}`} href={`${base}projects/${p.id}/`}>
+            <span class="project-tile-title">{p.data.cardTitle ?? p.data.title}</span>
+            <span class="project-tile-text">{p.data.teaser ?? p.data.summary}</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
