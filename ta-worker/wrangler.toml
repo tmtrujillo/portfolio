@@ -5,8 +5,8 @@ main = "src/index.js"
 compatibility_date = "2026-11-01"
 
 [vars]
-SITE_URL = "https://tmtrujillo.github.io/portfolio/"
-ALLOWED_ORIGINS = "https://tmtrujillo.github.io,http://localhost:4321"
+SITE_URL = "https://taylortrujillo.me/"
+ALLOWED_ORIGINS = "https://taylortrujillo.me,https://www.taylortrujillo.me,http://localhost:4321"
 # Kill switch: set to "false" and redeploy to turn the AI off. TA then uses
 # scripted answers only.
 LLM_ENABLED = "true"

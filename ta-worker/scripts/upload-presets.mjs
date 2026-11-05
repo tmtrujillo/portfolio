@@ -54,4 +54,4 @@ execFileSync('npx', ['wrangler', 'kv', 'bulk', 'put', out, '--binding', 'PRESETS
   cwd: root,
   stdio: 'inherit',
 });
-console.log('Uploaded. Test a link: https://tmtrujillo.github.io/portfolio/?for=<key>');
+console.log('Uploaded. Test a link: https://taylortrujillo.me/?for=<key>');

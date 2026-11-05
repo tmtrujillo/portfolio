@@ -29,7 +29,7 @@ links:
 ---
 
 <figure class="case-figure">
-  <img src="/portfolio/images/onboarding-time-to-value/onboarding-paths.svg" alt="Getting Started path with two routes, new account or joining a team, leading to payments, first campaign, and first donations">
+  <img src="/images/onboarding-time-to-value/onboarding-paths.svg" alt="Getting Started path with two routes, new account or joining a team, leading to payments, first campaign, and first donations">
   <figcaption>New admins and invited teammates start in different places, so the path splits early and rejoins at payments.</figcaption>
 </figure>
 
@@ -56,19 +56,19 @@ New nonprofits had to set up payments, build a first campaign, and invite their 
 The milestone reflects the whole onboarding experience, not education alone. The program was one driver among several.
 
 <figure class="case-figure">
-  <img src="/portfolio/images/onboarding-time-to-value/onboarding-milestone.svg" alt="Bar chart: about 40% of new orgs reached the success milestone before the program, 75% after">
+  <img src="/images/onboarding-time-to-value/onboarding-milestone.svg" alt="Bar chart: about 40% of new orgs reached the success milestone before the program, 75% after">
   <figcaption>Nearly double the share of new organizations now reach the milestone, with education as one driver among several.</figcaption>
 </figure>
 
 <small>*Success milestone: 50 transactions within an organization's first 90 days.</small>
 
 <figure class="case-figure">
-  <img src="/portfolio/images/onboarding-time-to-value/onboarding-timeline.svg" alt="Timeline of onboarding touchpoints from day 0 to the day 90 success milestone">
+  <img src="/images/onboarding-time-to-value/onboarding-timeline.svg" alt="Timeline of onboarding touchpoints from day 0 to the day 90 success milestone">
   <figcaption>Each touchpoint is timed to the next setup task, so help arrives when an admin needs it.</figcaption>
 </figure>
 
 <figure class="case-figure">
-  <img src="/portfolio/images/onboarding-time-to-value/payment-setup-still.webp" alt="Payment setup video showing what to gather first: organization details, representative information, and bank account details">
+  <img src="/images/onboarding-time-to-value/payment-setup-still.webp" alt="Payment setup video showing what to gather first: organization details, representative information, and bank account details">
   <figcaption>The video opens with what to gather, so admins don't stall partway through setup.</figcaption>
 </figure>
 

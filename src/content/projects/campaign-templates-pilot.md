@@ -26,7 +26,7 @@ links:
 ---
 
 <figure class="case-figure">
-  <img src="/portfolio/images/campaign-templates-pilot/templates-pilot-flow.svg" alt="Pilot flow: in-app guide, request page, template added by hand, results to Product, built into Studio">
+  <img src="/images/campaign-templates-pilot/templates-pilot-flow.svg" alt="Pilot flow: in-app guide, request page, template added by hand, results to Product, built into Studio">
   <figcaption>Everything before Product built it was done by hand, so the pilot cost no engineering time.</figcaption>
 </figure>
 
@@ -56,12 +56,12 @@ Templates could help — but they didn't exist in the product yet, and the team 
 Admins opted into the pilot, and the later comparison wasn't randomized either. The direction was consistent across both stages.
 
 <figure class="case-figure">
-  <img src="/portfolio/images/campaign-templates-pilot/templates-days.svg" alt="Bar chart: about 17 days to first donations without the guided flow, about 8 days with it">
+  <img src="/images/campaign-templates-pilot/templates-days.svg" alt="Bar chart: about 17 days to first donations without the guided flow, about 8 days with it">
   <figcaption>Once the guided flow shipped, campaigns reached their first meaningful donations in about half the time.</figcaption>
 </figure>
 
 <figure class="case-figure">
-  <img src="/portfolio/images/campaign-templates-pilot/template-picker.webp" alt="Studio template picker showing need-based templates, including GivingTuesday, End of Year Giving, Sponsor Matching, General Giving, Monthly Giving, and Program Catalog">
+  <img src="/images/campaign-templates-pilot/template-picker.webp" alt="Studio template picker showing need-based templates, including GivingTuesday, End of Year Giving, Sponsor Matching, General Giving, Monthly Giving, and Program Catalog">
   <figcaption>The template picker that shipped in Studio, built on what the pilot proved.</figcaption>
 </figure>
 

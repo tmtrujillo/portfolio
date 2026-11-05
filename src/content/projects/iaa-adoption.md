@@ -23,7 +23,7 @@ links:
 ---
 
 <figure class="case-figure">
-  <img src="/portfolio/images/iaa-adoption/iaa-adoption.svg" alt="Bar chart: about 20% of eligible campaigns used Intelligent Ask Amounts at the start, over 75% a year later">
+  <img src="/images/iaa-adoption/iaa-adoption.svg" alt="Bar chart: about 20% of eligible campaigns used Intelligent Ask Amounts at the start, over 75% a year later">
   <figcaption>Adoption roughly quadrupled over a year of education, in-app nudges, and making IAA the default.</figcaption>
 </figure>
 

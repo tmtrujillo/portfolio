@@ -35,7 +35,7 @@ The small server between TA (Taylor's teaching assistant) and the AI model. It k
    - `npx wrangler kv namespace create PRESETS`
    - `npx wrangler d1 create ta-log`
    - `npx wrangler d1 execute ta-log --remote --file=schema.sql`
-4. Create a Turnstile widget in the Cloudflare dashboard for `tmtrujillo.github.io` (and `localhost`). Keep the site key for the site and the secret for step 5.
+4. Create a Turnstile widget in the Cloudflare dashboard for `taylortrujillo.me` (and `localhost`). Keep the site key for the site and the secret for step 5.
 5. Set secrets:
    - `npx wrangler secret put SESSION_SECRET` (any long random string)
    - `npx wrangler secret put TURNSTILE_SECRET`

@@ -4,7 +4,7 @@
 import { readFileSync } from 'node:fs';
 
 const TA_URL = process.env.TA_URL ?? 'http://localhost:8787';
-const ORIGIN = process.env.ORIGIN ?? 'https://tmtrujillo.github.io';
+const ORIGIN = process.env.ORIGIN ?? 'https://taylortrujillo.me';
 const { cases } = JSON.parse(readFileSync(new URL('./redteam.json', import.meta.url), 'utf8'));
 
 const sessionRes = await fetch(`${TA_URL}/session`, {

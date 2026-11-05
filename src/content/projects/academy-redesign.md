@@ -32,7 +32,7 @@ links:
 ---
 
 <figure class="case-figure">
-  <img src="/portfolio/images/academy-redesign/academy-home.webp" alt="Academy home page showing courses grouped by customer task: giving season, get started, donation forms, marketing, integrations, peer-to-peer, and events">
+  <img src="/images/academy-redesign/academy-home.webp" alt="Academy home page showing courses grouped by customer task: giving season, get started, donation forms, marketing, integrations, peer-to-peer, and events">
   <figcaption>Admins start from the job they need to do, not the product they'd have to know to look under.</figcaption>
 </figure>
 
@@ -79,18 +79,18 @@ The Academy was organized by internal product area, so nonprofits had to know wh
 My newest how-to, on saved templates and linked campaigns, shows the process. The presenter's script ran about seven minutes. Instead of asking her to re-record, I built a paper edit from lines she had already recorded, planned 29 screen shots across three sessions, and cut it to 3:40.
 
 <figure class="case-figure">
-  <img src="/portfolio/images/academy-redesign/video-process.svg" alt="Process strip: a 7-minute script, proposed trims, a paper edit with no re-record, a 29-shot list, and a 3:40 final cut">
+  <img src="/images/academy-redesign/video-process.svg" alt="Process strip: a 7-minute script, proposed trims, a paper edit with no re-record, a 29-shot list, and a 3:40 final cut">
   <figcaption>A paper edit built from lines already recorded avoided a re-shoot and cut the runtime about in half.</figcaption>
 </figure>
 
 <figure class="case-figure">
-  <video src="/portfolio/videos/academy-redesign/saved-templates-hook.mp4" poster="/portfolio/videos/academy-redesign/poster-hook.webp" autoplay muted loop playsinline aria-label="Opening of the saved templates video: the presenter introduces saved templates, a change is made to the template, and it syncs to every linked campaign"></video>
+  <video src="/videos/academy-redesign/saved-templates-hook.mp4" poster="/videos/academy-redesign/poster-hook.webp" autoplay muted loop playsinline aria-label="Opening of the saved templates video: the presenter introduces saved templates, a change is made to the template, and it syncs to every linked campaign"></video>
   <figcaption>The first 15 seconds of the finished 3:40 how-to. <a href="https://classy.wistia.com/s/s0y74y53iuc6mck" target="_blank" rel="noopener">Watch the full video</a>.</figcaption>
 </figure>
 
 <!-- Screen-only alternative (no presenter on camera): swap the src and poster above for
-/portfolio/videos/academy-redesign/saved-templates-screen-only.mp4 and
-/portfolio/videos/academy-redesign/poster-screen.webp -->
+/videos/academy-redesign/saved-templates-screen-only.mp4 and
+/videos/academy-redesign/poster-screen.webp -->
 
 ## Results
 
@@ -103,12 +103,12 @@ My newest how-to, on saved templates and linked campaigns, shows the process. Th
 | Twelve open-access courses drew about 12K views but almost no enrollments | Our old metric was hiding real use |
 
 <figure class="case-figure">
-  <img src="/portfolio/images/academy-redesign/academy-completion-by-length.svg" alt="Bar chart: completion by course length, highest for 2 to 3 lesson courses at about 56%">
+  <img src="/images/academy-redesign/academy-completion-by-length.svg" alt="Bar chart: completion by course length, highest for 2 to 3 lesson courses at about 56%">
   <figcaption>Completion drops as courses get longer, which is why new courses are cut to the size of the task.</figcaption>
 </figure>
 
 <figure class="case-figure">
-  <img src="/portfolio/images/academy-redesign/academy-video-watch.svg" alt="Typical share watched by video type: task how-tos 50 to 80%, feature announcements 25 to 35%, webinar recordings 10 to 15%">
+  <img src="/images/academy-redesign/academy-video-watch.svg" alt="Typical share watched by video type: task how-tos 50 to 80%, feature announcements 25 to 35%, webinar recordings 10 to 15%">
   <figcaption>Task how-tos hold viewers best; feature announcements have the most room to grow.</figcaption>
 </figure>
 

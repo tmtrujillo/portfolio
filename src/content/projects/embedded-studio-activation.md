@@ -29,7 +29,7 @@ links:
 ---
 
 <figure class="case-figure">
-  <img src="/portfolio/images/embedded-studio-activation/embedded-activation.svg" alt="Bar chart: about 49% of orgs that used a guide started taking donations, versus about 22% of orgs that did not">
+  <img src="/images/embedded-studio-activation/embedded-activation.svg" alt="Bar chart: about 49% of orgs that used a guide started taking donations, versus about 22% of orgs that did not">
   <figcaption>The comparison is on first donations, not clicks, so it shows whether the guidance did its job.</figcaption>
 </figure>
 
@@ -52,12 +52,12 @@ The drop-off came after publishing. To install the form, admins had to edit code
 - **Measured activation, not clicks.** I compared organizations that used a guide with those that didn't, on the outcome that mattered: their first donation.
 
 <figure class="case-figure">
-  <img src="/portfolio/images/embedded-studio-activation/embedded-flow.svg" alt="Flow from create to publish to install to first donation, with install guidance appearing at the install step">
+  <img src="/images/embedded-studio-activation/embedded-flow.svg" alt="Flow from create to publish to install to first donation, with install guidance appearing at the install step">
   <figcaption>Guidance appears right after publishing, the step where admins were stalling.</figcaption>
 </figure>
 
 <figure class="case-figure">
-  <img class="figure-natural" src="/portfolio/images/embedded-studio-activation/install-launcher.webp" alt="Install page launcher asking which website builder the admin uses, with WordPress, Squarespace, and Wix options">
+  <img class="figure-natural" src="/images/embedded-studio-activation/install-launcher.webp" alt="Install page launcher asking which website builder the admin uses, with WordPress, Squarespace, and Wix options">
   <figcaption>Admins pick their builder and get the matching walkthrough, cut from the same footage as the videos and Academy lesson.</figcaption>
 </figure>
 
