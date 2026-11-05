@@ -62,6 +62,8 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
 </div>
 
 <script>
+  import { countEvent } from '../lib/analytics';
+
   type CatalogItem = {
     slug: string; url: string; title: string; tag: string; track: string;
     metric: string | null; metricLabel: string | null; teaser: string;
@@ -73,7 +75,7 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     preset: string | null;
     presetDone: boolean;
     spotlight: string | null;
-    lastCase: string | null;
+    lastPath: string | null; // the page TA last spoke on
     collapsed: boolean | null; // the visitor's own choice, if they made one
   };
   type Chip = { label: string; primary?: boolean; href?: string; run?: () => void };
@@ -95,7 +97,7 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
 
   // ---- State -------------------------------------------------------------
   function load(): State {
-    const blank: State = { messages: [], track: null, preset: null, presetDone: false, spotlight: null, lastCase: null, collapsed: null };
+    const blank: State = { messages: [], track: null, preset: null, presetDone: false, spotlight: null, lastPath: null, collapsed: null };
     try {
       return { ...blank, ...JSON.parse(sessionStorage.getItem(STORE_KEY) ?? '{}') };
     } catch {
@@ -113,7 +115,7 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
 
   // ---- Page context ------------------------------------------------------
   type Page = {
-    kind: 'home' | 'case' | 'track' | 'other';
+    kind: 'home' | 'case' | 'track' | 'resume' | 'other';
     caseSlug?: string; caseTitle?: string; caseTrack?: string; trackKey?: string;
   };
   let page: Page = { kind: 'other' };
@@ -129,6 +131,7 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     if (document.querySelector('.ta-stage')) return { kind: 'home' };
     const trackPage = document.querySelector<HTMLElement>('[data-track-page]');
     if (trackPage) return { kind: 'track', trackKey: trackPage.dataset.trackPage };
+    if (document.querySelector('[data-ta-page="resume"]')) return { kind: 'resume' };
     return { kind: 'other' };
   }
 
@@ -161,7 +164,8 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     if (root.dataset.mode === mode) return;
     const apply = () => applyMode(mode);
     const canAnimate = animate && !reducedMotion.matches && 'startViewTransition' in document;
-    if (canAnimate) (document as any).startViewTransition(apply);
+    // A skipped animation (e.g. the visitor clicked away mid-move) is fine.
+    if (canAnimate) (document as any).startViewTransition(apply).ready.catch(() => {});
     else apply();
   }
 
@@ -202,17 +206,33 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     return card;
   }
 
+  // A one-line link, for cards that are no longer the newest suggestion.
+  function renderMiniCard(slug: string) {
+    const item = bySlug.get(slug);
+    if (!item) return null;
+    const reading = page.caseSlug === slug;
+    const link = el('a', 'ta-card-mini', reading ? `${item.title} (you're here)` : `${item.title} →`);
+    link.href = item.url;
+    if (reading) link.setAttribute('aria-current', 'page');
+    return link;
+  }
+
   function renderLog() {
     log.replaceChildren();
-    for (const m of state.messages) {
+    // A card shows in full only while it's TA's latest message and isn't the
+    // page on screen. Older ones shrink to a link, so the chat doesn't keep
+    // pointing at a case study the visitor has moved past.
+    const newest = state.messages.length - 1;
+    state.messages.forEach((m, i) => {
       const bubble = el('div', `ta-msg ta-msg--${m.from}`);
       bubble.append(el('p', '', m.text));
       if (m.card) {
-        const card = renderCard(m.card);
+        const full = i === newest && m.card !== page.caseSlug;
+        const card = full ? renderCard(m.card) : renderMiniCard(m.card);
         if (card) bubble.append(card);
       }
       log.append(bubble);
-    }
+    });
     log.scrollTop = log.scrollHeight;
   }
 
@@ -233,8 +253,10 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     for (const chip of chips) {
       const node = chip.href ? el('a', 'ta-chip', chip.label) : el('button', 'ta-chip', chip.label);
       if (chip.primary) node.classList.add('ta-chip--primary');
-      if (chip.href) (node as HTMLAnchorElement).href = chip.href;
-      else {
+      if (chip.href) {
+        (node as HTMLAnchorElement).href = chip.href;
+        if (chip.href.startsWith('mailto:')) node.addEventListener('click', () => countEvent('ta-email', `TA: email button (${chip.label})`));
+      } else {
         (node as HTMLButtonElement).type = 'button';
         node.addEventListener('click', () => chip.run?.());
       }
@@ -249,6 +271,7 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
 
   function pickTrack(key: string) {
     const track = config.tracks[key];
+    countEvent(`ta-track-${key}`, `TA: picked ${track.label}`);
     state.track = key;
     state.spotlight = track.spotlight;
     heard(track.label);
@@ -323,6 +346,14 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
         { label: 'All work', href: `${config.base}#featured-projects` },
       ]);
     }
+    if (page.kind === 'resume') {
+      const spot = state.spotlight ? bySlug.get(state.spotlight) : null;
+      return renderChips([
+        ...(spot ? [{ label: `My top pick: ${spot.title}`, primary: true, href: spot.url }] : []),
+        { label: 'See the case studies', primary: !spot, href: `${config.base}#featured-projects` },
+        { label: 'Email Taylor', href: emailHref('From your resume', '') },
+      ]);
+    }
     if (state.spotlight || state.messages.some((m) => m.from === 'you')) return renderChips(spotlightChips());
     return renderChips(trackChips());
   }
@@ -385,25 +416,43 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
         state.track = preset.track;
         state.spotlight = preset.featured[0];
         state.messages = [];
+        state.lastPath = location.pathname;
         say(preset.company ? preset.greeting : "Hi! I'm TA, Taylor's teaching assistant. Here's where I'd start:", state.spotlight ?? undefined);
         return;
       }
     }
 
-    if (page.kind === 'case' && page.caseSlug && state.lastCase !== page.caseSlug) {
-      state.lastCase = page.caseSlug;
-      if (state.messages.length === 0) {
-        say(`Hi! I'm TA, Taylor's teaching assistant. You're reading “${page.caseTitle}.” Ask me anything about it, or I can jump you to a section.`);
-      } else {
-        say(`You're reading “${page.caseTitle}.” I'll follow along. Ask me anything about it.`);
-      }
+    // Same page as last time (a reload): the conversation already fits it.
+    const path = location.pathname;
+    if (state.lastPath === path && state.messages.length) return;
+    state.lastPath = path;
+
+    if (state.messages.length === 0) {
+      if (page.kind === 'case') say(`Hi! I'm TA, Taylor's teaching assistant. You're reading “${page.caseTitle}.” Ask me anything about it, or I can jump you to a section.`);
+      else if (page.kind === 'resume') say("Hi! I'm TA, Taylor's teaching assistant. You're on Taylor's resume. Want the story behind a result? The case studies have the details.");
+      else if (page.kind === 'home') say("Hi! I'm TA, Taylor's teaching assistant. What are you hiring for? I'll start you with the right case study.");
+      else say("Hi! I'm TA, Taylor's teaching assistant. Ask me about Taylor's work anytime.");
       return;
     }
 
-    if (state.messages.length === 0) {
-      if (page.kind === 'home') say("Hi! I'm TA, Taylor's teaching assistant. What are you hiring for? I'll start you with the right case study.");
-      else say("Hi! I'm TA, Taylor's teaching assistant. Ask me about Taylor's work anytime.");
+    // A new page mid-conversation: say where they are, so TA's last line
+    // always matches the buttons below it.
+    say(...bridgeLine());
+  }
+
+  function bridgeLine(): [string, string?] {
+    if (page.kind === 'case') return [`You're reading “${page.caseTitle}.” I'll follow along. Ask me anything about it.`];
+    if (page.kind === 'track' && page.trackKey) {
+      const label = trackLabel(page.trackKey);
+      return [label ? `Here's Taylor's ${label.toLowerCase()} work. My top pick is first.` : "Here's more of Taylor's work."];
     }
+    if (page.kind === 'resume') return ["You're on Taylor's resume. Want the story behind a result? The case studies have the details."];
+    if (page.kind === 'home') {
+      const label = trackLabel(state.track);
+      if (label && state.spotlight) return [`Welcome back. For ${label.toLowerCase()} roles, I'd still start here:`, state.spotlight];
+      return ["Welcome back. Ask me anything, or tell me what you're hiring for."];
+    }
+    return ["Ask me anything about Taylor's work while you're here."];
   }
 
   // ---- Questions -----------------------------------------------------------
@@ -412,6 +461,8 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
     const question = input.value.trim();
     if (!question) return input.focus();
     input.value = '';
+    // Counts that a question was asked, never what it said.
+    countEvent('ta-question', 'TA: question asked');
     heard(question);
     // AI layer plugs in here when config.endpoint is set (chat step), sending
     // { message, history, preset: state.preset, track: state.track,
@@ -424,6 +475,7 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
   });
 
   launcher.addEventListener('click', () => {
+    countEvent('ta-open', 'TA: opened from the Ask TA button');
     state.collapsed = false;
     save();
     setMode(wide.matches ? 'dock' : 'sheet');
@@ -445,7 +497,8 @@ const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, cata
   async function onPage() {
     page = readPage();
     root.dataset.page = page.kind;
-    contextLine.hidden = true;
+    contextLine.hidden = page.kind !== 'resume';
+    if (page.kind === 'resume') contextLine.textContent = 'Reading: Resume';
     setMode(wantedMode(), { animate: false });
     watchSections();
     renderLog();

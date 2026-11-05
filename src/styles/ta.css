@@ -251,6 +251,17 @@
 .ta-card-title { font-family: var(--font-heading); font-weight: 600; font-size: 1.05rem; margin-top: 0.2rem; }
 .ta-card-open { font-size: 0.85rem; font-weight: 700; color: var(--deep-teal); margin-top: 0.3rem; }
 
+.ta-card-mini {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--deep-teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.ta-card-mini[aria-current] { color: var(--ta-muted); text-decoration: none; pointer-events: none; }
+
 .ta-chips {
   display: flex;
   flex-wrap: wrap;
