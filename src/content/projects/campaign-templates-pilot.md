@@ -40,7 +40,7 @@ I led the pilot for guided campaign creation and campaign templates. I designed 
 
 Campaign Studio's flexibility is one of its strengths, but it intimidated new admins. Many created a campaign and then sat on it for days before publishing, so donations started late.
 
-Templates could help — but they didn't exist in the product yet, and the team needed evidence before building them.
+Templates could help but they didn't exist in the product yet, and the team needed evidence before building them.
 
 ## What I did
 
@@ -69,4 +69,4 @@ Admins opted into the pilot, and the later comparison wasn't randomized either. 
 
 ## What I learned
 
-A small manual pilot is the cheapest way to earn a product investment. Doing it by hand first proved both demand and value before engineering committed a single sprint.
+A small manual pilot is the cheapest way to earn a product investment. Doing it by hand first proved both demand and value before engineering committed to building it.

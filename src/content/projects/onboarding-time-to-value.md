@@ -41,7 +41,7 @@ I designed and built the scaled onboarding program on the Academy: the learner p
 
 ## The problem
 
-New nonprofits had to set up payments, build a first campaign, and invite their team before they could raise anything. One-to-one onboarding didn't scale, and self-serve help was scattered, so many organizations stalled before their first donations.
+New nonprofits had to set up payments, build a first campaign, and share their page before they could raise anything. One-to-one onboarding didn't scale, and self-serve help was scattered, so many organizations stalled before their first donations.
 
 ## What I did
 
@@ -76,4 +76,4 @@ The milestone reflects the whole onboarding experience, not education alone. The
 
 ## What I learned
 
-Onboarding content works best when every piece is tied to a milestone the business already tracks. That made it possible to decide what to build first — and to see whether it worked.
+Onboarding content works best when every piece is tied to a milestone the business already tracks. That made it possible to decide what to build first and to see whether it worked.

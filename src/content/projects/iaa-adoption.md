@@ -37,7 +37,7 @@ I led the education and in-app adoption work for Intelligent Ask Amounts (IAA) o
 
 ## The problem
 
-IAA suggests a personalized gift amount to each donor while the nonprofit keeps control of the range. It helps campaigns raise more, but adoption sat at about 20% of eligible campaigns. Admins either didn't know it existed or didn't trust an automated ask.
+IAA uses machine learning to suggest a personalized gift amount to each donor. It helps campaigns raise more, but adoption sat at about 20% of eligible campaigns. Admins either didn't know it existed or didn't trust an automated ask.
 
 ## What I did
 
@@ -49,8 +49,8 @@ IAA suggests a personalized gift amount to each donor while the nonprofit keeps 
 
 - IAA adoption grew from **about 20% to over 75% of eligible campaigns** within a year — **nearly 4x**.
 
-The default did much of the lifting — and that's the point. Advocating for the default was part of the strategy; education kept admins from switching it off.
+The default did much of the lifting and that's the point. Advocating for the default was part of the strategy; education kept admins from switching it off.
 
 ## What I learned
 
-Adoption of an automated feature depends on trust, and trust builds through repeated, well-timed explanations — not one big launch. Sometimes the most effective education is making the right choice the default.
+Adoption of an automated feature depends on trust, and trust builds through repeated, well-timed explanations. Sometimes the most effective education is making the right choice the default.

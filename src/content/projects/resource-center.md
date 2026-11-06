@@ -13,13 +13,13 @@ tracks: ["content", "enablement"]
 skills: ["in-app", "help-center", "information-architecture", "support-deflection", "ux-writing"]
 ---
 
-Aiming to enhance the educational experience for admins, we designed a comprehensive resource center intended to serve as the primary launchpad for in-app education. This project was driven by the need to consolidate scattered educational materials into a single, easily accessible location.
+Aiming to enhance the educational experience for admins, we designed a comprehensive resource center in the product intended to serve as the primary launchpad for in-app education. This project was driven by the need to consolidate scattered educational materials into a single, easily accessible location.
 
 ## Challenge
 
 Previously, our educational resources were dispersed across various platforms, including the Help Center and Academy. This fragmentation led to significant challenges:
 
-- **Accessibility issues:** Customers struggled to locate necessary resources, often defaulting to Chat support as their first line of inquiry.
+- **Discoverability issues:** Customers struggled to locate necessary resources, often defaulting to Chat support as their first line of inquiry.
 - **Overwhelmed Care team:** The dispersion of resources contributed to an increased volume of support cases, resulting in slower response times and negatively impacting our Net Promoter Score (NPS).
 
 The initial design of the resource center aimed to address these issues by incorporating features such as search functionality, video launches, and in-app guides. However, it soon became apparent that the design was not without its flaws, requiring burdensome requests for iteration and inefficient use of space.
@@ -41,4 +41,4 @@ The impact of these changes was profound:
 
 ## Next steps
 
-While the resource center has made considerable strides in improving in-app education, our goal moving forward is to further boost the adoption of these in-app resources. Currently, less than 10% of admins who engage with our resources file a care case within the next 30 days. Our focus will be on enhancing the visibility and utility of these resources to further reduce dependency on direct support and empower our users with the knowledge and tools they need to succeed.
+While the resource center has made considerable strides in improving in-app education, our goal moving forward is to further boost the adoption of these in-app resources. Currently, **less than 10% of admins who engage with our resources file a care case within the next 30 days**. Our focus will be on enhancing the visibility and utility of these resources to further reduce dependency on direct support and empower our users with the knowledge and tools they need to succeed.
