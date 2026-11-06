@@ -49,6 +49,8 @@
   /* Room kept clear on the right while TA is docked:
      320px panel + 20px from the edge + 28px gap. */
   --ta-reserve: 368px;
+  /* Pinned header's full height, border included. The home stage sizes to the space below it. */
+  --header-h: 57px;
 }
 
 /* --- Reset --- */
@@ -151,7 +153,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: calc(var(--header-h) - 1px);
 }
 
 .site-name {
@@ -840,7 +842,8 @@ code {
 
   /* One slim row on phones, so the pinned header doesn't eat the screen. */
   .site-header .container { padding: 0 1rem; }
-  .header-inner { height: 52px; gap: 0.5rem; }
+  :root { --header-h: 53px; }
+  .header-inner { gap: 0.5rem; }
   .site-name { font-size: 1.02rem; white-space: nowrap; }
   .site-header nav { gap: 0; }
   .site-header nav a { padding: 0.4rem 0.55rem; }
