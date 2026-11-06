@@ -50,6 +50,16 @@ New nonprofits had to set up payments, build a first campaign, and share their p
 - **Connected the channels:** a live "new user essentials" training, in-app prompts for new admins, and milestone emails at days 7, 14, and 30, all pointing to the same path.
 - **Designed around platform limits.** The learning platform had no single sign-on and couldn't read product data, so I built self-serve checklists rather than automated progress tracking.
 
+<figure class="case-figure">
+  <img src="/images/onboarding-time-to-value/new-admin-home.webp" alt="GoFundMe Pro home page for a new admin with a Ready to start fundraising? checklist: set up payments, add a billing method, create your first campaign, publish it, and promote it. Below it are cards for Take a tour, Invite your team, and Explore the Academy.">
+  <figcaption>The new-admin home page walks through the same setup milestones, starting with payments.</figcaption>
+</figure>
+
+<figure class="case-figure">
+  <img class="figure-natural figure-narrow" src="/images/onboarding-time-to-value/first-campaign-email.webp" alt="Onboarding email headed It's time to create your first campaign, with an estimated time of 20 minutes and an Add billing method button, a section offering prebuilt campaign templates, and a seven-step list of setup links.">
+  <figcaption>A milestone email: one task up front, with the full setup sequence below it.</figcaption>
+</figure>
+
 ## Results
 
 - **75% of new organizations reached our success milestone**, up from about 40% — nearly double.

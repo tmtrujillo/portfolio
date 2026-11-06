@@ -45,6 +45,11 @@ Embedded Studio lets nonprofits place a donation form on their own website. Inte
 
 The drop-off came after publishing. To install the form, admins had to edit code on their own website — something many had never done.
 
+<figure class="case-figure">
+  <img src="/images/embedded-studio-activation/install-page-before.webp" alt="Before: the Install page showed a block of JavaScript for a modal embed and asked admins to paste a CSS selector where it said SELECTOR GOES HERE. Callouts read: What's a modal? Code can be intimidating. Editing it is even scarier.">
+  <figcaption>The old Install page led with raw code and asked admins to edit it before pasting.</figcaption>
+</figure>
+
 ## What I did
 
 - **Found the stall point.** Usage data showed organizations publishing and then stopping before installation. The barrier was a knowledge gap, not a product bug.
@@ -56,6 +61,11 @@ The drop-off came after publishing. To install the form, admins had to edit code
 <figure class="case-figure">
   <img src="/images/embedded-studio-activation/embedded-flow.svg" alt="Flow from create to publish to install to first donation, with install guidance appearing at the install step">
   <figcaption>Guidance appears right after publishing, the step where admins were stalling.</figcaption>
+</figure>
+
+<figure class="case-figure">
+  <img src="/images/embedded-studio-activation/install-page-after.webp" alt="After: the Install page split into a one-time Install snippet step and an Embed step with Donate button and Inline donation form options, each with a copy button and a help link. Callouts read: Removed code and added copy buttons. Launches in-app education with options for your specific web builder. Separated one-time install and embed steps with headings. Used simple language familiar to our users for their options.">
+  <figcaption>The new Install page swaps raw code for copy buttons, and each step links to help for the admin's website builder.</figcaption>
 </figure>
 
 <figure class="case-figure">

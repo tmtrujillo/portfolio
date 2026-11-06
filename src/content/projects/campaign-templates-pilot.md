@@ -48,6 +48,11 @@ Templates could help but they didn't exist in the product yet, and the team need
 - **Built each template around one fundraising need,** with best-practice layout, messaging, and settings already in place: general giving, monthly giving, emergency relief, in honor or memory, GivingTuesday, and year-end.
 - **Measured time to activation,** not just requests — then took the results to Product and Technology.
 
+<figure class="case-figure">
+  <img src="/images/campaign-templates-pilot/request-template-button.webp" alt="Campaigns page with a Get a prebuilt campaign template button next to the page title. Callout: Takes user to our template sign up form for the experiment.">
+  <figcaption>One way into the pilot: a button on the Campaigns page that opened the template request form.</figcaption>
+</figure>
+
 ## Results
 
 - About **200 organizations** joined over three months.
@@ -65,6 +70,11 @@ Admins opted into the pilot, and the later comparison wasn't randomized either. 
 <figure class="case-figure">
   <img src="/images/campaign-templates-pilot/template-picker.webp" alt="Studio template picker showing need-based templates, including GivingTuesday, End of Year Giving, Sponsor Matching, General Giving, Monthly Giving, and Program Catalog">
   <figcaption>The template picker that shipped in Studio, built on what the pilot proved.</figcaption>
+</figure>
+
+<figure class="case-figure">
+  <img src="/images/campaign-templates-pilot/publish-step.webp" alt="Publish step of the guided creation flow: a checklist confirming the page is optimized for mobile, has personalized ask amounts, a custom thank-you page, and branded email receipts, beside an interactive preview of a GivingTuesday donation page. Callouts read: Included assurances their page is ready to go. Included page preview users could interact with.">
+  <figcaption>The guided flow's last step: a ready-to-launch checklist beside a live preview of the page.</figcaption>
 </figure>
 
 ## What I learned

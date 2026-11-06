@@ -1002,6 +1002,10 @@ code {
 .case-content figure.case-figure img.figure-natural {
   margin: 0 auto 0.75rem;
 }
+/* Tall screenshots like emails: shown narrow so they don't run for screens */
+.case-content img.figure-narrow {
+  width: min(480px, 100%);
+}
 .case-content figcaption {
   font-size: 0.95rem;
   line-height: 1.5;
