@@ -1,6 +1,6 @@
 ---
 title: Designing an Academy people finish
-summary: I reorganized the GoFundMe Pro Academy around customer tasks, kept courses and videos brief, and changed how we measured success. Short courses are now completed about twice as often as long ones, and videos hold viewer's attention for 50% or more of their runtime.
+summary: I reorganized the GoFundMe Pro Academy around customer tasks, kept courses and videos brief, and changed how we measured success. Short courses are now completed about twice as often as long ones, and videos hold viewers' attention for 50% or more of their runtime.
 tags:
   - Curriculum Design
   - Information Architecture
@@ -111,8 +111,8 @@ My newest how-to, on saved templates and linked campaigns, shows the process. Th
 
 | Evidence                                                                                                                            | What it shows                             |
 | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
-| Courses with 2–3 lessons are complete at a rate above 50%; 7+ lessons at about 28%                                                  | Short courses finish about twice as often |
-| A summer 2026 series of short Live Events courses are completed at a rate of 75%                                                    | The short format works in practice        |
+| Courses with 2–3 lessons have a completion rate above 50%; 7+ lessons, about 28%                                                | Short courses finish about twice as often |
+| A summer 2026 series of short Live Events courses has a 75% completion rate                                                    | The short format works in practice        |
 | Quick how-to videos are watched about 50–80% through on average; our newest videos match instructional-video benchmarks (about 74%) | Task-first video holds attention          |
 | How-tos made since spring trend higher than earlier ones                                                                            | The craft improved over the year          |
 

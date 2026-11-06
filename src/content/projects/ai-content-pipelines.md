@@ -39,7 +39,7 @@ results:
 
 ## My role
 
-I designed and built these systems to help aid the team in scaled content creation while still having human approval at every stage.
+I designed and built these systems to help the team create content at scale, with human approval at every stage.
 
 ## The problem
 

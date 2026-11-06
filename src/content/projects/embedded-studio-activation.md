@@ -41,7 +41,7 @@ I led the education program: finding where organizations stalled, designing and 
 
 ## The problem
 
-Embedded Studio lets nonprofits place a donation form on their own website. Interest was strong, but only about a third of the organizations that created an embedded campaign went on to collect a donation with it
+Embedded Studio lets nonprofits place a donation form on their own website. Interest was strong, but only about a third of the organizations that created an embedded campaign went on to collect a donation with it.
 
 The drop-off came after publishing. To install the form, admins had to edit code on their own website — something many had never done.
 

@@ -1,14 +1,14 @@
 ---
-title: "Refining product copy for Classy Studio campaign builder"
+title: "Refining product copy for Campaign Studio"
 summary: "I revised the product copy for a new campaign builder to improve accessibility, clarity, and style guide alignment — resulting in zero customer complaints about settings copy during beta."
 tags: ["Microcopy", "Accessibility", "Style Guide", "UX Writing"]
 role: "Content Designer II"
-platform: "Classy Studio"
+platform: "Campaign Studio"
 timeline: "2023"
 order: 9
 featured: false
 cardTitle: "Microcopy"
-teaser: "Product copy revisions for accessibility, clarity, and style guide alignment on Classy Studio."
+teaser: "Product copy revisions for accessibility, clarity, and style guide alignment on Campaign Studio."
 tracks: ["content"]
 skills: ["ux-writing", "accessibility", "style-guides"]
 ---
