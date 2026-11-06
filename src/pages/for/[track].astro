@@ -1,0 +1,72 @@
+---
+// Audience views: /for/enablement, /for/content, /for/ai.
+// Generated from each case study's `tracks`, so new work appears automatically.
+// TA's track links land here, and they work without JavaScript.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { TRACK_INFO, cardProps, getProjects, projectsForTrack, type Track } from '../../lib/projects';
+
+export function getStaticPaths() {
+  return (Object.keys(TRACK_INFO) as Track[]).map((track) => ({ params: { track } }));
+}
+
+const track = Astro.params.track as Track;
+const info = TRACK_INFO[track];
+const base = import.meta.env.BASE_URL;
+const all = await getProjects();
+// Show the six best fits up top; everything else stays one click away below.
+const matches = projectsForTrack(all, track).slice(0, 6);
+const others = all.filter((p) => !matches.includes(p));
+const stagger = (i: number) => `fade-in stagger-${(i % 3) + 1}`;
+---
+<BaseLayout title={`Taylor Trujillo — ${info.label}`} description={info.intro}>
+  <section class="hero" data-track-page={track}>
+    <div class="container">
+      <div class="hero-content fade-in">
+        <span class="hero-label">Viewing as: {info.label}</span>
+        <h1>{info.heading}</h1>
+        <p class="tagline">{info.intro}</p>
+        <nav class="track-switch" aria-label="Other hiring tracks">
+          {(Object.keys(TRACK_INFO) as Track[]).map((t) => (
+            <a href={`${base}for/${t}/`} aria-current={t === track ? 'page' : undefined}>{TRACK_INFO[t].label}</a>
+          ))}
+          <a href={base}>All work</a>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured-projects" class="projects-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Start here</span>
+        <h2 class="section-title">Most relevant work</h2>
+      </div>
+      <div class="projects-grid">
+        {matches.map((p, i) => (
+          <div class={stagger(i)}>
+            <ProjectCard {...cardProps(p, base)} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {others.length > 0 && (
+    <section class="projects-section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Also worth a look</span>
+        </div>
+        <div class="tile-grid">
+          {others.map((p, i) => (
+            <a class={`project-tile ${stagger(i)}`} href={`${base}projects/${p.id}/`}>
+              <span class="project-tile-title">{p.data.cardTitle ?? p.data.title}</span>
+              <span class="project-tile-text">{p.data.teaser ?? p.data.summary}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>

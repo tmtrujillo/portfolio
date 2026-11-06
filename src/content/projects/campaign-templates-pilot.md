@@ -7,6 +7,10 @@ platform: "Appcues, Campaign Studio, Postman"
 timeline: "2025"
 order: 2
 featured: true
+cardTitle: "Campaign templates pilot"
+teaser: "A hands-on pilot with ~200 orgs cut time to an active campaign by 50%+ and got templates built."
+tracks: ["enablement", "ai"]
+skills: ["pilots", "adoption", "onboarding", "cross-functional", "measurement"]
 results:
   - value: "50%+"
     label: "faster to an active campaign — under a week"
@@ -24,7 +28,7 @@ links:
 ---
 
 <figure class="case-figure">
-  <img src="/portfolio/images/campaign-templates-pilot/templates-pilot-flow.svg" alt="Pilot flow: in-app guide, request page, template added by hand, results to Product, built into Studio">
+  <img src="/images/campaign-templates-pilot/templates-pilot-flow.svg" alt="Pilot flow: in-app guide, request page, template added by hand, results to Product, built into Studio">
   <figcaption>Everything before Product built it was done by hand, so the pilot cost no engineering time.</figcaption>
 </figure>
 
@@ -36,13 +40,18 @@ I led the pilot for guided campaign creation and campaign templates. I designed 
 
 Campaign Studio's flexibility is one of its strengths, but it intimidated new admins. Many created a campaign and then sat on it for days before publishing, so donations started late.
 
-Templates could help — but they didn't exist in the product yet, and the team needed evidence before building them.
+Templates could help but they didn't exist in the product yet, and the team needed evidence before building them.
 
 ## What I did
 
 - **Ran the pilot by hand.** An in-app guide led eligible admins to a page where they could request a template. My team then added it to their account manually, in batches, using a Postman runner.
 - **Built each template around one fundraising need,** with best-practice layout, messaging, and settings already in place: general giving, monthly giving, emergency relief, in honor or memory, GivingTuesday, and year-end.
 - **Measured time to activation,** not just requests — then took the results to Product and Technology.
+
+<figure class="case-figure">
+  <img src="/images/campaign-templates-pilot/request-template-button.webp" alt="Campaigns page with a Get a prebuilt campaign template button next to the page title. Callout: Takes user to our template sign up form for the experiment.">
+  <figcaption>One way into the pilot: a button on the Campaigns page that opened the template request form.</figcaption>
+</figure>
 
 ## Results
 
@@ -54,15 +63,20 @@ Templates could help — but they didn't exist in the product yet, and the team 
 Admins opted into the pilot, and the later comparison wasn't randomized either. The direction was consistent across both stages.
 
 <figure class="case-figure">
-  <img src="/portfolio/images/campaign-templates-pilot/templates-days.svg" alt="Bar chart: about 17 days to first donations without the guided flow, about 8 days with it">
+  <img src="/images/campaign-templates-pilot/templates-days.svg" alt="Bar chart: about 17 days to first donations without the guided flow, about 8 days with it">
   <figcaption>Once the guided flow shipped, campaigns reached their first meaningful donations in about half the time.</figcaption>
 </figure>
 
 <figure class="case-figure">
-  <img src="/portfolio/images/campaign-templates-pilot/template-picker.webp" alt="Studio template picker showing need-based templates, including GivingTuesday, End of Year Giving, Sponsor Matching, General Giving, Monthly Giving, and Program Catalog">
+  <img src="/images/campaign-templates-pilot/template-picker.webp" alt="Studio template picker showing need-based templates, including GivingTuesday, End of Year Giving, Sponsor Matching, General Giving, Monthly Giving, and Program Catalog">
   <figcaption>The template picker that shipped in Studio, built on what the pilot proved.</figcaption>
+</figure>
+
+<figure class="case-figure">
+  <img src="/images/campaign-templates-pilot/publish-step.webp" alt="Publish step of the guided creation flow: a checklist confirming the page is optimized for mobile, has personalized ask amounts, a custom thank-you page, and branded email receipts, beside an interactive preview of a GivingTuesday donation page. Callouts read: Included assurances their page is ready to go. Included page preview users could interact with.">
+  <figcaption>The guided flow's last step: a ready-to-launch checklist beside a live preview of the page.</figcaption>
 </figure>
 
 ## What I learned
 
-A small manual pilot is the cheapest way to earn a product investment. Doing it by hand first proved both demand and value before engineering committed a single sprint.
+A small manual pilot is the cheapest way to earn a product investment. Doing it by hand first proved both demand and value before engineering committed to building it.

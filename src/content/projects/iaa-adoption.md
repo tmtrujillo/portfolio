@@ -7,6 +7,10 @@ platform: "Appcues, Skilljar, Wistia"
 timeline: "2024"
 order: 4
 featured: true
+cardTitle: "Intelligent Ask Amounts adoption"
+teaser: "From ~20% to 75%+ of eligible campaigns in one year."
+tracks: ["enablement", "content"]
+skills: ["adoption", "in-app", "measurement", "cross-functional"]
 results:
   - value: "20% → 75%+"
     label: "of eligible campaigns using IAA"
@@ -21,7 +25,7 @@ links:
 ---
 
 <figure class="case-figure">
-  <img src="/portfolio/images/iaa-adoption/iaa-adoption.svg" alt="Bar chart: about 20% of eligible campaigns used Intelligent Ask Amounts at the start, over 75% a year later">
+  <img src="/images/iaa-adoption/iaa-adoption.svg" alt="Bar chart: about 20% of eligible campaigns used Intelligent Ask Amounts at the start, over 75% a year later">
   <figcaption>Adoption roughly quadrupled over a year of education, in-app nudges, and making IAA the default.</figcaption>
 </figure>
 
@@ -33,7 +37,7 @@ I led the education and in-app adoption work for Intelligent Ask Amounts (IAA) o
 
 ## The problem
 
-IAA suggests a personalized gift amount to each donor while the nonprofit keeps control of the range. It helps campaigns raise more, but adoption sat at about 20% of eligible campaigns. Admins either didn't know it existed or didn't trust an automated ask.
+IAA uses machine learning to suggest a personalized gift amount to each donor. It helps campaigns raise more, but adoption sat at about 20% of eligible campaigns. Admins either didn't know it existed or didn't trust an automated ask.
 
 ## What I did
 
@@ -45,8 +49,8 @@ IAA suggests a personalized gift amount to each donor while the nonprofit keeps 
 
 - IAA adoption grew from **about 20% to over 75% of eligible campaigns** within a year — **nearly 4x**.
 
-The default did much of the lifting — and that's the point. Advocating for the default was part of the strategy; education kept admins from switching it off.
+The default did much of the lifting and that's the point. Advocating for the default was part of the strategy; education kept admins from switching it off.
 
 ## What I learned
 
-Adoption of an automated feature depends on trust, and trust builds through repeated, well-timed explanations — not one big launch. Sometimes the most effective education is making the right choice the default.
+Adoption of an automated feature depends on trust, and trust builds through repeated, well-timed explanations. Sometimes the most effective education is making the right choice the default.

@@ -7,6 +7,10 @@ platform: "Help Center, developer portal"
 timeline: "Second half of 2025"
 order: 7
 featured: false
+cardTitle: "Developer documentation"
+teaser: "Webhooks guide, API docs, and payments docs for GoFundMe Pay, which runs on Stripe."
+tracks: ["enablement", "content"]
+skills: ["api", "documentation"]
 links:
   - label: "Using webhooks"
     url: "https://prosupport.gofundme.com/hc/en-us/articles/41221411214619-Using-webhooks"
@@ -30,7 +34,6 @@ Integration partners and nonprofit developers needed to keep their own systems, 
 - **Covered what goes wrong in production, not just setup.** The guide covers retries, failed deliveries, events that arrive out of order or more than once, and an unexpected event type that confused integrators. It recommends idempotent processing and occasional checks against the API.
 - **Organized events by use case.** A single table groups supporter, transaction, and recurring donation events with the job each one is commonly used for, so developers can find the event they need without reading the whole catalog.
 - **Pointed developers to real payloads.** The guide links to the event catalog and the built-in testing tool rather than repeating example payloads that could go out of date.
-
 - **Wrote the Transactions and Supporters sections of the developer docs** to match the webhooks guide, so developers see the same objects described the same way in both places.
 - **Took each section from interviews to publish.** I interviewed engineers and other subject-matter experts, drafted, collected their feedback, revised, and published.
 

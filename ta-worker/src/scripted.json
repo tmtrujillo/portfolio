@@ -1,0 +1,132 @@
+{
+  "_about": "TA's scripted conversation. These answers are instant, free and can't hallucinate, so they cover the questions visitors ask most. Free-form questions go to the LLM. Actions: next (go to node), track (set hiring track), open (case study slug), email, ask (open the text box), dismiss.",
+  "nodes": {
+    "start": {
+      "say": "Hi! I'm TA, Taylor's teaching assistant. What brings you here today?",
+      "chips": [
+        { "label": "I'm hiring", "next": "hiring" },
+        { "label": "Show me the work", "next": "impact" },
+        { "label": "Just browsing", "next": "browsing" }
+      ]
+    },
+    "start_preset": {
+      "_note": "Shown when a preset link is used. {greeting} comes from the preset or the track default.",
+      "say": "{greeting}",
+      "chips": [
+        { "label": "Start there", "open": "{first_featured}" },
+        { "label": "Biggest results", "next": "impact" },
+        { "label": "Ask a question", "ask": true }
+      ]
+    },
+    "hiring": {
+      "say": "Great. What are you hiring for? I'll put the most relevant work first.",
+      "chips": [
+        { "label": "Learning & enablement", "track": "enablement", "next": "track_enablement" },
+        { "label": "Content strategy", "track": "content", "next": "track_content" },
+        { "label": "AI enablement", "track": "ai", "next": "track_ai" }
+      ]
+    },
+    "track_enablement": {
+      "say": "Taylor designs education that changes what people do, then measures it. A good place to start: the Academy redesign, where short courses now finish about twice as often as long ones.",
+      "sources": ["academy-redesign", "onboarding-time-to-value"],
+      "chips": [
+        { "label": "Open the Academy story", "open": "academy-redesign" },
+        { "label": "Onboarding results", "next": "onboarding" },
+        { "label": "Ask a question", "ask": true }
+      ]
+    },
+    "track_content": {
+      "say": "Taylor builds content systems people can find and use. For example, a centralized in-app resource center was followed by a 45% year-over-year drop in reporting-related support cases.",
+      "sources": ["resource-center", "early-access-help-center"],
+      "chips": [
+        { "label": "Open the resource center", "open": "resource-center" },
+        { "label": "Docs and help centers", "next": "docs" },
+        { "label": "Ask a question", "ask": true }
+      ]
+    },
+    "track_ai": {
+      "say": "Taylor builds governed AI content pipelines with a human approval at every stage. Course turnaround dropped from six or more weeks to three or fewer. I'm part of this work too: Taylor built me.",
+      "sources": ["ai-content-pipelines"],
+      "chips": [
+        { "label": "Open AI pipelines", "open": "ai-content-pipelines" },
+        { "label": "How TA works", "next": "how_ta_works" },
+        { "label": "Ask a question", "ask": true }
+      ]
+    },
+    "impact": {
+      "say": "A few highlights:\n• New orgs reaching the onboarding success milestone: ~40% → 75%\n• Intelligent Ask Amounts adoption: ~20% → 75%+ in a year\n• Course turnaround with AI pipelines: 6+ weeks → 3 or fewer",
+      "sources": ["onboarding-time-to-value", "iaa-adoption", "ai-content-pipelines"],
+      "chips": [
+        { "label": "Onboarding", "open": "onboarding-time-to-value" },
+        { "label": "Adoption", "open": "iaa-adoption" },
+        { "label": "AI pipelines", "open": "ai-content-pipelines" }
+      ]
+    },
+    "onboarding": {
+      "say": "Taylor built a scaled onboarding program on the Academy: milestone-based learning paths, short video lessons, and connected in-app and email touchpoints. The share of new organizations reaching the success milestone rose from about 40% to 75%.",
+      "sources": ["onboarding-time-to-value"],
+      "chips": [
+        { "label": "Open the case study", "open": "onboarding-time-to-value" },
+        { "label": "Other results", "next": "impact" }
+      ]
+    },
+    "docs": {
+      "say": "Taylor writes for developers and admins alike: the GoFundMe Pro webhooks guide and API docs, payments docs for GoFundMe Pay (which runs on Stripe), and a docs-as-code help center for beta features.",
+      "sources": ["developer-docs", "early-access-help-center"],
+      "chips": [
+        { "label": "Developer docs", "open": "developer-docs" },
+        { "label": "Docs-as-code help center", "open": "early-access-help-center" }
+      ]
+    },
+    "background": {
+      "say": "Before tech, Taylor taught history in Brooklyn and led lesson plan writing for Uncommon Schools: a remote learning system of 200+ lesson plans across 50 schools, and a modular framework that cut lesson creation from 4 hours to 90 minutes. That's where the teaching instincts come from. Mine too.",
+      "sources": ["resume"],
+      "chips": [
+        { "label": "See the resume", "open": "resume" },
+        { "label": "Current work", "next": "impact" }
+      ]
+    },
+    "how_ta_works": {
+      "say": "I answer from Taylor's case studies and resume, my \"lesson plans.\" Common questions like these get scripted answers. Anything else goes to a small AI model that's only allowed to use those lesson plans, and I show which files each answer came from.",
+      "sources": ["ai-content-pipelines"],
+      "chips": [
+        { "label": "Ask me something", "ask": true },
+        { "label": "Taylor's AI work", "open": "ai-content-pipelines" }
+      ]
+    },
+    "browsing": {
+      "say": "Welcome! Pick a door:",
+      "chips": [
+        { "label": "Biggest results", "next": "impact" },
+        { "label": "Taylor's background", "next": "background" },
+        { "label": "How TA works", "next": "how_ta_works" }
+      ]
+    },
+    "contact": {
+      "say": "The best way to reach Taylor is email.",
+      "chips": [
+        { "label": "Email Taylor", "email": true },
+        { "label": "Back to the work", "next": "impact" }
+      ]
+    },
+    "fallback": {
+      "_note": "Used when the LLM is off (kill switch), over its limits, or errors.",
+      "say": "I can only answer my usual questions right now. Pick one below, or ask Taylor directly.",
+      "chips": [
+        { "label": "Biggest results", "next": "impact" },
+        { "label": "Taylor's background", "next": "background" },
+        { "label": "Email Taylor", "email": true }
+      ]
+    },
+    "dismiss": {
+      "say": "I'll be at my desk if you need me.",
+      "chips": []
+    }
+  },
+  "trackGreetings": {
+    "enablement": "Hi, {company} team! Taylor asked me to share this one with you.",
+    "content": "Hi, {company} team! Taylor asked me to share this one with you.",
+    "ai": "Hi, {company} team! Taylor asked me to share this one with you.",
+    "default": "Hi! I'm TA, Taylor's teaching assistant. Here's where I'd start:"
+  }
+}

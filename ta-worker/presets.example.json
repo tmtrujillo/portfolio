@@ -1,0 +1,21 @@
+{
+  "_about": "Copy to presets.json (git-ignored), edit, then run `npm run presets:upload`. Fields: company, track (enablement | content | ai), emphasize (skills from src/content/config.ts), pin (optional case study slugs to force to the top), greeting (optional; {company} is filled in), status (optional: archived keeps old links working without the company name), note (private, never shown).",
+  "example-co-curriculum": {
+    "company": "Example Co",
+    "track": "enablement",
+    "emphasize": ["api", "curriculum", "ai"],
+    "pin": ["developer-docs"],
+    "note": "Technical Curriculum Developer, applied Nov 2026"
+  },
+  "example-co-help": {
+    "company": "Example Co",
+    "track": "content",
+    "emphasize": ["help-center", "information-architecture", "support-deflection"],
+    "greeting": "Hi, {company} team! Want to see how Taylor turns support cases into content people actually find?"
+  },
+  "old-application": {
+    "company": "Old Co",
+    "track": "ai",
+    "status": "archived"
+  }
+}

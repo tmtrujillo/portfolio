@@ -1,0 +1,47 @@
+# TA Worker. See README.md for setup. Replace the REPLACE_ME ids after
+# creating the KV namespace and D1 database.
+name = "ta-worker"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+SITE_URL = "https://taylortrujillo.me/"
+ALLOWED_ORIGINS = "https://taylortrujillo.me,https://www.taylortrujillo.me,http://localhost:4321,http://localhost:4322"
+# Kill switch: set to "false" and redeploy to turn the AI off. TA then uses
+# scripted answers only.
+LLM_ENABLED = "true"
+# "workers-ai" (free, for prototyping) or "anthropic"
+PROVIDER = "workers-ai"
+WORKERS_AI_MODEL = "@cf/google/gemma-4-26b-a4b-it"
+ANTHROPIC_MODEL = "claude-haiku-5-5"
+# Most AI answers per day across all visitors. The provider's own spending
+# limit is the hard stop; this is the early one.
+DAILY_CAP = "300"
+
+# Secrets (set with `npx wrangler secret put NAME`, never written here):
+#   SESSION_SECRET     long random string
+#   TURNSTILE_SECRET   from the Turnstile widget
+#   ANTHROPIC_API_KEY  only when PROVIDER = "anthropic"
+#   EVAL_KEY           optional; lets the eval script skip the bot check
+
+[ai]
+binding = "AI"
+
+[[kv_namespaces]]
+binding = "PRESETS"
+id = "REPLACE_ME"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ta-log"
+database_id = "REPLACE_ME"
+
+# Per-visitor limit: 8 AI questions a minute.
+[[ratelimits]]
+name = "TA_LIMITER"
+namespace_id = "1001"
+simple = { limit = 8, period = 60 }
+
+# Daily log cleanup (09:17 UTC).
+[triggers]
+crons = ["17 9 * * *"]

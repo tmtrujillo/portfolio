@@ -1,19 +1,23 @@
 ---
-title: "Refining product copy for Classy Studio campaign builder"
+title: "Refining product copy for Campaign Studio"
 summary: "I revised the product copy for a new campaign builder to improve accessibility, clarity, and style guide alignment — resulting in zero customer complaints about settings copy during beta."
 tags: ["Microcopy", "Accessibility", "Style Guide", "UX Writing"]
 role: "Content Designer II"
-platform: "Classy Studio"
+platform: "Campaign Studio"
 timeline: "2023"
 order: 9
 featured: false
+cardTitle: "Microcopy"
+teaser: "Product copy revisions for accessibility, clarity, and style guide alignment on Campaign Studio."
+tracks: ["content"]
+skills: ["ux-writing", "accessibility", "style-guides"]
 ---
 
-The launch of Classy Studio, our new campaign builder, presented an opportunity to refine our product copy to better align with our brand's voice and style guidelines. This project focused on revising the initial draft of the feature's settings to enhance clarity, accessibility, and overall user experience.
+The launch of Campaign Studio, our new campaign builder, presented an opportunity to refine our product copy to better align with our brand's voice and style guidelines. This project focused on revising the initial draft of the feature's settings to enhance clarity, accessibility, and overall user experience.
 
 ## Initial feedback
 
-The initial draft of the product copy for Classy Studio faced several challenges:
+The initial draft of the product copy for Campaign Studio faced several challenges:
 
 - **Non-adherence to style guide:** Certain terms and phrases didn't align with our established style guide, leading to inconsistencies in language use.
 - **Wordiness:** The copy was verbose, potentially overwhelming users with unnecessary information.
@@ -32,5 +36,5 @@ To address the feedback, we undertook a series of revisions:
 
 The product recently transitioned from beta to General Availability (GA), and while comprehensive results are still forthcoming, the initial feedback has been overwhelmingly positive:
 
-- **Positive beta feedback:** Beta customers provided over 100 pieces of feedback on various aspects of Classy Studio, yet none pertained to the settings section — a testament to the effectiveness of the copy revisions.
+- **Positive beta feedback:** Beta customers provided over 100 pieces of feedback on various aspects of Campaign Studio, yet none pertained to the settings section — a testament to the effectiveness of the copy revisions.
 - **Anticipated impact:** Although it's early days, the lack of feedback on the settings suggests that our revisions have significantly improved the user experience, aligning the product copy with user expectations and our brand's standards.

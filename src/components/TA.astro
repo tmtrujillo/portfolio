@@ -1,0 +1,602 @@
+---
+// TA, Taylor's teaching assistant: one element that lives in the layout and
+// persists across page changes, so the conversation follows the visitor.
+//
+// Modes (data-mode):
+//   hero      full-screen welcome at the top of the home page
+//   dock      small open panel in the corner (desktop default elsewhere)
+//   collapsed just the "Ask TA" button (phones, or when minimized)
+//   sheet     opened from the button on a phone
+//
+// Layers, so TA is never broken:
+//   no JavaScript  → the home page's own links and case studies still work
+//   AI off         → scripted chips, spotlight cards, and an email fallback
+//   AI on          → free-form questions go to the TA Worker (data-endpoint)
+import { TRACK_INFO, getProjects, taCatalog } from '../lib/projects';
+import '../styles/ta.css';
+
+const base = import.meta.env.BASE_URL;
+const TA_ENDPOINT = ''; // e.g. https://ta-worker.<subdomain>.workers.dev once deployed
+const CONTACT_EMAIL = 'hello@taylortrujillo.me';
+
+const catalog = taCatalog(await getProjects(), base);
+const tracks = Object.fromEntries(
+  Object.entries(TRACK_INFO).map(([key, t]) => [key, { label: t.label, spotlight: t.spotlight }]),
+);
+const config = { base, email: CONTACT_EMAIL, endpoint: TA_ENDPOINT, tracks, catalog };
+// Until the Worker is live, the question box is honest about what it does:
+// it hands the question to Taylor by email.
+const aiOn = Boolean(TA_ENDPOINT);
+---
+<div id="ta" class="ta" data-mode="collapsed" transition:persist="ta">
+  <button type="button" class="ta-launcher" aria-controls="ta-window" aria-expanded="false">
+    <span class="ta-sprite ta-sprite--small" aria-hidden="true"><span>TA</span></span>
+    <span>Ask TA</span>
+  </button>
+
+  <section id="ta-window" class="ta-window" aria-labelledby="ta-title">
+    <header class="ta-bar">
+      <!-- Replace with the TA sprite when the pixel art is ready. -->
+      <span class="ta-sprite" aria-hidden="true"><span>TA</span></span>
+      <span class="ta-bar-text">
+        <span id="ta-title" class="ta-name">TA</span>
+        <span class="ta-role">Taylor's AI teaching assistant</span>
+        <span class="ta-context" hidden></span>
+      </span>
+      <button type="button" class="ta-minimize" aria-label="Minimize TA">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
+      </button>
+    </header>
+
+    <div class="ta-log" role="log" aria-live="polite" aria-label="Conversation with TA"></div>
+    <div class="ta-chips" role="group" aria-label="Suggestions"></div>
+
+    <form class="ta-ask" novalidate>
+      <label for="ta-question" class="ta-ask-label">{aiOn ? 'Ask TA a question' : 'Send Taylor a question'}</label>
+      <div class="ta-ask-row">
+        <input id="ta-question" name="question" type="text" maxlength="500" autocomplete="off" placeholder={aiOn ? "Ask about Taylor's work…" : 'Send Taylor a question…'} />
+        <button type="submit">{aiOn ? 'Ask' : 'Send'}</button>
+      </div>
+    </form>
+    <p class="ta-foot">{aiOn ? 'TA can make mistakes. Taylor is the source of truth.' : 'Questions go to Taylor by email.'}</p>
+  </section>
+
+  <script type="application/json" id="ta-config" set:html={JSON.stringify(config)} />
+</div>
+
+<script>
+  import { countEvent } from '../lib/analytics';
+
+  type CatalogItem = {
+    slug: string; url: string; title: string; tag: string; track: string;
+    metric: string | null; metricLabel: string | null; teaser: string;
+  };
+  // bridge: TA's "you're on page X" line. Only the latest one is kept.
+  type Message = { from: 'ta' | 'you'; text: string; card?: string; bridge?: boolean };
+  type State = {
+    messages: Message[];
+    pageStart: number; // first message said on the current page
+    track: string | null;
+    preset: string | null;
+    presetDone: boolean;
+    spotlight: string | null;
+    lastPath: string | null; // the page TA last spoke on
+    collapsed: boolean | null; // the visitor's own choice, if they made one
+  };
+  type Chip = { label: string; primary?: boolean; href?: string; run?: () => void };
+
+  const STORE_KEY = 'ta-state';
+  const root = document.getElementById('ta')!;
+  const config = JSON.parse(document.getElementById('ta-config')!.textContent!);
+  const catalog: CatalogItem[] = config.catalog;
+  const bySlug = new Map(catalog.map((c) => [c.slug, c]));
+  const log = root.querySelector<HTMLElement>('.ta-log')!;
+  const chipsBox = root.querySelector<HTMLElement>('.ta-chips')!;
+  const contextLine = root.querySelector<HTMLElement>('.ta-context')!;
+  const launcher = root.querySelector<HTMLButtonElement>('.ta-launcher')!;
+  const minimize = root.querySelector<HTMLButtonElement>('.ta-minimize')!;
+  const form = root.querySelector<HTMLFormElement>('.ta-ask')!;
+  const input = root.querySelector<HTMLInputElement>('#ta-question')!;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  // Keep 1200px in step with the docked layout rules in ta.css.
+  const wide = window.matchMedia('(min-width: 1200px)');
+
+  // ---- State -------------------------------------------------------------
+  function load(): State {
+    const blank: State = { messages: [], pageStart: 0, track: null, preset: null, presetDone: false, spotlight: null, lastPath: null, collapsed: null };
+    try {
+      return { ...blank, ...JSON.parse(sessionStorage.getItem(STORE_KEY) ?? '{}') };
+    } catch {
+      return blank;
+    }
+  }
+  const state = load();
+  const MAX_MESSAGES = 30;
+  function save() {
+    const extra = state.messages.length - MAX_MESSAGES;
+    if (extra > 0) {
+      state.messages.splice(0, extra);
+      state.pageStart = Math.max(0, state.pageStart - extra);
+    }
+    try {
+      sessionStorage.setItem(STORE_KEY, JSON.stringify(state));
+    } catch {
+      /* private mode: TA still works, it just forgets on reload */
+    }
+  }
+
+  // ---- Page context ------------------------------------------------------
+  type Page = {
+    kind: 'home' | 'case' | 'track' | 'resume' | 'other';
+    caseSlug?: string; caseTitle?: string; caseTrack?: string; trackKey?: string;
+  };
+  let page: Page = { kind: 'other' };
+  let sections: HTMLElement[] = [];
+  let currentSection = -1;
+  let sectionObserver: IntersectionObserver | null = null;
+
+  function readPage(): Page {
+    const article = document.querySelector<HTMLElement>('[data-case-slug]');
+    if (article) {
+      return { kind: 'case', caseSlug: article.dataset.caseSlug, caseTitle: article.dataset.caseTitle, caseTrack: article.dataset.caseTrack };
+    }
+    if (document.querySelector('.ta-stage')) return { kind: 'home' };
+    const trackPage = document.querySelector<HTMLElement>('[data-track-page]');
+    if (trackPage) return { kind: 'track', trackKey: trackPage.dataset.trackPage };
+    if (document.querySelector('[data-ta-page="resume"]')) return { kind: 'resume' };
+    return { kind: 'other' };
+  }
+
+  // ---- Modes -------------------------------------------------------------
+  function heroActive(y = window.scrollY) {
+    const stage = document.querySelector<HTMLElement>('.ta-stage');
+    if (!stage) return false;
+    const pin = Math.max(stage.offsetHeight - window.innerHeight, 0);
+    // Dock halfway through the pause, while the stage is still pinned.
+    return y < pin * 0.5 + 1;
+  }
+
+  // Where a page change is headed. The page smooth-scrolls to a #link or back
+  // to a saved spot after it appears, so the scroll position at that moment is
+  // still the top. Deciding from the destination keeps TA from flashing to
+  // the center on the way to the project grid.
+  let pendingY: number | null = null;
+  let pendingTimer = 0;
+  function destinationY(): number | null {
+    const saved = history.state?.scrollY;
+    if (typeof saved === 'number' && saved > 0) return saved;
+    const id = decodeURIComponent(location.hash.slice(1));
+    const target = id ? document.getElementById(id) : null;
+    if (target) return target.getBoundingClientRect().top + window.scrollY;
+    return null;
+  }
+  function expectScrollTo(y: number | null) {
+    pendingY = y;
+    clearTimeout(pendingTimer);
+    // Stop waiting if the scroll never arrives (e.g. the visitor took over).
+    if (y !== null) pendingTimer = window.setTimeout(() => { pendingY = null; onScroll(); }, 1500);
+  }
+
+  // Phones always rest as the button, so TA never covers what they're reading.
+  function wantedMode(y = pendingY ?? window.scrollY): string {
+    if (heroActive(y)) return 'hero';
+    if (state.collapsed === true || !wide.matches) return 'collapsed';
+    return 'dock';
+  }
+
+  // In hero mode TA sits just under the home headline, so the visitor sees
+  // who Taylor is before the chat.
+  function placeHero() {
+    const headline = document.querySelector<HTMLElement>('.ta-stage-headline');
+    if (!headline) return;
+    root.style.setProperty('--ta-hero-top', `${Math.round(headline.getBoundingClientRect().bottom + 28)}px`);
+  }
+
+  function applyMode(mode: string) {
+    if (mode === 'hero') placeHero();
+    root.dataset.mode = mode;
+    launcher.setAttribute('aria-expanded', String(mode !== 'collapsed'));
+    document.documentElement.classList.toggle('ta-is-hero', mode === 'hero');
+    document.documentElement.classList.toggle('ta-docked', mode === 'dock');
+    // The window changed size: keep the newest message in view.
+    requestAnimationFrame(() => { log.scrollTop = log.scrollHeight; });
+  }
+
+  function setMode(mode: string, { animate = true } = {}) {
+    if (root.dataset.mode === mode) return;
+    const apply = () => applyMode(mode);
+    const canAnimate = animate && !reducedMotion.matches && 'startViewTransition' in document;
+    // A skipped animation (e.g. the visitor clicked away mid-move) is fine.
+    if (canAnimate) (document as any).startViewTransition(apply).ready.catch(() => {});
+    else apply();
+  }
+
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      // Mid-way through a page change's scroll: hold still until it lands.
+      if (pendingY !== null) {
+        if (Math.abs(window.scrollY - pendingY) > 2) return;
+        expectScrollTo(null);
+      }
+      const mode = root.dataset.mode;
+      if (mode === 'hero') placeHero();
+      const hero = heroActive();
+      if (hero && mode !== 'hero') setMode('hero');
+      else if (!hero && mode === 'hero') setMode(wantedMode());
+    });
+  }
+
+  // ---- Rendering (DOM nodes only: visitor text is never parsed as HTML) --
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, className?: string, text?: string) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text) node.textContent = text;
+    return node;
+  }
+
+  function renderCard(slug: string) {
+    const item = bySlug.get(slug);
+    if (!item) return null;
+    const card = el('a', 'ta-card');
+    card.href = item.url;
+    // Same order as the site's project cards: what it is, then the result.
+    card.append(el('span', 'ta-card-tag', item.tag));
+    card.append(el('span', 'ta-card-title', item.title));
+    if (item.metric) {
+      card.append(el('span', 'ta-card-metric', item.metric));
+      if (item.metricLabel) card.append(el('span', 'ta-card-label', item.metricLabel));
+    } else {
+      card.append(el('span', 'ta-card-label', item.teaser));
+    }
+    card.append(el('span', 'ta-card-open', 'Open the case study →'));
+    return card;
+  }
+
+  // A one-line link, for cards that are no longer the newest suggestion.
+  function renderMiniCard(slug: string) {
+    const item = bySlug.get(slug);
+    if (!item) return null;
+    const reading = page.caseSlug === slug;
+    const link = el('a', 'ta-card-mini', reading ? `${item.title} (you're here)` : `${item.title} →`);
+    link.href = item.url;
+    if (reading) link.setAttribute('aria-current', 'page');
+    return link;
+  }
+
+  // Each page starts the log fresh: earlier messages wait behind a button, so
+  // a visitor who has moved around isn't reading old context first.
+  let showEarlier = false;
+
+  function renderLog() {
+    log.replaceChildren();
+    const earlier = Math.min(state.pageStart, state.messages.length);
+    if (earlier > 0) {
+      const toggle = el('button', 'ta-earlier', showEarlier ? 'Hide earlier messages' : `Show earlier messages (${earlier})`);
+      toggle.type = 'button';
+      toggle.setAttribute('aria-expanded', String(showEarlier));
+      toggle.addEventListener('click', () => {
+        showEarlier = !showEarlier;
+        renderLog();
+        if (showEarlier) log.scrollTop = 0;
+        log.querySelector<HTMLButtonElement>('.ta-earlier')?.focus();
+      });
+      log.append(toggle);
+    }
+    // A card shows in full only while it's TA's latest message and isn't the
+    // page on screen. Older ones shrink to a link, so the chat doesn't keep
+    // pointing at a case study the visitor has moved past.
+    const newest = state.messages.length - 1;
+    state.messages.forEach((m, i) => {
+      if (i < earlier && !showEarlier) return;
+      if (i === earlier && earlier > 0 && showEarlier) log.append(el('p', 'ta-divider', 'On this page'));
+      const bubble = el('div', `ta-msg ta-msg--${m.from}`);
+      bubble.append(el('p', '', m.text));
+      if (m.card) {
+        const full = i === newest && m.card !== page.caseSlug;
+        const card = full ? renderCard(m.card) : renderMiniCard(m.card);
+        if (card) bubble.append(card);
+      }
+      log.append(bubble);
+    });
+    log.scrollTop = log.scrollHeight;
+  }
+
+  function say(text: string, card?: string) {
+    state.messages.push({ from: 'ta', text, card });
+    save();
+    renderLog();
+  }
+
+  function heard(text: string) {
+    state.messages.push({ from: 'you', text });
+    save();
+    renderLog();
+  }
+
+  function renderChips(chips: Chip[]) {
+    chipsBox.replaceChildren();
+    for (const chip of chips) {
+      const node = chip.href ? el('a', 'ta-chip', chip.label) : el('button', 'ta-chip', chip.label);
+      if (chip.primary) node.classList.add('ta-chip--primary');
+      if (chip.href) {
+        (node as HTMLAnchorElement).href = chip.href;
+        if (chip.href.startsWith('mailto:')) node.addEventListener('click', () => countEvent('ta-email', `TA: email button (${chip.label})`));
+      } else {
+        (node as HTMLButtonElement).type = 'button';
+        node.addEventListener('click', () => chip.run?.());
+      }
+      chipsBox.append(node);
+    }
+  }
+
+  // ---- Conversation flows -------------------------------------------------
+  function trackLabel(key: string | null) {
+    return key ? config.tracks[key]?.label ?? null : null;
+  }
+
+  function pickTrack(key: string) {
+    const track = config.tracks[key];
+    countEvent(`ta-track-${key}`, `TA: picked ${track.label}`);
+    state.track = key;
+    state.spotlight = track.spotlight;
+    heard(track.label);
+    say(`Here's where I'd start for ${track.label.toLowerCase()} roles:`, track.spotlight);
+    refreshChips();
+  }
+
+  function trackChips(): Chip[] {
+    return [
+      ...Object.keys(config.tracks).map((key, i) => ({ label: config.tracks[key].label, primary: i === 0, run: () => pickTrack(key) })),
+      { label: 'Just browsing', run: () => {
+        heard('Just browsing');
+        say('Welcome! The highlights are just below. Ask me anything along the way.');
+        refreshChips();
+      } },
+    ];
+  }
+
+  function spotlightChips(): Chip[] {
+    const chips: Chip[] = [];
+    const spot = state.spotlight ? bySlug.get(state.spotlight) : null;
+    if (spot) chips.push({ label: 'Open it', primary: true, href: spot.url });
+    if (state.track) chips.push({ label: 'Show me more', href: `${config.base}for/${state.track}/` });
+    chips.push({ label: state.track ? 'Different role' : 'What are you hiring for?', run: () => {
+      state.track = null;
+      state.spotlight = null;
+      say('No problem. What are you hiring for?');
+      renderChips(trackChips());
+    } });
+    return chips;
+  }
+
+  function jumpTo(index: number) {
+    const heading = sections[index];
+    if (!heading) return;
+    heading.setAttribute('tabindex', '-1');
+    heading.scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+    heading.focus({ preventScroll: true });
+  }
+
+  function sectionChips(): Chip[] {
+    const names = sections.map((h) => (h.textContent ?? '').trim().toLowerCase());
+    const find = (...wanted: string[]) => names.findIndex((n) => wanted.includes(n));
+    const role = find('my role');
+    const results = find('results');
+    const learned = find('what i learned', 'next steps');
+    const here = Math.max(currentSection, -1);
+    const chips: Chip[] = [];
+
+    if (role >= 0 && here < role) chips.push({ label: "What was Taylor's role?", run: () => jumpTo(role) });
+    if (results >= 0 && here < results) chips.push({ label: 'Skip to results', primary: true, run: () => jumpTo(results) });
+    const next = here + 1;
+    if (next < sections.length && next !== role && next !== results && next !== learned) {
+      chips.push({ label: `Next: ${sections[next].textContent?.trim()}`, run: () => jumpTo(next) });
+    }
+    if (results >= 0 && here >= results && learned > here) chips.push({ label: 'What did Taylor learn?', run: () => jumpTo(learned) });
+    if (results < 0 || here >= results) {
+      const track = page.caseTrack ?? state.track;
+      chips.push({ label: 'More work like this', primary: chips.length === 0, href: track ? `${config.base}for/${track}/` : `${config.base}#featured-projects` });
+      chips.push({ label: 'Email Taylor about this', href: emailHref(`About your case study: ${page.caseTitle ?? ''}`, '') });
+    }
+    return chips;
+  }
+
+  function refreshChips() {
+    if (page.kind === 'case') return renderChips(sectionChips());
+    if (page.kind === 'track' && page.trackKey) {
+      const spot = config.tracks[page.trackKey]?.spotlight;
+      const item = spot ? bySlug.get(spot) : null;
+      return renderChips([
+        ...(item ? [{ label: `My top pick: ${item.title}`, primary: true, href: item.url }] : []),
+        { label: 'All work', href: `${config.base}#featured-projects` },
+      ]);
+    }
+    if (page.kind === 'resume') {
+      const spot = state.spotlight ? bySlug.get(state.spotlight) : null;
+      return renderChips([
+        ...(spot ? [{ label: `My top pick: ${spot.title}`, primary: true, href: spot.url }] : []),
+        { label: 'See the case studies', primary: !spot, href: `${config.base}#featured-projects` },
+        { label: 'Email Taylor', href: emailHref('From your resume', '') },
+      ]);
+    }
+    if (state.spotlight || state.messages.some((m) => m.from === 'you')) return renderChips(spotlightChips());
+    return renderChips(trackChips());
+  }
+
+  function emailHref(subject: string, body: string) {
+    return `mailto:${config.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  // ---- Sections on case study pages --------------------------------------
+  function watchSections() {
+    sectionObserver?.disconnect();
+    sections = Array.from(document.querySelectorAll<HTMLElement>('.case-content h2'));
+    currentSection = -1;
+    if (page.kind !== 'case' || !sections.length) return;
+
+    sectionObserver = new IntersectionObserver(
+      () => {
+        // The current section is the last heading above 40% of the screen.
+        const line = window.innerHeight * 0.4;
+        let index = -1;
+        sections.forEach((h, i) => { if (h.getBoundingClientRect().top <= line) index = i; });
+        if (index !== currentSection) {
+          currentSection = index;
+          const name = index >= 0 ? sections[index].textContent?.trim() : 'Overview';
+          contextLine.textContent = `Reading: ${name}`;
+          contextLine.hidden = false;
+          root.dataset.section = name ?? '';
+          refreshChips();
+        }
+      },
+      { rootMargin: '0px 0px -60% 0px', threshold: [0, 1] },
+    );
+    sections.forEach((h) => sectionObserver!.observe(h));
+    contextLine.textContent = 'Reading: Overview';
+    contextLine.hidden = false;
+  }
+
+  // ---- Presets (need the Worker) -----------------------------------------
+  async function loadPreset(key: string) {
+    if (!config.endpoint) return null;
+    try {
+      const res = await fetch(`${config.endpoint}/preset?for=${encodeURIComponent(key)}`);
+      if (!res.ok) return null;
+      return await res.json();
+    } catch {
+      return null;
+    }
+  }
+
+  // ---- Greeting per page ---------------------------------------------------
+  async function greet() {
+    const params = new URLSearchParams(location.search);
+    const presetKey = params.get('for');
+
+    if (page.kind === 'home' && presetKey && !state.presetDone) {
+      state.preset = presetKey;
+      state.presetDone = true;
+      const preset = await loadPreset(presetKey);
+      if (preset?.featured?.length) {
+        state.track = preset.track;
+        state.spotlight = preset.featured[0];
+        state.messages = [];
+        state.lastPath = location.pathname;
+        say(preset.company ? preset.greeting : "Hi! I'm TA, Taylor's teaching assistant. Here's where I'd start:", state.spotlight ?? undefined);
+        return;
+      }
+    }
+
+    // Same page as last time (a reload): the conversation already fits it.
+    const path = location.pathname;
+    if (state.lastPath === path && state.messages.length) return;
+    state.lastPath = path;
+
+    if (state.messages.length === 0) {
+      state.pageStart = 0;
+      if (page.kind === 'case') say(`Hi! I'm TA, Taylor's teaching assistant. You're reading “${page.caseTitle}.” Ask me anything about it, or I can jump you to a section.`);
+      else if (page.kind === 'resume') say("Hi! I'm TA, Taylor's teaching assistant. You're on Taylor's resume. Want the story behind a result? The case studies have the details.");
+      else if (page.kind === 'home') say("Hi! I'm TA, Taylor's teaching assistant. What are you hiring for? I'll start you with the right case study.");
+      else say("Hi! I'm TA, Taylor's teaching assistant. Ask me about Taylor's work anytime.");
+      return;
+    }
+
+    // A new page mid-conversation: say where they are, so TA's last line
+    // always matches the buttons below it. Older "where you are" lines go,
+    // so they don't pile up as the visitor moves around.
+    state.messages = state.messages.filter((m) => !m.bridge);
+    state.pageStart = state.messages.length;
+    const [text, card] = bridgeLine();
+    state.messages.push({ from: 'ta', text, card, bridge: true });
+    save();
+    renderLog();
+  }
+
+  function bridgeLine(): [string, string?] {
+    if (page.kind === 'case') return [`You're reading “${page.caseTitle}.” I'll follow along. Ask me anything about it.`];
+    if (page.kind === 'track' && page.trackKey) {
+      const label = trackLabel(page.trackKey);
+      return [label ? `Here's Taylor's ${label.toLowerCase()} work. My top pick is first.` : "Here's more of Taylor's work."];
+    }
+    if (page.kind === 'resume') return ["You're on Taylor's resume. Want the story behind a result? The case studies have the details."];
+    if (page.kind === 'home') {
+      const label = trackLabel(state.track);
+      if (label && state.spotlight) return [`Welcome back. For ${label.toLowerCase()} roles, I'd still start here:`, state.spotlight];
+      return ["Welcome back. Ask me anything, or tell me what you're hiring for."];
+    }
+    return ["Ask me anything about Taylor's work while you're here."];
+  }
+
+  // ---- Questions -----------------------------------------------------------
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const question = input.value.trim();
+    if (!question) return input.focus();
+    input.value = '';
+    // Counts that a question was asked, never what it said.
+    countEvent('ta-question', 'TA: question asked');
+    heard(question);
+    // AI layer plugs in here when config.endpoint is set (chat step), sending
+    // { message, history, preset: state.preset, track: state.track,
+    //   context: { slug: page.caseSlug, section: root.dataset.section } }.
+    const subject = page.caseTitle ? `Question about ${page.caseTitle}` : 'Question from your portfolio';
+    state.messages.push({ from: 'ta', text: "I'll pass this to Taylor. Tap the button to send it from your email." });
+    save();
+    renderLog();
+    renderChips([{ label: 'Email it to Taylor', primary: true, href: emailHref(subject, question) }, ...(page.kind === 'case' ? sectionChips() : spotlightChips()).slice(0, 2)]);
+  });
+
+  launcher.addEventListener('click', () => {
+    countEvent('ta-open', 'TA: opened from the Ask TA button');
+    state.collapsed = false;
+    save();
+    setMode(wide.matches ? 'dock' : 'sheet');
+    input.focus({ preventScroll: true });
+  });
+
+  minimize.addEventListener('click', () => {
+    state.collapsed = true;
+    save();
+    setMode('collapsed');
+    launcher.focus();
+  });
+
+  root.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && (root.dataset.mode === 'sheet' || root.dataset.mode === 'dock')) minimize.click();
+  });
+
+  // ---- Page lifecycle (works with page transitions) -----------------------
+  async function onPage() {
+    page = readPage();
+    root.dataset.page = page.kind;
+    showEarlier = false;
+    contextLine.hidden = page.kind !== 'resume';
+    if (page.kind === 'resume') contextLine.textContent = 'Reading: Resume';
+    setMode(wantedMode(), { animate: false });
+    watchSections();
+    renderLog();
+    await greet();
+    refreshChips();
+  }
+
+  // Before the new page is drawn, so TA's move animates with the transition.
+  document.addEventListener('astro:after-swap', () => {
+    page = readPage();
+    expectScrollTo(destinationY());
+    applyMode(wantedMode());
+  });
+  document.addEventListener('astro:page-load', onPage);
+  root.dataset.ready = '';
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', () => {
+    if (root.dataset.mode === 'hero') placeHero();
+    onScroll();
+  });
+  // The headline's height changes once the web font arrives.
+  document.fonts?.ready.then(() => { if (root.dataset.mode === 'hero') placeHero(); });
+  wide.addEventListener('change', () => setMode(wantedMode(), { animate: false }));
+</script>
