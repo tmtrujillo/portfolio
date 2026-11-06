@@ -60,9 +60,14 @@ The Academy was organized by internal product area, so nonprofits had to know wh
 ## What I did
 
 - **Reorganized the Academy around customer tasks:** a use-case-first home page, a filterable library, and reusable components I built myself.
-- **Kept learning short and task-sized.** In the first half of 2026, we shipped 25 resources, plus a campaign URL builder with print-ready QR codes that became the Academy's third most-visited page in 2026.
+- **Kept learning short and task-sized.** In the first half of 2026, we shipped 25 self-paced courses, plus a campaign URL builder with print-ready QR codes that became the Academy's third most-visited page in 2026.
 - **Made video a system, not a solo act:** short how-tos, recording guidelines so the Care team can contribute footage, and the library mapped to the SEO team's target keywords for a YouTube launch.
 - **Audited the data and changed how we read it.** Open-access courses don't create enrollments, so I combined LMS data with page views to see real use and compared these metrics to available product data.
+
+<figure class="case-figure">
+  <img src="/images/academy-redesign/qr-code-course.webp" alt="Academy lesson titled Turn your campaign URL into a QR code, with an On this page outline (Overview, Why use a QR code, Create your QR code, Place it on your mailer, Put it into practice), three numbered steps, a video for copying the campaign URL, and a coach's tip about building a separate QR code for each version of a mailer.">
+  <figcaption>A course for direct mailers: one task per step, with a coach's tip for tracking each version of an appeal.</figcaption>
+</figure>
 
 ### Inside one course
 
@@ -88,6 +93,11 @@ The Academy was organized by internal product area, so nonprofits had to know wh
 **Measure in the product.** Our Academy doesn't run quizzes. We judge courses by whether admins complete the task in the product afterward, because that's the outcome the business needs.
 
 Since launch, we've seen the course and URL builder visited by ~4,000 users and have seen more than 2,000 nonprofit organizations adopt tracking parameters on their links.
+
+<figure class="case-figure">
+  <img class="figure-natural" src="/images/academy-redesign/url-builder.webp" alt="Campaign URL builder titled Build a tracked link and QR code, with fields for the campaign link and source codes, expandable sections for pass-through and UTM parameters, a Create link button, a Copy link button, and a space where the QR code appears.">
+  <figcaption>The URL builder the course teaches: add tracking, then copy the link or download a QR code for print.</figcaption>
+</figure>
 
 ### Inside one video
 

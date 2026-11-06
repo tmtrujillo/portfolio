@@ -53,6 +53,7 @@ The drop-off came after publishing. To install the form, admins had to edit code
 ## What I did
 
 - **Found the stall point.** Usage data showed organizations publishing and then stopping before installation. The barrier was a knowledge gap, not a product bug.
+- **Rewrote the Install page and pushed for more.** As the content designer, I replaced raw code with copy buttons and plain-language steps, and pushed for more ways for admins to customize their form. When that was cut for time and budget, I proposed an education pilot instead.
 - **Taught code editing at scale.** I prioritized the three most common website builders — WordPress, Squarespace, and Wix — and made a video for each, an Academy walkthrough, and in-app walkthroughs using GIFs cut from those videos. One production effort fed three channels.
 - **Taught the hardest steps live.** Because installation was the most technical part of setup, I hosted webinars that walked admins through it and answered their questions as they went.
 - **Put help at the moment of need.** The in-app guides appeared right after publishing, when installation was the admin's next task. A launcher on the Install page let admins pick their website builder and start the matching walkthrough at any time.
@@ -83,6 +84,10 @@ Over a 90-day window:
 - Short, single-task guides performed best. The Wix guide reached few organizations with no clear benefit — a reminder to keep checking reach after launch.
 
 This compares organizations that chose to use guides with those that didn't, so motivated organizations may be overrepresented. It's a strong association, not proof of cause.
+
+## What's next
+
+We're now improving the install experience in the product itself, building on what the pilot showed about builder-specific help.
 
 ## What I learned
 
